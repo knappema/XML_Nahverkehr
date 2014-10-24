@@ -1,0 +1,6 @@
+<!ELEMENT vehicles (vehicle+)>
+<!ELEMENT vehicle EMPTY>
+<!ATTLIST type (bus | tram | subway | city_train) #REQUIRED
+licensePlate ID #REQUIRED
+capacity CDATA #REQUIRED
+buildYear CDATA #REQUIRED>
