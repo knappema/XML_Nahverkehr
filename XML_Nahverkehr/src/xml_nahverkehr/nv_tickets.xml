@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vehicles SYSTEM "nv_tickets.dtd">
+
+<tickets>
+	<ticket type="single">
+		<description>Valid only for one trip</description>
+		<fare>
+			<A price="2,50"/>
+			<T2 price="2,30"/>
+			<T3 price="3,20"/>
+			<T4 price="4,20"/>
+		</fare>
+	</ticket>
+	<ticket type="day">
+		<description>Valid for remaining day or remaining weekend</description>
+		<fare>
+			<A price="5,30"/>
+			<T2 price="4,60"/>
+			<T3 price="11,00"/>
+			<T4 price="11,00"/>
+		</fare>
+	</ticket>
+	<ticket type="month">
+		<description>Valid from first day of a month until the last day of the same month </description>
+		<fare>
+			<A price="49,40"/>
+			<T2 price="46,60"/>
+			<T3 price="62,10"/>
+			<T4 price="80,40"/>
+		</fare>
+	</ticket>
+</tickets>

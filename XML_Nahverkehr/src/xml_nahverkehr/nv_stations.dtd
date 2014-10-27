@@ -1,0 +1,17 @@
+<!ELEMENT stations (station*)>
+
+<!ELEMENT station (stationTypes, street, intersection?,  ticketMachines?)>
+<!ATTLIST station name CDATA #REQUIRED>
+
+<!ELEMENT stationTypes (type+)>
+
+<!ELEMENT type EMPTY>
+<!ATTLIST type name (bus | tram | subway | city_train) #REQUIRED>
+
+<!ELEMENT street EMPTY>
+<!ATTLIST street name CDATA #REQUIRED>
+
+<!ELEMENT ticketMachines (ticketMachine+)>
+
+<!ELEMENT ticketMachine EMPTY>
+<!ATTLIST ticketMachine id ID #REQUIRED>
