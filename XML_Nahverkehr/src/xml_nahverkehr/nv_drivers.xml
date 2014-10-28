@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vehicles SYSTEM "nv_drivers.dtd">
+
+<drivers>
+	<driver firstname="Tim" lastname="Test" phone="01605678945">
+		<vehicle>tram</vehicle>
+		<vehicle>subway</vehicle>
+		<homeadress>
+			<street>Rieterstraße</street>
+			<houseNo>100</houseNo>
+			<areacode>90530</areacode>
+			<town>Wendelstein</town>
+		</homeadress>
+	</driver>
+</drivers>

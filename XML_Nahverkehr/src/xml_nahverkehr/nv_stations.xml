@@ -2,14 +2,16 @@
 <!DOCTYPE vehicles SYSTEM "nv_stations.dtd">
 
 <stations>
-    <station name="test">
+    <station name="Hauptbahnhof">
         <stationTypes>
             <type name="bus"/>
             <type name="subway"/>
+			<type name="tram" />
+			<type name="city_train" />
         </stationTypes>
-        <street name="ka"/>
+        <street name="Bahnhofsplatz"/>
         <ticketMachines>
-            <ticketMachine id="asdfaidfjal" />
+            <ticketMachine id="TM1" />
         </ticketMachines>
     </station>
 
