@@ -4,29 +4,29 @@
 <tickets>
 	<ticket type="single">
 		<description>Valid only for one trip</description>
-		<fare>
-			<A price="2,50"/>
-			<T2 price="2,30"/>
-			<T3 price="3,20"/>
-			<T4 price="4,20"/>
-		</fare>
+		<fares>
+			<fare type="A" price="2,50" />
+			<fare type="T2" price="2,30" />
+			<fare type="T3" price="3,20" />
+			<fare type="T4" price="4,20" />
+		</fares>
 	</ticket>
 	<ticket type="day">
 		<description>Valid for remaining day or remaining weekend</description>
-		<fare>
-			<A price="5,30"/>
-			<T2 price="4,60"/>
-			<T3 price="11,00"/>
-			<T4 price="11,00"/>
-		</fare>
+		<fares>
+			<fare type="A" price="5,30" />
+			<fare type="T2" price="4,60" />
+			<fare type="T3" price="11,00" />
+			<fare type="T4" price="11,00" />
+		</fares>
 	</ticket>
 	<ticket type="month">
 		<description>Valid from first day of a month until the last day of the same month </description>
-		<fare>
-			<A price="49,40"/>
-			<T2 price="46,60"/>
-			<T3 price="62,10"/>
-			<T4 price="80,40"/>
-		</fare>
+		<fares>
+			<fare type="A" price="49,40" />
+			<fare type="T2" price="46,60" />
+			<fare type="T3" price="62,10" />
+			<fare type="T4" price="80,40" />
+		</fares>
 	</ticket>
 </tickets>

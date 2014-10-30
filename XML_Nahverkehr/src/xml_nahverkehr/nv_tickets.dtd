@@ -1,20 +1,12 @@
 <!ELEMENT tickets (ticket*)>
 
-<!ELEMENT ticket (description+, fare+)>
+<!ELEMENT ticket (description+, fares)>
 <!ATTLIST ticket type (single | day | month) #REQUIRED>
 
 <!ELEMENT description (#PCDATA)>
 
+<!ELEMENT fares (fare+)>
+
 <!ELEMENT fare (A?, T2?, T3?, T4?)>
-
-<!ELEMENT A EMPTY>
-<!ATTLIST A price CDATA #REQUIRED>
-
-<!ELEMENT T2 EMPTY>
-<!ATTLIST T2 price CDATA #REQUIRED>
-
-<!ELEMENT T3 EMPTY>
-<!ATTLIST T3 price CDATA #REQUIRED>
-
-<!ELEMENT T4 EMPTY>
-<!ATTLIST T4 price CDATA #REQUIRED>
+<!ATTLIST fare type CDATA #REQUIRED
+price CDATA #REQUIRED>
