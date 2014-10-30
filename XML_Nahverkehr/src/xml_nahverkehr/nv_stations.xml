@@ -12,7 +12,19 @@
         <street name="Bahnhofsplatz"/>
         <ticketMachines>
             <ticketMachine id="TM1" />
+			<ticketMachine id="TM2" />
         </ticketMachines>
     </station>
+	<station name="Frankenstrasse">
+		<stationTypes>
+			<type name="bus" />
+			<type name="subway"/>
+			<type name="tram" />
+		</stationTypes>
+		<street name="Frankenstrasse" />
+		<ticketMachines>
+			<ticketMachine id="TM12" />
+		</ticketMachines>
+	</station>
 
 </stations>

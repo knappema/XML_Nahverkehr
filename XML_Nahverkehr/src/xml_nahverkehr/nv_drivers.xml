@@ -12,4 +12,13 @@
 			<town>Wendelstein</town>
 		</homeadress>
 	</driver>
+	<driver firstname="Max" lastname="Mustermann" phone="0172555455">
+		<vehicle>Bus</vehicle>
+		<homeadress>
+			<street>Breitscheidstraße</street>
+			<houseNo>131</houseNo>
+			<areacode>90459</areacode>
+			<town>Nuernberg</town>
+		</homeadress>
+	</driver>
 </drivers>

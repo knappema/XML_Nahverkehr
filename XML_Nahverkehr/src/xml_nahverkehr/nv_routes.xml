@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vehicles SYSTEM "nv_routes.dtd">
+<routes>
+	<route id="SU1" name="U1" type="subway">
+		<station name="Fuerth Hardhoehe" />
+		<station name="Fuerth Klinikum" />
+		<station name="Fuerth Stadthalle" />
+		<station name="Fuerth Rathaus" />
+		<station name="Fuerth Hauptbahnhof" />
+		<station name="Fuerth Jakobinenstrasse" />
+		<station name="Nuernberg Stadtgrenze" />
+		<station name="Nuernberg Muggenhof" />
+		<station name="Nuernberg Eberhardshof" />
+		<station name="Nuernberg Maximilianstrasse" />
+		<station name="Nuernberg Baerenschanze" />
+		<station name="Nuernberg Gostenhof" />
+		<station name="Nuernberg Plaerrer" />
+		<station name="Nuernberg Weisser Turm" />
+		<station name="Nuernberg Lorenzkirche" />
+		<station name="Nuernberg Hauptbahnhof" />
+		<station name="Nuernberg Aufsessplatz" />
+		<station name="Nuernberg Maffeiplatz" />
+		<station name="Nuernberg Frankenstrasse" />
+		<station name="Nuernberg Hasenbuck" />
+		<station name="Nuernberg Bauernfeindstrasse" />
+		<station name="Nuernberg Messe" />
+		<station name="Nuernberg Langwasser Nord" />
+		<station name="Nuernberg Scharfreiterring" />
+		<station name="Nuernberg Langwasser Mitte" />
+		<station name="Nuernberg Gemeinschaftshaus" />
+		<station name="Nuernberg Langwasser Sued" />
+	</route>
+</routes>

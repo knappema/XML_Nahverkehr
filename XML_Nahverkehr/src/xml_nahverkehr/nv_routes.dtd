@@ -1,0 +1,9 @@
+<!ELEMENT routes (route*)>
+
+<!ELEMENT route (station+)>
+<!ATTLIST route id ID #REQUIRED
+name CDATA #REQUIRED
+type CDATA #REQUIRED>
+
+<!ELEMENT station EMPTY>
+<!ATTLIST station name CDATA #REQUIRED>
