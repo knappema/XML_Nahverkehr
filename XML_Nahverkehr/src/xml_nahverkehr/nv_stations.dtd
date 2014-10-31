@@ -1,7 +1,8 @@
 <!ELEMENT stations (station*)>
 
 <!ELEMENT station (stationTypes, street, intersection?,  ticketMachines?)>
-<!ATTLIST station name CDATA #REQUIRED>
+<!ATTLIST station 	name CDATA #REQUIRED 
+					id ID #REQUIRED>
 
 <!ELEMENT stationTypes (type+)>
 

@@ -3,8 +3,8 @@
 
 <drivers>
 	<driver firstname="Tim" lastname="Test" phone="01605678945">
-		<vehicle>tram</vehicle>
-		<vehicle>subway</vehicle>
+		<vehicle type="tram"/>
+		<vehicle type="subway"/>
 		<homeadress>
 			<street>Rieterstraße</street>
 			<houseNo>100</houseNo>
@@ -13,7 +13,7 @@
 		</homeadress>
 	</driver>
 	<driver firstname="Max" lastname="Mustermann" phone="0172555455">
-		<vehicle>Bus</vehicle>
+		<vehicle type="bus"/>
 		<homeadress>
 			<street>Breitscheidstraße</street>
 			<houseNo>131</houseNo>

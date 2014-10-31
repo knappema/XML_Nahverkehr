@@ -2,7 +2,7 @@
 <!DOCTYPE vehicles SYSTEM "nv_stations.dtd">
 
 <stations>
-    <station name="Hauptbahnhof">
+    <station id="N1" name="Hauptbahnhof">
         <stationTypes>
             <type name="bus"/>
             <type name="subway"/>
@@ -15,7 +15,7 @@
 			<ticketMachine id="TM2" />
         </ticketMachines>
     </station>
-	<station name="Frankenstrasse">
+	<station id="N2" name="Frankenstrasse">
 		<stationTypes>
 			<type name="bus" />
 			<type name="subway"/>
