@@ -2,6 +2,31 @@
 <!DOCTYPE vehicles SYSTEM "nv_routes.dtd">
 <routes>
 	<route id="SU1" name="U1" type="subway">
+		<station id="F1" />
+		<station id="F2" />
+		<station id="F3" />
+		<station id="F4" />
+		<station id="F5" />
 		<station id="N1" />
+		<station id="N2" />
+		<station id="N3" />
+		<station id="N4" />
+		<station id="N5" />
+		<station id="N6" />
+		<station id="N7" />
+		<station id="N8" />
+		<station id="N9" />
+		<station id="N10" />
+		<station id="N11" />
+		<station id="N12" />
+		<station id="N13" />
+		<station id="N14" />
+		<station id="N15" />
+		<station id="N16" />
+		<station id="N17" />
+		<station id="N18" />
+		<station id="N19" />
+		<station id="N20" />
+		<station id="N21" />
 	</route>
 </routes>

@@ -2,7 +2,7 @@
 <!DOCTYPE vehicles SYSTEM "nv_drivers.dtd">
 
 <drivers>
-	<driver firstname="Tim" lastname="Test" phone="01605678945">
+	<driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
 		<vehicle type="tram"/>
 		<vehicle type="subway"/>
 		<homeadress>
@@ -12,7 +12,7 @@
 			<town>Wendelstein</town>
 		</homeadress>
 	</driver>
-	<driver firstname="Max" lastname="Mustermann" phone="0172555455">
+	<driver id="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
 		<vehicle type="bus"/>
 		<homeadress>
 			<street>Breitscheidstraße</street>
