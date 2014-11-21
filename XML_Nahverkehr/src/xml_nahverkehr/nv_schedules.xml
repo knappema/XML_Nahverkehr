@@ -1,0 +1,13 @@
+<schedules>
+
+	<schedule id="S1" stationId="F1" routeId="RU1">
+		<departureTimes finalStationId="N50">
+			<time></time>
+		</departureTimes>
+		<departureTimes finalStationId="F1">
+			<time></time>
+		</departureTimes>
+
+	</schedule>
+	
+</schedules>

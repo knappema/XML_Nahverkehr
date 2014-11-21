@@ -1,7 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vehicles SYSTEM "nv_drivers.dtd">
-
-<drivers>
+﻿<drivers>
 	<driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
 		<vehicle type="tram"/>
 		<vehicle type="subway"/>

@@ -1,0 +1,331 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE master [
+	<!ENTITY % dtdStations SYSTEM "nv_stations.dtd">
+	<!ENTITY % dtdRoutes SYSTEM "nv_routes.dtd">
+	<!ENTITY % dtdSchedule SYSTEM "nv_schedules.dtd">
+	
+	
+	%dtdStations;
+	%dtdRoutes;
+	%dtdSchedule;
+
+
+	
+	<!ELEMENT master (stations,routes,schedules)>
+]>
+
+<master>
+<stations>
+	<station stationId="F1" name="Fuerth Hardhoehe">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Komotauer Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMF1" />
+        </ticketMachines>
+    </station>
+	<station stationId="F2" name="Fuerth Klinikum">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+			<type name="city_train"/>
+        </stationTypes>
+        <street name="Wuerzburger Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMF2" />
+        </ticketMachines>
+    </station>
+	<station stationId="F3" name="Fuerth Stadthalle">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Wuerzburger Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMF3" />
+        </ticketMachines>
+    </station>
+	<station stationId="F4" name="Fuerth Rathaus">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Mohrenstrasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMF4" />
+        </ticketMachines>
+    </station>
+	<station stationId="F5" name="Fuerth Hauptbahnhof">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Bahnhofplatz"/>
+        <ticketMachines>
+            <ticketMachine id="TMF5" />
+        </ticketMachines>
+    </station>
+	<station stationId="F6" name="Fuerth Jakobinenstrasse">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Jakobinenstrasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMF6" />
+        </ticketMachines>
+    </station>
+	<station stationId="N1" name="Nuernberg Stadtgrenze">
+        <stationTypes>
+		    <type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Nuernberger Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN1" />
+        </ticketMachines>
+    </station>
+	<station stationId="N2" name="Nuernberg Muggenhof">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Fuerther Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN2" />
+        </ticketMachines>
+    </station>
+	<station stationId="N3" name="Nuernberg Eberhardshof">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Fuerther Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN3" />
+        </ticketMachines>
+    </station>	
+	<station stationId="N4" name="Nuernberg Maximilianstrasse">
+        <stationTypes>
+			<type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Maximilianstrasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN4" />
+        </ticketMachines>
+    </station>		
+	<station stationId="N5" name="Nuernberg Baerenschanze">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Fuerther Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN5" />
+        </ticketMachines>
+    </station>		
+	<station stationId="N6" name="Nuernberg Gostenhof">
+        <stationTypes>
+			<type name="bus"/>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Fuerther Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN6" />
+        </ticketMachines>
+    </station>		
+	<station stationId="N7" name="Nuernberg Plaerrer">
+        <stationTypes>
+			<type name="bus"/>
+            <type name="subway"/>
+			<type name="tram"/>
+        </stationTypes>
+        <street name="Am Plaerrer"/>
+        <ticketMachines>
+            <ticketMachine id="TMN7" />
+        </ticketMachines>
+    </station>			
+	<station stationId="N8" name="Nuernberg Weisser Turm">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Ludwigsplatz"/>
+        <ticketMachines>
+            <ticketMachine id="TMN8" />
+        </ticketMachines>
+    </station>		
+	<station stationId="N9" name="Nuernberg Lorenzkirche">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Lorenzer Platz"/>
+        <ticketMachines>
+            <ticketMachine id="TMN9" />
+        </ticketMachines>
+    </station>		
+	<station stationId="N10" name="Nuernberg Hauptbahnhof">
+        <stationTypes>
+            <type name="bus"/>
+            <type name="subway"/>
+			<type name="tram" />
+			<type name="city_train" />
+        </stationTypes>
+        <street name="Bahnhofsplatz"/>
+        <ticketMachines>
+            <ticketMachine id="TMN10" />
+			<ticketMachine id="TMN11" />
+        </ticketMachines>
+    </station>
+	<station stationId="N11" name="Nuernberg Aufsessplatz">
+        <stationTypes>
+            <type name="subway"/>
+			<type name="tram"/>
+        </stationTypes>
+        <street name="Woelckernstrasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN12" />
+        </ticketMachines>
+    </station>	
+	<station stationId="N12" name="Nuernberg Maffeiplatz">
+        <stationTypes>
+            <type name="subway"/>
+        </stationTypes>
+        <street name="Pillenreuther Strasse"/>
+        <ticketMachines>
+            <ticketMachine id="TMN13" />
+        </ticketMachines>
+    </station>	
+	<station stationId="N13" name="Nuernberg Frankenstrasse">
+		<stationTypes>
+			<type name="bus" />
+			<type name="subway"/>
+			<type name="tram" />
+		</stationTypes>
+		<street name="Frankenstrasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN14" />
+		</ticketMachines>
+	</station>
+	<station stationId="N14" name="Nuernberg Hasenbuck">
+		<stationTypes>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Nerzstrasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN15" />
+		</ticketMachines>
+	</station>
+	<station stationId="N15" name="Nuernberg Bauernfeindstrasse">
+		<stationTypes>
+			<type name="bus" />
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Bauernfeindstrasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN16" />
+		</ticketMachines>
+	</station>
+	<station stationId="N16" name="Nuernberg Messe">
+		<stationTypes>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Otto-Baernreuther Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN17" />
+		</ticketMachines>
+	</station>	
+	<station stationId="N17" name="Nuernberg Langwasser Nord">
+		<stationTypes>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Otto-Baernreuther Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN18" />
+		</ticketMachines>
+	</station>	
+	<station stationId="N18" name="Nuernberg Scharfreiterring">
+		<stationTypes>
+			<type name="bus"/>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Otto-Baernreuther Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN19" />
+		</ticketMachines>
+	</station>	
+	<station stationId="N19" name="Nuernberg Langwasser Mitte">
+		<stationTypes>
+			<type name="bus"/>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Breslauer Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN20" />
+		</ticketMachines>
+	</station>	
+	<station stationId="N20" name="Nuernberg Gemeinschaftshaus">
+		<stationTypes>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Striegauer Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN21" />
+		</ticketMachines>
+	</station>	
+	<station stationId="N21" name="Nuernberg Langwasser Sued">
+		<stationTypes>
+			<type name="bus"/>
+			<type name="subway"/>
+		</stationTypes>
+		<street name="Julius-Leber Strasse" />
+		<ticketMachines>
+			<ticketMachine id="TMN22" />
+		</ticketMachines>
+	</station>	
+</stations>
+
+<routes>
+	<route id="RU1" name="U1" type="subway">
+		<station stationId="F1" />
+		<station stationId="F2" />
+		<station stationId="F3" />
+		<station stationId="F4" />
+		<station stationId="F5" />
+		<station stationId="N1" />
+		<station stationId="N2" />
+		<station stationId="N3" />
+		<station stationId="N4" />
+		<station stationId="N5" />
+		<station stationId="N6" />
+		<station stationId="N7" />
+		<station stationId="N8" />
+		<station stationId="N9" />
+		<station stationId="N10" />
+		<station stationId="N11" />
+		<station stationId="N12" />
+		<station stationId="N13" />
+		<station stationId="N14" />
+		<station stationId="N15" />
+		<station stationId="N16" />
+		<station stationId="N17" />
+		<station stationId="N18" />
+		<station stationId="N19" />
+		<station stationId="N20" />
+		<station stationId="N21" />
+	</route>
+</routes>
+
+<schedules>
+
+	<schedule id="S1" stationId="F1" routeId="RU1">
+		<departureTimes finalStationId="N50">
+			<time></time>
+		</departureTimes>
+		<departureTimes finalStationId="F1">
+			<time></time>
+		</departureTimes>
+
+	</schedule>
+	
+</schedules>
+</master>

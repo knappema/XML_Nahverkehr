@@ -1,0 +1,10 @@
+<!ELEMENT schedules (schedule+)>
+
+<!ELEMENT schedule (departureTimes+)>
+<!ATTLIST schedule id ID #REQUIRED
+stationId IDREF #REQUIRED
+routeId IDREF #REQUIRED>
+
+<!ELEMENT departureTimes (time+)>
+<!ATTLIST departureTimes finalStationId IDREF #REQUIRED>
+<!ELEMENT time (#PCDATA)>

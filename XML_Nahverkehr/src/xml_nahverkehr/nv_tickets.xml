@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vehicles SYSTEM "nv_tickets.dtd">
-
 <tickets>
 	<ticket type="single">
 		<description>Valid only for one trip</description>

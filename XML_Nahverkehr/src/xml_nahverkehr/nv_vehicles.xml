@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vehicles SYSTEM "nv_vehicles.dtd">
-
 <vehicles>
 	<vehicle type="bus"
 			licensePlate="N-BU-100"

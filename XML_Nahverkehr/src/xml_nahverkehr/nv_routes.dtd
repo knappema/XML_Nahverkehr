@@ -6,4 +6,4 @@ name CDATA #REQUIRED
 type CDATA #REQUIRED>
 
 <!ELEMENT station EMPTY>
-<!ATTLIST station id ID #REQUIRED>
+<!ATTLIST station stationId IDREF #REQUIRED>

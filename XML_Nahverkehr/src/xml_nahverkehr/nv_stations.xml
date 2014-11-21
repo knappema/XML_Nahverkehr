@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vehicles SYSTEM "nv_stations.dtd">
-
 <stations>
 	<station id="F1" name="Fuerth Hardhoehe">
         <stationTypes>

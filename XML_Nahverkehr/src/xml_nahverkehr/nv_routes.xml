@@ -1,32 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vehicles SYSTEM "nv_routes.dtd">
 <routes>
-	<route id="SU1" name="U1" type="subway">
-		<station id="F1" />
-		<station id="F2" />
-		<station id="F3" />
-		<station id="F4" />
-		<station id="F5" />
-		<station id="N1" />
-		<station id="N2" />
-		<station id="N3" />
-		<station id="N4" />
-		<station id="N5" />
-		<station id="N6" />
-		<station id="N7" />
-		<station id="N8" />
-		<station id="N9" />
-		<station id="N10" />
-		<station id="N11" />
-		<station id="N12" />
-		<station id="N13" />
-		<station id="N14" />
-		<station id="N15" />
-		<station id="N16" />
-		<station id="N17" />
-		<station id="N18" />
-		<station id="N19" />
-		<station id="N20" />
-		<station id="N21" />
+	<route id="RU1" name="U1" type="subway">
+		<station stationId="F1" />
+		<station stationId="F2" />
+		<station stationId="F3" />
+		<station stationId="F4" />
+		<station stationId="F5" />
+		<station stationId="N1" />
+		<station stationId="N2" />
+		<station stationId="N3" />
+		<station stationId="N4" />
+		<station stationId="N5" />
+		<station stationId="N6" />
+		<station stationId="N7" />
+		<station stationId="N8" />
+		<station stationId="N9" />
+		<station stationId="N10" />
+		<station stationId="N11" />
+		<station stationId="N12" />
+		<station stationId="N13" />
+		<station stationId="N14" />
+		<station stationId="N15" />
+		<station stationId="N16" />
+		<station stationId="N17" />
+		<station stationId="N18" />
+		<station stationId="N19" />
+		<station stationId="N20" />
+		<station stationId="N21" />
 	</route>
 </routes>
