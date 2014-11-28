@@ -25,6 +25,6 @@
 		<rt:station stationId="N18" />
 		<rt:station stationId="N19" />
 		<rt:station stationId="N20" />
-		<rt:station stationId="N21" />
+		<rt:station stationId="N50" />
 	</rt:route>
 </rt:routes>

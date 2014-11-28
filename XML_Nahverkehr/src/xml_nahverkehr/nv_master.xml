@@ -13,8 +13,8 @@
 	%dtdDrivers;
 	%dtdVehicles;
 	%dtdTickets;
-
-	<!ELEMENT master (st:stations,rt:routes,sc:schedules, dr:drivers, vh:vehicles, ti:tickets)>
+	
+	<!ELEMENT master (st:stations,dr:drivers,vh:vehicles, rt:routes,sc:schedules, ti:tickets)>
 ]>
 
 <master>
@@ -286,51 +286,6 @@
 		</st:ticketMachines>
 	</st:station>	
 </st:stations>
-
-<rt:routes xmlns:rt="nv_routes.dtd">
-	<rt:route id="RU1" name="U1" type="subway">
-		<rt:station stationId="F1" />
-		<rt:station stationId="F2" />
-		<rt:station stationId="F3" />
-		<rt:station stationId="F4" />
-		<rt:station stationId="F5" />
-		<rt:station stationId="N1" />
-		<rt:station stationId="N2" />
-		<rt:station stationId="N3" />
-		<rt:station stationId="N4" />
-		<rt:station stationId="N5" />
-		<rt:station stationId="N6" />
-		<rt:station stationId="N7" />
-		<rt:station stationId="N8" />
-		<rt:station stationId="N9" />
-		<rt:station stationId="N10" />
-		<rt:station stationId="N11" />
-		<rt:station stationId="N12" />
-		<rt:station stationId="N13" />
-		<rt:station stationId="N14" />
-		<rt:station stationId="N15" />
-		<rt:station stationId="N16" />
-		<rt:station stationId="N17" />
-		<rt:station stationId="N18" />
-		<rt:station stationId="N19" />
-		<rt:station stationId="N20" />
-		<rt:station stationId="N21" />
-	</rt:route>
-</rt:routes>
-
-<sc:schedules xmlns:sc="nv_schedules.dtd">
-
-	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
-		<sc:departureTimes finalStationId="N21">
-			<sc:time></sc:time>
-		</sc:departureTimes>
-		<sc:departureTimes finalStationId="F1">
-			<sc:time></sc:time>
-		</sc:departureTimes>
-
-	</sc:schedule>
-	
-</sc:schedules>
 <dr:drivers xmlns:dr="nv_drivers.dtd">
 	<dr:driver driverId="D1" firstname="Tim" lastname="Test" phone="01605678945">
 		<dr:vehicle type="tram"/>
@@ -398,6 +353,48 @@
 			capacity="400"
 			buildYear="2004"/>
 </vh:vehicles>
+<rt:routes xmlns:rt="nv_routes.dtd">
+	<rt:route id="RU1" name="U1" type="subway">
+		<rt:station stationId="F1" />
+		<rt:station stationId="F2" />
+		<rt:station stationId="F3" />
+		<rt:station stationId="F4" />
+		<rt:station stationId="F5" />
+		<rt:station stationId="N1" />
+		<rt:station stationId="N2" />
+		<rt:station stationId="N3" />
+		<rt:station stationId="N4" />
+		<rt:station stationId="N5" />
+		<rt:station stationId="N6" />
+		<rt:station stationId="N7" />
+		<rt:station stationId="N8" />
+		<rt:station stationId="N9" />
+		<rt:station stationId="N10" />
+		<rt:station stationId="N11" />
+		<rt:station stationId="N12" />
+		<rt:station stationId="N13" />
+		<rt:station stationId="N14" />
+		<rt:station stationId="N15" />
+		<rt:station stationId="N16" />
+		<rt:station stationId="N17" />
+		<rt:station stationId="N18" />
+		<rt:station stationId="N19" />
+		<rt:station stationId="N20" />
+		<rt:station stationId="N21" />
+	</rt:route>
+</rt:routes>
+<sc:schedules xmlns:sc="nv_schedules.dtd">
+	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
+		<sc:departureTimes finalStationId="N21">
+			<sc:time></sc:time>
+		</sc:departureTimes>
+		<sc:departureTimes finalStationId="F1">
+			<sc:time></sc:time>
+		</sc:departureTimes>
+
+	</sc:schedule>
+	
+</sc:schedules>
 <ti:tickets xmlns:ti="nv_tickets.dtd">
 	<ti:ticket type="single">
 		<ti:description>Valid only for one trip</ti:description>
@@ -427,4 +424,5 @@
 		</ti:fares>
 	</ti:ticket>
 </ti:tickets>
+
 </master>

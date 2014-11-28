@@ -9,6 +9,7 @@
 		</ti:fares>
 	</ti:ticket>
 	<ti:ticket type="day">
+		<test></test>
 		<ti:description>Valid for remaining day or remaining weekend</ti:description>
 		<ti:fares>
 			<ti:fare type="A" price="5,30" />
