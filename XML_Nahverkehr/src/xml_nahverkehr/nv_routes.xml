@@ -1,4 +1,4 @@
-<rt:routes>
+<rt:routes xmlns:rt="nv_routes.dtd">
 	<rt:route id="RU1" name="U1" type="subway">
 		<rt:station stationId="F1" />
 		<rt:station stationId="F2" />

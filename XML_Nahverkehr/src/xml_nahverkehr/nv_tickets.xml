@@ -1,4 +1,4 @@
-<ti:tickets>
+<ti:tickets xmlns:ti="nv_tickets.dtd">
 	<ti:ticket type="single">
 		<ti:description>Valid only for one trip</ti:description>
 		<ti:fares>

@@ -1,4 +1,6 @@
 <!ELEMENT st:stations (st:station*)>
+<!ATTLIST st:stations xmlns:st CDATA #FIXED "nv_stations.dtd">
+
 
 <!ELEMENT st:station (st:stationTypes, st:street, st:intersection?,  st:ticketMachines?)>
 <!ATTLIST st:station stationId ID #REQUIRED
@@ -12,7 +14,7 @@ name CDATA #REQUIRED>
 <!ELEMENT st:street EMPTY>
 <!ATTLIST st:street name CDATA #REQUIRED>
 
-<!ELEMENT st:ticketMachines (st:ticketMachine+)>
+<!ELEMENT st:ticketMachines (st:ticketMachine*)>
 
 <!ELEMENT st:ticketMachine EMPTY>
 <!ATTLIST st:ticketMachine id ID #REQUIRED>

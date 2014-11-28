@@ -1,4 +1,4 @@
-<vh:vehicles>
+<vh:vehicles xmlns:vh="nv_vehicles.dtd">
 	<vh:vehicle type="bus"
 			licensePlate="N-BU-100"
 			capacity="50"

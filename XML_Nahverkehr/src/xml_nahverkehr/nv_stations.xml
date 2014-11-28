@@ -1,4 +1,4 @@
-<st:stations>
+<st:stations xmlns:st="nv_stations.dtd">
 	<st:station stationId="F1" name="Fuerth Hardhoehe">
         <st:stationTypes>
 		    <st:type name="bus"/>

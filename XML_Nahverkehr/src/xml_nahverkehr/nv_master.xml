@@ -3,23 +3,25 @@
 	<!ENTITY % dtdStations SYSTEM "nv_stations.dtd">
 	<!ENTITY % dtdRoutes SYSTEM "nv_routes.dtd">
 	<!ENTITY % dtdSchedule SYSTEM "nv_schedules.dtd">
-	
+	<!ENTITY % dtdDrivers SYSTEM "nv_drivers.dtd">
+	<!ENTITY % dtdVehicles SYSTEM "nv_vehicles.dtd">
+	<!ENTITY % dtdTickets SYSTEM "nv_tickets.dtd">
 	
 	%dtdStations;
 	%dtdRoutes;
 	%dtdSchedule;
+	%dtdDrivers;
+	%dtdVehicles;
+	%dtdTickets;
 	
 	
 
 	
-	<!ELEMENT master (st:stations,rt:routes,sc:schedules)>
-	<!ATTLIST master xmlns:st CDATA #FIXED "habla"
-	xmlns:rt CDATA #FIXED "habla2"
-	xmlns:sc CDATA #FIXED "habla3">
+	<!ELEMENT master (st:stations,rt:routes,sc:schedules, dr:drivers, vh:vehicles, ti:tickets)>
 ]>
 
-<master xmlns:st="habla" xmlns:rt="habla2" xmlns:sc="habla3">
-<st:stations>
+<master>
+<st:stations xmlns:st="nv_stations.dtd">
 	<st:station stationId="F1" name="Fuerth Hardhoehe">
         <st:stationTypes>
 		    <st:type name="bus"/>
@@ -288,7 +290,7 @@
 	</st:station>	
 </st:stations>
 
-<rt:routes>
+<rt:routes xmlns:rt="nv_routes.dtd">
 	<rt:route id="RU1" name="U1" type="subway">
 		<rt:station stationId="F1" />
 		<rt:station stationId="F2" />
@@ -319,7 +321,7 @@
 	</rt:route>
 </rt:routes>
 
-<sc:schedules>
+<sc:schedules xmlns:sc="nv_schedules.dtd">
 
 	<sc:schedule id="S1" stationId="F1" routeId="RU1">
 		<sc:departureTimes finalStationId="N21">
@@ -332,5 +334,100 @@
 	</sc:schedule>
 	
 </sc:schedules>
-
+<dr:drivers xmlns:dr="nv_drivers.dtd">
+	<dr:driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
+		<dr:vehicle type="tram"/>
+		<dr:vehicle type="subway"/>
+		<dr:homeadress>
+			<dr:street>Rieterstraße</dr:street>
+			<dr:houseNo>100</dr:houseNo>
+			<dr:areacode>90530</dr:areacode>
+			<dr:town>Wendelstein</dr:town>
+		</dr:homeadress>
+	</dr:driver>
+	<dr:driver id="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
+		<dr:vehicle type="bus"/>
+		<dr:homeadress>
+			<dr:street>Breitscheidstraße</dr:street>
+			<dr:houseNo>131</dr:houseNo>
+			<dr:areacode>90459</dr:areacode>
+			<dr:town>Nuernberg</dr:town>
+		</dr:homeadress>
+	</dr:driver>
+</dr:drivers>
+<vh:vehicles xmlns:vh="nv_vehicles.dtd">
+	<vh:vehicle type="bus"
+			licensePlate="N-BU-100"
+			capacity="50"
+			buildYear="1999"/>
+	<vh:vehicle type="bus"
+			licensePlate="N-BU-101"
+			capacity="80"
+			buildYear="2005"/>
+	<vh:vehicle type="bus"
+			licensePlate="N-BU-102"
+			capacity="50"
+			buildYear="1998"/>
+	<vh:vehicle type="bus"
+			licensePlate="N-BU-103"
+			capacity="50"
+			buildYear="2009"/>
+	<vh:vehicle type="tram"
+			licensePlate="N-TR-100"
+			capacity="105"
+			buildYear="1999"/>
+	<vh:vehicle type="tram"
+			licensePlate="N-TR-101"
+			capacity="140"
+			buildYear="1999"/>
+	<vh:vehicle type="tram"
+			licensePlate="N-TR-102"
+			capacity="140"
+			buildYear="2010"/>
+	<vh:vehicle type="subway"
+			licensePlate="N-SU-100"
+			capacity="310"
+			buildYear="2000"/>
+	<vh:vehicle type="subway"
+			licensePlate="N-SU-101"
+			capacity="310"
+			buildYear="2000"/>
+	<vh:vehicle type="city_train"
+			licensePlate="N-CI-100"
+			capacity="400"
+			buildYear="2004"/>
+	<vh:vehicle type="city_train"
+			licensePlate="N-CI-101"
+			capacity="400"
+			buildYear="2004"/>
+</vh:vehicles>
+<ti:tickets xmlns:ti="nv_tickets.dtd">
+	<ti:ticket type="single">
+		<ti:description>Valid only for one trip</ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="2,50" />
+			<ti:fare type="T2" price="2,30" />
+			<ti:fare type="T3" price="3,20" />
+			<ti:fare type="T4" price="4,20" />
+		</ti:fares>
+	</ti:ticket>
+	<ti:ticket type="day">
+		<ti:description>Valid for remaining day or remaining weekend</ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="5,30" />
+			<ti:fare type="T2" price="4,60" />
+			<ti:fare type="T3" price="11,00" />
+			<ti:fare type="T4" price="11,00" />
+		</ti:fares>
+	</ti:ticket>
+	<ti:ticket type="month">
+		<ti:description>Valid from first day of a month until the last day of the same month </ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="49,40" />
+			<ti:fare type="T2" price="46,60" />
+			<ti:fare type="T3" price="62,10" />
+			<ti:fare type="T4" price="80,40" />
+		</ti:fares>
+	</ti:ticket>
+</ti:tickets>
 </master>

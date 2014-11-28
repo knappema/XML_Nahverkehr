@@ -1,5 +1,5 @@
 <!ELEMENT dr:drivers (dr:driver*)>
-
+<!ATTLIST dr:drivers xmlns:dr CDATA #FIXED "nv_drivers.dtd">
 <!ELEMENT dr:driver (dr:vehicle+, dr:homeadress)>
 <!ATTLIST dr:driver firstname CDATA #REQUIRED
 lastname CDATA #REQUIRED

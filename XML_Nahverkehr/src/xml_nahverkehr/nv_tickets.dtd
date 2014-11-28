@@ -1,5 +1,5 @@
 <!ELEMENT ti:tickets (ti:ticket*)>
-
+<!ATTLIST ti:tickets xmlns:ti CDATA #FIXED "nv_tickets.dtd">
 <!ELEMENT ti:ticket (ti:description+, ti:fares)>
 <!ATTLIST ti:ticket type (single | day | month) #REQUIRED>
 
