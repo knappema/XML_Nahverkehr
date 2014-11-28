@@ -1,9 +1,9 @@
-<!ELEMENT routes (route*)>
+<!ELEMENT rt:routes (rt:route*)>
 
-<!ELEMENT route (station+)>
-<!ATTLIST route id ID #REQUIRED
+<!ELEMENT rt:route (rt:station+)>
+<!ATTLIST rt:route id ID #REQUIRED
 name CDATA #REQUIRED
 type CDATA #REQUIRED>
 
-<!ELEMENT station EMPTY>
-<!ATTLIST station stationId IDREF #REQUIRED>
+<!ELEMENT rt:station EMPTY>
+<!ATTLIST rt:station stationId IDREF #REQUIRED>

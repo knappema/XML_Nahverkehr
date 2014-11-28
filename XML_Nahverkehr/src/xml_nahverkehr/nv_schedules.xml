@@ -1,13 +1,13 @@
-<schedules>
+<sc:schedules>
 
-	<schedule id="S1" stationId="F1" routeId="RU1">
-		<departureTimes finalStationId="N50">
-			<time></time>
-		</departureTimes>
-		<departureTimes finalStationId="F1">
-			<time></time>
-		</departureTimes>
+	<sc:schedule id="S1" stationId="F1" routeId="RU1">
+		<sc:departureTimes finalStationId="N50">
+			<sc:time></sc:time>
+		</sc:departureTimes>
+		<sc:departureTimes finalStationId="F1">
+			<sc:time></sc:time>
+		</sc:departureTimes>
 
-	</schedule>
+	</sc:schedule>
 	
-</schedules>
+</sc:schedules>

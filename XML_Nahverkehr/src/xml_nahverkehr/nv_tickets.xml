@@ -1,29 +1,29 @@
-<tickets>
-	<ticket type="single">
-		<description>Valid only for one trip</description>
-		<fares>
-			<fare type="A" price="2,50" />
-			<fare type="T2" price="2,30" />
-			<fare type="T3" price="3,20" />
-			<fare type="T4" price="4,20" />
-		</fares>
-	</ticket>
-	<ticket type="day">
-		<description>Valid for remaining day or remaining weekend</description>
-		<fares>
-			<fare type="A" price="5,30" />
-			<fare type="T2" price="4,60" />
-			<fare type="T3" price="11,00" />
-			<fare type="T4" price="11,00" />
-		</fares>
-	</ticket>
-	<ticket type="month">
-		<description>Valid from first day of a month until the last day of the same month </description>
-		<fares>
-			<fare type="A" price="49,40" />
-			<fare type="T2" price="46,60" />
-			<fare type="T3" price="62,10" />
-			<fare type="T4" price="80,40" />
-		</fares>
-	</ticket>
-</tickets>
+<ti:tickets>
+	<ti:ticket type="single">
+		<ti:description>Valid only for one trip</ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="2,50" />
+			<ti:fare type="T2" price="2,30" />
+			<ti:fare type="T3" price="3,20" />
+			<ti:fare type="T4" price="4,20" />
+		</ti:fares>
+	</ti:ticket>
+	<ti:ticket type="day">
+		<ti:description>Valid for remaining day or remaining weekend</ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="5,30" />
+			<ti:fare type="T2" price="4,60" />
+			<ti:fare type="T3" price="11,00" />
+			<ti:fare type="T4" price="11,00" />
+		</ti:fares>
+	</ti:ticket>
+	<ti:ticket type="month">
+		<ti:description>Valid from first day of a month until the last day of the same month </ti:description>
+		<ti:fares>
+			<ti:fare type="A" price="49,40" />
+			<ti:fare type="T2" price="46,60" />
+			<ti:fare type="T3" price="62,10" />
+			<ti:fare type="T4" price="80,40" />
+		</ti:fares>
+	</ti:ticket>
+</ti:tickets>

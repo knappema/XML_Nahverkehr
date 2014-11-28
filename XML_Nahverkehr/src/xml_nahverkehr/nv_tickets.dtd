@@ -1,12 +1,12 @@
-<!ELEMENT tickets (ticket*)>
+<!ELEMENT ti:tickets (ti:ticket*)>
 
-<!ELEMENT ticket (description+, fares)>
-<!ATTLIST ticket type (single | day | month) #REQUIRED>
+<!ELEMENT ti:ticket (ti:description+, ti:fares)>
+<!ATTLIST ti:ticket type (single | day | month) #REQUIRED>
 
-<!ELEMENT description (#PCDATA)>
+<!ELEMENT ti:description (#PCDATA)>
 
-<!ELEMENT fares (fare+)>
+<!ELEMENT ti:fares (ti:fare+)>
 
-<!ELEMENT fare (A?, T2?, T3?, T4?)>
-<!ATTLIST fare type CDATA #REQUIRED
+<!ELEMENT ti:fare EMPTY>
+<!ATTLIST ti:fare type CDATA #REQUIRED
 price CDATA #REQUIRED>

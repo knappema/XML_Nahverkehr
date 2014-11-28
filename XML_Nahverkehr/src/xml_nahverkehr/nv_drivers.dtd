@@ -1,20 +1,20 @@
-<!ELEMENT drivers (driver*)>
+<!ELEMENT dr:drivers (dr:driver*)>
 
-<!ELEMENT driver (vehicle+, homeadress)>
-<!ATTLIST driver firstname CDATA #REQUIRED
+<!ELEMENT dr:driver (dr:vehicle+, dr:homeadress)>
+<!ATTLIST dr:driver firstname CDATA #REQUIRED
 lastname CDATA #REQUIRED
 phone CDATA #REQUIRED
 id ID #REQUIRED>
 
-<!ELEMENT vehicle EMPTY>
-<!ATTLIST vehicle type CDATA #REQUIRED>
+<!ELEMENT dr:vehicle EMPTY>
+<!ATTLIST dr:vehicle type CDATA #REQUIRED>
 
-<!ELEMENT homeadress (street, houseNo, areacode, town)>
+<!ELEMENT dr:homeadress (dr:street, dr:houseNo, dr:areacode, dr:town)>
 
-<!ELEMENT street (#PCDATA)>
+<!ELEMENT dr:street (#PCDATA)>
 
-<!ELEMENT houseNo (#PCDATA)>
+<!ELEMENT dr:houseNo (#PCDATA)>
 
-<!ELEMENT areacode (#PCDATA)>
+<!ELEMENT dr:areacode (#PCDATA)>
 
-<!ELEMENT town (#PCDATA)>
+<!ELEMENT dr:town (#PCDATA)>

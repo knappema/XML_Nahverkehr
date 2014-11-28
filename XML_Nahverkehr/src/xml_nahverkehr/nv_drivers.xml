@@ -1,21 +1,21 @@
-﻿<drivers>
-	<driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
-		<vehicle type="tram"/>
-		<vehicle type="subway"/>
-		<homeadress>
-			<street>Rieterstraße</street>
-			<houseNo>100</houseNo>
-			<areacode>90530</areacode>
-			<town>Wendelstein</town>
-		</homeadress>
-	</driver>
-	<driver id="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
-		<vehicle type="bus"/>
-		<homeadress>
-			<street>Breitscheidstraße</street>
-			<houseNo>131</houseNo>
-			<areacode>90459</areacode>
-			<town>Nuernberg</town>
-		</homeadress>
-	</driver>
-</drivers>
+﻿<dr:drivers>
+	<dr:driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
+		<dr:vehicle type="tram"/>
+		<dr:vehicle type="subway"/>
+		<dr:homeadress>
+			<dr:street>Rieterstraße</dr:street>
+			<dr:houseNo>100</dr:houseNo>
+			<dr:areacode>90530</dr:areacode>
+			<dr:town>Wendelstein</dr:town>
+		</dr:homeadress>
+	</dr:driver>
+	<dr:driver id="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
+		<dr:vehicle type="bus"/>
+		<dr:homeadress>
+			<dr:street>Breitscheidstraße</dr:street>
+			<dr:houseNo>131</dr:houseNo>
+			<dr:areacode>90459</dr:areacode>
+			<dr:town>Nuernberg</dr:town>
+		</dr:homeadress>
+	</dr:driver>
+</dr:drivers>

@@ -1,18 +1,18 @@
-<!ELEMENT stations (station*)>
+<!ELEMENT st:stations (st:station*)>
 
-<!ELEMENT station (stationTypes, street, intersection?,  ticketMachines?)>
-<!ATTLIST station stationId ID #REQUIRED
+<!ELEMENT st:station (st:stationTypes, st:street, st:intersection?,  st:ticketMachines?)>
+<!ATTLIST st:station stationId ID #REQUIRED
 name CDATA #REQUIRED>
 
-<!ELEMENT stationTypes (type+)>
+<!ELEMENT st:stationTypes (st:type+)>
 
-<!ELEMENT type EMPTY>
-<!ATTLIST type name (bus | tram | subway | city_train) #REQUIRED>
+<!ELEMENT st:type EMPTY>
+<!ATTLIST st:type name (bus | tram | subway | city_train) #REQUIRED>
 
-<!ELEMENT street EMPTY>
-<!ATTLIST street name CDATA #REQUIRED>
+<!ELEMENT st:street EMPTY>
+<!ATTLIST st:street name CDATA #REQUIRED>
 
-<!ELEMENT ticketMachines (ticketMachine+)>
+<!ELEMENT st:ticketMachines (st:ticketMachine+)>
 
-<!ELEMENT ticketMachine EMPTY>
-<!ATTLIST ticketMachine id ID #REQUIRED>
+<!ELEMENT st:ticketMachine EMPTY>
+<!ATTLIST st:ticketMachine id ID #REQUIRED>
