@@ -6,7 +6,7 @@
         </st:stationTypes>
         <st:street name="Komotauer Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF1" />
+            <st:ticketMachine ticketMachineId="TMF1" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="F2" name="Fuerth Klinikum">
@@ -17,7 +17,7 @@
         </st:stationTypes>
         <st:street name="Wuerzburger Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF2" />
+            <st:ticketMachine ticketMachineId="TMF2" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="F3" name="Fuerth Stadthalle">
@@ -27,7 +27,7 @@
         </st:stationTypes>
         <st:street name="Wuerzburger Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF3" />
+            <st:ticketMachine ticketMachineId="TMF3" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="F4" name="Fuerth Rathaus">
@@ -37,7 +37,7 @@
         </st:stationTypes>
         <st:street name="Mohrenstrasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF4" />
+            <st:ticketMachine ticketMachineId="TMF4" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="F5" name="Fuerth Hauptbahnhof">
@@ -47,7 +47,7 @@
         </st:stationTypes>
         <st:street name="Bahnhofplatz"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF5" />
+            <st:ticketMachine ticketMachineId="TMF5" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="F6" name="Fuerth Jakobinenstrasse">
@@ -57,7 +57,7 @@
         </st:stationTypes>
         <st:street name="Jakobinenstrasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMF6" />
+            <st:ticketMachine ticketMachineId="TMF6" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="N1" name="Nuernberg Stadtgrenze">
@@ -67,7 +67,7 @@
         </st:stationTypes>
         <st:street name="Nuernberger Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN1" />
+            <st:ticketMachine ticketMachineId="TMN1" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="N2" name="Nuernberg Muggenhof">
@@ -76,7 +76,7 @@
         </st:stationTypes>
         <st:street name="Fuerther Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN2" />
+            <st:ticketMachine ticketMachineId="TMN2" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="N3" name="Nuernberg Eberhardshof">
@@ -85,7 +85,7 @@
         </st:stationTypes>
         <st:street name="Fuerther Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN3" />
+            <st:ticketMachine ticketMachineId="TMN3" />
         </st:ticketMachines>
     </st:station>	
 	<st:station stationId="N4" name="Nuernberg Maximilianstrasse">
@@ -95,7 +95,7 @@
         </st:stationTypes>
         <st:street name="Maximilianstrasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN4" />
+            <st:ticketMachine ticketMachineId="TMN4" />
         </st:ticketMachines>
     </st:station>		
 	<st:station stationId="N5" name="Nuernberg Baerenschanze">
@@ -104,7 +104,7 @@
         </st:stationTypes>
         <st:street name="Fuerther Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN5" />
+            <st:ticketMachine ticketMachineId="TMN5" />
         </st:ticketMachines>
     </st:station>		
 	<st:station stationId="N6" name="Nuernberg Gostenhof">
@@ -114,7 +114,7 @@
         </st:stationTypes>
         <st:street name="Fuerther Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN6" />
+            <st:ticketMachine ticketMachineId="TMN6" />
         </st:ticketMachines>
     </st:station>		
 	<st:station stationId="N7" name="Nuernberg Plaerrer">
@@ -125,7 +125,7 @@
         </st:stationTypes>
         <st:street name="Am Plaerrer"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN7" />
+            <st:ticketMachine ticketMachineId="TMN7" />
         </st:ticketMachines>
     </st:station>			
 	<st:station stationId="N8" name="Nuernberg Weisser Turm">
@@ -134,7 +134,7 @@
         </st:stationTypes>
         <st:street name="Ludwigsplatz"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN8" />
+            <st:ticketMachine ticketMachineId="TMN8" />
         </st:ticketMachines>
     </st:station>		
 	<st:station stationId="N9" name="Nuernberg Lorenzkirche">
@@ -143,7 +143,7 @@
         </st:stationTypes>
         <st:street name="Lorenzer Platz"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN9" />
+            <st:ticketMachine ticketMachineId="TMN9" />
         </st:ticketMachines>
     </st:station>		
 	<st:station stationId="N10" name="Nuernberg Hauptbahnhof">
@@ -155,8 +155,8 @@
         </st:stationTypes>
         <st:street name="Bahnhofsplatz"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN10" />
-			<st:ticketMachine id="TMN11" />
+            <st:ticketMachine ticketMachineId="TMN10" />
+			<st:ticketMachine ticketMachineId="TMN11" />
         </st:ticketMachines>
     </st:station>
 	<st:station stationId="N11" name="Nuernberg Aufsessplatz">
@@ -166,7 +166,7 @@
         </st:stationTypes>
         <st:street name="Woelckernstrasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN12" />
+            <st:ticketMachine ticketMachineId="TMN12" />
         </st:ticketMachines>
     </st:station>	
 	<st:station stationId="N12" name="Nuernberg Maffeiplatz">
@@ -175,7 +175,7 @@
         </st:stationTypes>
         <st:street name="Pillenreuther Strasse"/>
         <st:ticketMachines>
-            <st:ticketMachine id="TMN13" />
+            <st:ticketMachine ticketMachineId="TMN13" />
         </st:ticketMachines>
     </st:station>	
 	<st:station stationId="N13" name="Nuernberg Frankenstrasse">
@@ -186,7 +186,7 @@
 		</st:stationTypes>
 		<st:street name="Frankenstrasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN14" />
+			<st:ticketMachine ticketMachineId="TMN14" />
 		</st:ticketMachines>
 	</st:station>
 	<st:station stationId="N14" name="Nuernberg Hasenbuck">
@@ -195,7 +195,7 @@
 		</st:stationTypes>
 		<st:street name="Nerzstrasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN15" />
+			<st:ticketMachine ticketMachineId="TMN15" />
 		</st:ticketMachines>
 	</st:station>
 	<st:station stationId="N15" name="Nuernberg Bauernfeindstrasse">
@@ -205,7 +205,7 @@
 		</st:stationTypes>
 		<st:street name="Bauernfeindstrasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN16" />
+			<st:ticketMachine ticketMachineId="TMN16" />
 		</st:ticketMachines>
 	</st:station>
 	<st:station stationId="N16" name="Nuernberg Messe">
@@ -214,7 +214,7 @@
 		</st:stationTypes>
 		<st:street name="Otto-Baernreuther Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN17" />
+			<st:ticketMachine ticketMachineId="TMN17" />
 		</st:ticketMachines>
 	</st:station>	
 	<st:station stationId="N17" name="Nuernberg Langwasser Nord">
@@ -223,7 +223,7 @@
 		</st:stationTypes>
 		<st:street name="Otto-Baernreuther Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN18" />
+			<st:ticketMachine ticketMachineId="TMN18" />
 		</st:ticketMachines>
 	</st:station>	
 	<st:station stationId="N18" name="Nuernberg Scharfreiterring">
@@ -233,7 +233,7 @@
 		</st:stationTypes>
 		<st:street name="Otto-Baernreuther Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN19" />
+			<st:ticketMachine ticketMachineId="TMN19" />
 		</st:ticketMachines>
 	</st:station>	
 	<st:station stationId="N19" name="Nuernberg Langwasser Mitte">
@@ -243,7 +243,7 @@
 		</st:stationTypes>
 		<st:street name="Breslauer Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN20" />
+			<st:ticketMachine ticketMachineId="TMN20" />
 		</st:ticketMachines>
 	</st:station>	
 	<st:station stationId="N20" name="Nuernberg Gemeinschaftshaus">
@@ -252,7 +252,7 @@
 		</st:stationTypes>
 		<st:street name="Striegauer Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN21" />
+			<st:ticketMachine ticketMachineId="TMN21" />
 		</st:ticketMachines>
 	</st:station>	
 	<st:station stationId="N21" name="Nuernberg Langwasser Sued">
@@ -262,7 +262,7 @@
 		</st:stationTypes>
 		<st:street name="Julius-Leber Strasse" />
 		<st:ticketMachines>
-			<st:ticketMachine id="TMN22" />
+			<st:ticketMachine ticketMachineId="TMN22" />
 		</st:ticketMachines>
 	</st:station>	
 </st:stations>

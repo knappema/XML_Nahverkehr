@@ -4,7 +4,7 @@
 <!ATTLIST dr:driver firstname CDATA #REQUIRED
 lastname CDATA #REQUIRED
 phone CDATA #REQUIRED
-id ID #REQUIRED>
+driverId ID #REQUIRED>
 
 <!ELEMENT dr:vehicle EMPTY>
 <!ATTLIST dr:vehicle type CDATA #REQUIRED>

@@ -1,6 +1,6 @@
 <sc:schedules xmlns:sc="nv_schedules.dtd">
 
-	<sc:schedule id="S1" stationId="F1" routeId="RU1">
+	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
 		<sc:departureTimes finalStationId="N50">
 			<sc:time></sc:time>
 		</sc:departureTimes>

@@ -1,5 +1,5 @@
 ﻿<dr:drivers xmlns:dr="nv_drivers.dtd">
-	<dr:driver id="D1" firstname="Tim" lastname="Test" phone="01605678945">
+	<dr:driver driverId="D1" firstname="Tim" lastname="Test" phone="01605678945">
 		<dr:vehicle type="tram"/>
 		<dr:vehicle type="subway"/>
 		<dr:homeadress>
@@ -9,7 +9,7 @@
 			<dr:town>Wendelstein</dr:town>
 		</dr:homeadress>
 	</dr:driver>
-	<dr:driver id="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
+	<dr:driver driverId="D2" firstname="Max" lastname="Mustermann" phone="0172555455">
 		<dr:vehicle type="bus"/>
 		<dr:homeadress>
 			<dr:street>Breitscheidstraße</dr:street>

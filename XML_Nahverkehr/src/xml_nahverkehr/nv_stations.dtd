@@ -17,4 +17,4 @@ name CDATA #REQUIRED>
 <!ELEMENT st:ticketMachines (st:ticketMachine*)>
 
 <!ELEMENT st:ticketMachine EMPTY>
-<!ATTLIST st:ticketMachine id ID #REQUIRED>
+<!ATTLIST st:ticketMachine ticketMachineId ID #REQUIRED>
