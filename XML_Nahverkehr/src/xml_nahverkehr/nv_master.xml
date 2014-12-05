@@ -386,14 +386,23 @@
 <sc:schedules xmlns:sc="nv_schedules.dtd">
 	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
 		<sc:departureTimes finalStationId="N21">
-			<sc:time></sc:time>
+			<sc:time>11:30</sc:time>
+			<sc:time>12:30</sc:time>
+			<sc:time>13:30</sc:time>
+		</sc:departureTimes>
+	</sc:schedule>
+	<sc:schedule scheduleId="S2" stationId="F2" routeId="RU1">
+		<sc:departureTimes finalStationId="N21">
+			<sc:time>11:32</sc:time>
+			<sc:time>12:32</sc:time>
+			<sc:time>13:32</sc:time>
 		</sc:departureTimes>
 		<sc:departureTimes finalStationId="F1">
-			<sc:time></sc:time>
+			<sc:time>11:45</sc:time>
+			<sc:time>12:45</sc:time>
+			<sc:time>13:45</sc:time>
 		</sc:departureTimes>
-
 	</sc:schedule>
-	
 </sc:schedules>
 <ti:tickets xmlns:ti="nv_tickets.dtd">
 	<ti:ticket type="single">
