@@ -1,5 +1,5 @@
 <!ELEMENT sc:schedules (sc:schedule+)>
-<!ATTLIST sc:schedules xmlns:sc CDATA #FIXED "nv_schedules.dtd">
+
 <!ELEMENT sc:schedule (sc:departureTimes+)>
 <!ATTLIST sc:schedule scheduleId ID #REQUIRED
 stationId IDREF #REQUIRED

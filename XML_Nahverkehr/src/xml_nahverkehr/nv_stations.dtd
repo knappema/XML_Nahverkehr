@@ -1,5 +1,5 @@
 <!ELEMENT st:stations (st:station*)>
-<!ATTLIST st:stations xmlns:st CDATA #FIXED "nv_stations.dtd">
+
 
 
 <!ELEMENT st:station (st:stationTypes, st:street, st:intersection?,  st:ticketMachines?)>

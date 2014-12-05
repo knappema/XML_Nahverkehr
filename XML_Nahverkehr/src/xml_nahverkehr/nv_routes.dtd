@@ -1,5 +1,5 @@
 <!ELEMENT rt:routes (rt:route*)>
-<!ATTLIST rt:routes xmlns:rt CDATA #FIXED "nv_routes.dtd">
+
 
 
 <!ELEMENT rt:route (rt:station+)>

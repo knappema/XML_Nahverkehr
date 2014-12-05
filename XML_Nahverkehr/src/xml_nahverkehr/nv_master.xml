@@ -15,10 +15,23 @@
 	%dtdTickets;
 	
 	<!ELEMENT master (st:stations,dr:drivers,vh:vehicles, rt:routes,sc:schedules, ti:tickets)>
+	<!ATTLIST master 	xmlns:st CDATA #FIXED "nv_stations.dtd"
+						xmlns:rt CDATA #FIXED "nv_routes.dtd"
+						xmlns:dr CDATA #FIXED "nv_drivers.dtd"
+						xmlns:ti CDATA #FIXED "nv_tickets.dtd"
+						xmlns:vh CDATA #FIXED "nv_vehicles.dtd"
+						xmlns:sc CDATA #FIXED "nv_schedules.dtd">
+	
 ]>
+<?xml-stylesheet type="text/xsl" href="nv_master.xsl"?>
 
-<master>
-<st:stations xmlns:st="nv_stations.dtd">
+<master xmlns:st="nv_stations.dtd" 
+		xmlns:dr="nv_drivers.dtd" 
+		xmlns:vh="nv_vehicles.dtd" 
+		xmlns:rt="nv_routes.dtd"
+		xmlns:sc="nv_schedules.dtd"
+		xmlns:ti="nv_tickets.dtd">
+<st:stations>
 	<st:station stationId="F1" name="Fuerth Hardhoehe">
         <st:stationTypes>
 		    <st:type name="bus"/>
@@ -286,7 +299,7 @@
 		</st:ticketMachines>
 	</st:station>	
 </st:stations>
-<dr:drivers xmlns:dr="nv_drivers.dtd">
+<dr:drivers>
 	<dr:driver driverId="D1" firstname="Tim" lastname="Test" phone="01605678945">
 		<dr:vehicle type="tram"/>
 		<dr:vehicle type="subway"/>
@@ -307,7 +320,7 @@
 		</dr:homeadress>
 	</dr:driver>
 </dr:drivers>
-<vh:vehicles xmlns:vh="nv_vehicles.dtd">
+<vh:vehicles>
 	<vh:vehicle type="bus"
 			licensePlate="N-BU-100"
 			capacity="50"
@@ -353,7 +366,7 @@
 			capacity="400"
 			buildYear="2004"/>
 </vh:vehicles>
-<rt:routes xmlns:rt="nv_routes.dtd">
+<rt:routes>
 	<rt:route id="RU1" name="U1" type="subway">
 		<rt:station stationId="F1" />
 		<rt:station stationId="F2" />
@@ -383,7 +396,7 @@
 		<rt:station stationId="N21" />
 	</rt:route>
 </rt:routes>
-<sc:schedules xmlns:sc="nv_schedules.dtd">
+<sc:schedules>
 	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
 		<sc:departureTimes finalStationId="N21">
 			<sc:time>11:30</sc:time>
@@ -404,7 +417,7 @@
 		</sc:departureTimes>
 	</sc:schedule>
 </sc:schedules>
-<ti:tickets xmlns:ti="nv_tickets.dtd">
+<ti:tickets>
 	<ti:ticket type="single">
 		<ti:description>Valid only for one trip</ti:description>
 		<ti:fares>
