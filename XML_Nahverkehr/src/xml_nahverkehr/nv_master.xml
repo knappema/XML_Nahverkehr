@@ -367,7 +367,7 @@
 			buildYear="2004"/>
 </vh:vehicles>
 <rt:routes>
-	<rt:route id="RU1" name="U1" type="subway">
+	<rt:route routeId="U1" type="subway">
 		<rt:station stationId="F1" />
 		<rt:station stationId="F2" />
 		<rt:station stationId="F3" />
@@ -397,14 +397,14 @@
 	</rt:route>
 </rt:routes>
 <sc:schedules>
-	<sc:schedule scheduleId="S1" stationId="F1" routeId="RU1">
+	<sc:schedule scheduleId="S1" stationId="F1" routeId="U1">
 		<sc:departureTimes finalStationId="N21">
 			<sc:time>11:30</sc:time>
 			<sc:time>12:30</sc:time>
 			<sc:time>13:30</sc:time>
 		</sc:departureTimes>
 	</sc:schedule>
-	<sc:schedule scheduleId="S2" stationId="F2" routeId="RU1">
+	<sc:schedule scheduleId="S2" stationId="F2" routeId="U1">
 		<sc:departureTimes finalStationId="N21">
 			<sc:time>11:32</sc:time>
 			<sc:time>12:32</sc:time>

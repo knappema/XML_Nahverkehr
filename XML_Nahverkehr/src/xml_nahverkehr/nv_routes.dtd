@@ -3,8 +3,7 @@
 
 
 <!ELEMENT rt:route (rt:station+)>
-<!ATTLIST rt:route id ID #REQUIRED
-name CDATA #REQUIRED
+<!ATTLIST rt:route routeId ID #REQUIRED
 type CDATA #REQUIRED>
 
 <!ELEMENT rt:station EMPTY>
