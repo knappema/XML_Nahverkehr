@@ -44,6 +44,7 @@
 				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
 			})
 			
+			
 			// show all stations
 			$(".stationsToggle").click(function(){
 				$('div:not(.stationNames, .static)').hide(); 
@@ -108,7 +109,7 @@
 						<td>
 						<a href="#">
 							<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetailToggle</xsl:attribute>
-							<xsl:value-of select="@routeId"/>
+							<xsl:value-of select="@routeId"/>  (<xsl:value-of select="@type"/>)
 						</a>
 						</td>
 					</tr>
@@ -157,7 +158,7 @@
 			<xsl:for-each select="sc:schedule">
 				<div>
 					<xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/></xsl:attribute>
-					<xsl:value-of select="@routeId"/>
+					<xsl:value-of select="@routeId"/><br/>
 						<xsl:for-each select="sc:departureTimes">
 							Richtung: <span class="destinationId"><xsl:value-of select="current()/@finalStationId"/></span>
 
