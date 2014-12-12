@@ -41,7 +41,7 @@
 				
 				// turn station IDs to station names
 				var stationIdArray = routeDetails.find('td');
-				$.each(stationIdArray, function(elem){$(this).text(getStationNameFromId($(this).text()))});
+				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
 			})
 			
 			// show all stations
@@ -59,6 +59,13 @@
 				id = id.replace(" station", "");
 				$(".schedule").hide(); 
 				$(".schedule." +id).show();
+				
+				// turn destionation station IDs to station names
+				var destinationIdArray = $(".schedule." +id).find('.destinationId');
+				$.each(destinationIdArray, function(){
+					$(this).text(getStationNameFromId($(this).text()));
+				});
+				
 			})
 			
 			function getStationNameFromId(stationId){
@@ -151,15 +158,15 @@
 				<div>
 					<xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/></xsl:attribute>
 					<xsl:value-of select="@routeId"/>
-					<xsl:for-each select="sc:departureTimes"></xsl:for-each>
 						<xsl:for-each select="sc:departureTimes">
-							Richtung: <xsl:value-of select="current()/@finalStationId"/>
+							Richtung: <span class="destinationId"><xsl:value-of select="current()/@finalStationId"/></span>
 
 							
 							<xsl:for-each select="sc:time">
-							<p><xsl:value-of select="current()"/></p>
+								<p><xsl:value-of select="current()"/></p>
+							</xsl:for-each>
 						</xsl:for-each>
-					</xsl:for-each>
+					
 				</div>
 			</xsl:for-each>
 	</xsl:template>
