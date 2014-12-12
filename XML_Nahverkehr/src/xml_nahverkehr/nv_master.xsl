@@ -28,12 +28,20 @@
 				$(".routeDetails").hide();
 			})
 			
-			$(".detailToggle").click(function(){
+			// show stations within a route
+			$(".routeDetailToggle").click(function(){
 				var route = $(this).attr('class');
-				route = route.replace(" detailToggle", "");
+				route = route.replace(" routeDetailToggle", "");
 				console.log(route);
-				//TODO FIX THIS SHIT
-				$('.'+route+'.routeDetails').show();
+				
+				// only show stations of the selectd route
+				$('.routeDetails').hide();
+				var routeDetails = $('.' +route + '.routeDetails');
+				routeDetails.show();
+				
+				// turn station IDs to station names
+				var stationIdArray = routeDetails.find('td');
+				$.each(stationIdArray, function(elem){$(this).text(getStationNameFromId($(this).text()))});
 			})
 			
 			// show all stations
@@ -43,15 +51,19 @@
 			})
 			
 			// toggle schedule details for selected station
-			$(".detailToggle").click(function(){
+			$(".stationDetailToggle").click(function(){
 				//$('.scheduleIds').show();
 
 				var id = $(this).attr('class');
-				id = id.replace(" detailToggle", "");
-				
+				id = id.replace(" stationDetailToggle", "");
+				id = id.replace(" station", "");
 				$(".schedule").hide(); 
 				$(".schedule." +id).show();
 			})
+			
+			function getStationNameFromId(stationId){
+				return $('.' + stationId + '.station').attr('name');
+			}
 			
 			</script>
 
@@ -85,51 +97,51 @@
 					<th>Route Name</th>
 				</tr>
 				<xsl:for-each select="rt:route">
-				<tr>
-					<td>
-					<a href="#">
-						<xsl:attribute name="class"><xsl:value-of select="@routeId"/> detailToggle</xsl:attribute>
-						<xsl:value-of select="@routeId"/>
-					</a>
-					</td>
-				</tr>
+					<tr>
+						<td>
+						<a href="#">
+							<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetailToggle</xsl:attribute>
+							<xsl:value-of select="@routeId"/>
+						</a>
+						</td>
+					</tr>
 				</xsl:for-each>
 				</table>
-				
-				<span>
-					<xsl:attribute name="class">routeDetails</xsl:attribute>
-					<table>
-					<xsl:for-each select="rt:route/rt:station">
-						
-						<tr>
-							<td>
-								stationId: <xsl:value-of select="@stationId"/>
-							</td>
-						</tr>
-					</xsl:for-each>
-					</table>
-				</span>
-				
+				<xsl:for-each select="rt:route">
+					<span>
+						<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetails</xsl:attribute>
+						<table>
+							<xsl:for-each select="rt:station">
+								<tr>
+									<td>
+										 <xsl:variable name="thisStationId" select="@stationId"/>
+										<xsl:value-of select="@stationId"/>
+									</td>
+								</tr>
+							</xsl:for-each>
+						</table>
+					</span>
+				</xsl:for-each>
 		</div>
 	</xsl:template>
 	
 	<xsl:template match="st:stations">
 		<div class="stationNames">
-		
 				<table>
-				<tr>
-					<th>Station Name</th>
-				</tr>
-				<xsl:for-each select="st:station">
-				<tr>
-					<td>
-					<a href="#">
-						<xsl:attribute name="class"><xsl:value-of select="@stationId"/> detailToggle</xsl:attribute>
-						<xsl:value-of select="@name"/>
-					</a>
-					</td>
-				</tr>
-				</xsl:for-each>
+					<tr>
+						<th>Station Name</th>
+					</tr>
+					<xsl:for-each select="st:station">
+						<tr>
+							<td>
+							<a href="#">
+								<xsl:attribute name="class"><xsl:value-of select="@stationId"/> stationDetailToggle station</xsl:attribute>
+								<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+								<xsl:value-of select="@name"/>
+							</a>
+							</td>
+						</tr>
+					</xsl:for-each>
 				</table>
 		</div>
 	</xsl:template>
