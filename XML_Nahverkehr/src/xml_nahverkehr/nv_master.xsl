@@ -11,83 +11,39 @@
 		<html>
 		
 			<head>
-				<script type="text/javascript" src="js/jquery-2.1.1-min.js"></script>
+				<script type="text/javascript" src="js/jquery-2.1.1-min.js"/>
+				<script src="js/bootstrap.min.js"/>
+				<script type="text/javascript" src="js/referenceLogic.js"/>
+				<link rel="stylesheet" href="css/bootstrap.min.css"/>
+				<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
 			</head>
 			
-			<!-- toggle different views via jQuery -->
-			<script>
-			
-			// hide everything except static page elements
-			$('div:not(.static)').hide(); 
-			
-			
-			// show all routes
-			$(".routesToggle").click(function(){
-				$('div:not(.routeNames, .static)').hide(); 
-				$('.routeNames').show();  
-				$(".routeDetails").hide();
-			})
-			
-			// show stations within a route
-			$(".routeDetailToggle").click(function(){
-				var route = $(this).attr('class');
-				route = route.replace(" routeDetailToggle", "");
-				console.log(route);
-				
-				// only show stations of the selectd route
-				$('.routeDetails').hide();
-				var routeDetails = $('.' +route + '.routeDetails');
-				routeDetails.show();
-				
-				// turn station IDs to station names
-				var stationIdArray = routeDetails.find('td');
-				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
-			})
-			
-			
-			// show all stations
-			$(".stationsToggle").click(function(){
-				$('div:not(.stationNames, .static)').hide(); 
-				$('.stationNames').show();  
-			})
-			
-			// toggle schedule details for selected station
-			$(".stationDetailToggle").click(function(){
-				//$('.scheduleIds').show();
-
-				var id = $(this).attr('class');
-				id = id.replace(" stationDetailToggle", "");
-				id = id.replace(" station", "");
-				$(".schedule").hide(); 
-				$(".schedule." +id).show();
-				
-				// turn destionation station IDs to station names
-				var destinationIdArray = $(".schedule." +id).find('.destinationId');
-				$.each(destinationIdArray, function(){
-					$(this).text(getStationNameFromId($(this).text()));
-				});
-				
-			})
-			
-			function getStationNameFromId(stationId){
-				return $('.' + stationId + '.station').attr('name');
-			}
-			
-			</script>
-
 			<body>
-				<h1>Nürnberg Nahverkehr</h1>
-			
-				<!-- major view toggles -->
-				<div class="navBar static">
-					<button class="routesToggle">Routes</button>
-					<button class="stationsToggle">Stations</button>
-					<button class="ticketsToggle">Tickets</button>
-					<button class="driversToggle">Drivers</button>
-					<button class="vehiclesToggle">Vehicles</button>
-				</div>
-			
-			
+
+				<!-- nav bar -->
+				<nav class="navbar navbar-default static" role="navigation">
+				  <div class="container-fluid static">
+				    <div class="navbar-header static">
+				    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+				      <a class="navbar-brand static" href="#">Nuremberg Local Transport</a>
+				    </div>
+				    <div class="collapse navbar-collapse static" id="navbar">
+				      <!-- major view toggles -->
+				      <ul class="nav navbar-nav">
+				        <li><a class="routesToggle" href="#">Routes</a></li>
+				        <li><a class="stationsToggle" href="#">Stations</a></li>
+				        <li class="disabled"><a class="ticketsToggle">Tickets</a></li>
+				        <li class="disabled"><a class="driversToggle">Drivers</a></li>
+				        <li class="disabled"><a class="vehiclesToggle">Vehicles</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
 				<!-- load all xsl-templates here -->
 				<xsl:apply-templates select="st:stations"/>
 				<xsl:apply-templates select="sc:schedules"/>
@@ -99,77 +55,104 @@
 
 		
 	<xsl:template match="rt:routes">	
+
+		<!-- routes -->
 		<div class="routeNames">
-				<table>
-				<tr>
-					<th>Route Name</th>
-				</tr>
-				<xsl:for-each select="rt:route">
-					<tr>
-						<td>
-						<a href="#">
-							<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetailToggle</xsl:attribute>
-							<xsl:value-of select="@routeId"/>  (<xsl:value-of select="@type"/>)
-						</a>
-						</td>
-					</tr>
-				</xsl:for-each>
-				</table>
-				<xsl:for-each select="rt:route">
-					<span>
-						<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetails</xsl:attribute>
-						<table>
-							<xsl:for-each select="rt:station">
-								<tr>
-									<td>
-										 <xsl:variable name="thisStationId" select="@stationId"/>
-										<xsl:value-of select="@stationId"/>
-									</td>
-								</tr>
-							</xsl:for-each>
-						</table>
-					</span>
-				</xsl:for-each>
+			<div class="container static">
+				<div class="row static">
+					<div class="col-md-2 col-xs-12 static">
+
+						<div class="panel panel-default static">
+							<div class="panel-heading static">Routes</div>
+							<div class="list-group static">
+								<xsl:for-each select="rt:route">
+										<a href="#">
+											<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetailToggle list-group-item</xsl:attribute>
+											<xsl:value-of select="@routeId"/>   <span class="badge"><xsl:value-of select="@type"/></span>
+										</a>
+								</xsl:for-each>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-xs-12 static">
+						<!-- details for each route -->
+
+						<div class="panel panel-default static">
+							<div class="panel-heading static">Stations</div>
+							<div>
+								<xsl:for-each select="rt:route">
+									<xsl:attribute name="class"><xsl:value-of select="@routeId"/> routeDetails list-group</xsl:attribute>
+									<xsl:for-each select="rt:station">
+												<a href="#">
+													<xsl:attribute name="class"><xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
+														<xsl:value-of select="@stationId"/>
+												</a>
+									</xsl:for-each>
+								</xsl:for-each>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</div>
 	</xsl:template>
 	
 	<xsl:template match="st:stations">
 		<div class="stationNames">
-				<table>
-					<tr>
-						<th>Station Name</th>
-					</tr>
-					<xsl:for-each select="st:station">
-						<tr>
-							<td>
-							<a href="#">
-								<xsl:attribute name="class"><xsl:value-of select="@stationId"/> stationDetailToggle station</xsl:attribute>
-								<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
-								<xsl:value-of select="@name"/>
-							</a>
-							</td>
-						</tr>
-					</xsl:for-each>
-				</table>
+			<div class="col-md-4 col-xs-12 static">
+				<!-- details for each route -->
+				<div class="panel panel-default static">
+					<div class="panel-heading static">Stations</div>
+					<div class="list-group static">
+						<xsl:for-each select="st:station">
+						<a href="#">
+											<xsl:attribute name="class"><xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
+							<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+							<xsl:value-of select="@name"/>
+						</a>
+						</xsl:for-each>
+					</div>
+			</div>
+			</div>
 		</div>
 	</xsl:template>
 	
 	<xsl:template match="sc:schedules">
-			<xsl:for-each select="sc:schedule">
-				<div>
-					<xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/></xsl:attribute>
-					<xsl:value-of select="@routeId"/><br/>
-						<xsl:for-each select="sc:departureTimes">
-							Richtung: <span class="destinationId"><xsl:value-of select="current()/@finalStationId"/></span>
-
+		<div class="container static">
+			<div class="row static">
+				<!-- schedule groups for each station -->
+				<xsl:for-each select="sc:schedule">
+						<div>
+							<xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/></xsl:attribute>
+							<xsl:variable name="routeIdValue" select="@routeId"/>
+								<!-- schedules for each station-->
+								<xsl:for-each select="sc:departureTimes">
+									<div class="col-md-offset-3 col-md-6 col-xs-12 static">
+										
+										<div class="panel panel-default static">
 							
-							<xsl:for-each select="sc:time">
-								<p><xsl:value-of select="current()"/></p>
-							</xsl:for-each>
-						</xsl:for-each>
-					
-				</div>
-			</xsl:for-each>
+											<div class="panel-heading static">
+												<xsl:value-of select="$routeIdValue" />&#160;&#160;<i class="glyphicon glyphicon-arrow-right"></i>&#160;&#160;<span class="destinationId"><xsl:value-of select="current()/@finalStationId"/></span>
+											</div>
+
+											<ul class="list-group static">
+												<!-- departure times for one schedule -->
+												<xsl:for-each select="sc:time">
+										    	<li class="list-group-item"><xsl:value-of select="current()"/></li>
+										  	</xsl:for-each>
+										  </ul>
+
+										</div>
+
+									</div>
+								</xsl:for-each>
+						</div>
+				</xsl:for-each>
+			</div>
+		</div>
+
 	</xsl:template>
 	
 	
