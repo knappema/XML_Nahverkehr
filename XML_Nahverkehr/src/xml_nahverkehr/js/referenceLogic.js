@@ -52,9 +52,19 @@ $(document).ready(function(){
 				});
 				
 			})
+                        
+                        // show all tickets
+			$(".ticketsToggle").click(function(){
+				$('div:not(.ticketNames, .static)').hide(); 
+				$('.ticketNames').show();  
+			})
+
 			
 			function getStationNameFromId(stationId){
-				return $('.' + stationId + '.station').attr('name');
+                            var name = null;
+                            name = $('.' + stationId + '.station').attr('name');
+                            // replace all spaces with real spaces
+                            return name == null ? stationId : name.replace(/%20/g, " ");
 			}
 			
 });
