@@ -52,6 +52,13 @@ $(document).ready(function(){
 				});
 				
 			})
+                        
+                        // show all tickets
+			$(".ticketsToggle").click(function(){
+				$('div:not(.ticketNames, .static)').hide(); 
+				$('.ticketNames').show();  
+			})
+
 			
 			function getStationNameFromId(stationId){
                             var name = null;
