@@ -54,7 +54,9 @@ $(document).ready(function(){
 			})
 			
 			function getStationNameFromId(stationId){
-				return $('.' + stationId + '.station').attr('name');
+                            var name = $('.' + stationId + '.station').attr('name');
+                            // replace all spaces with real spaces
+                            return name.replace(/%20/g, " ");
 			}
 			
 });
