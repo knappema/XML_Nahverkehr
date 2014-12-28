@@ -310,7 +310,7 @@
                             </div>
                         </div>
                         <xsl:for-each select="dr:driver">
-                            <!-- details for each vehicle -->
+                            <!-- details for each driver -->
                             <a ref="#">
                                 <xsl:attribute name="class">
                                     <xsl:value-of select="@driverId"/> driverDetailToggle list-group-item static</xsl:attribute>
@@ -350,12 +350,13 @@
     <xsl:template match="dr:driver">
         <div>
             <xsl:attribute name="class">driverDetails <xsl:value-of select="@driverId"/></xsl:attribute>
+
+            <!-- general panel -->
             <div class="col-md-4 col-xs-12 static">
                 <div class="panel panel-default static">
                     <div class="panel-heading static">
                         General
                     </div>
-                    <!-- details for each vehicle -->
                     <div class=" list-group-item static">
                         <div class="row static">
                             <div class="col-md-4 static">
@@ -409,6 +410,55 @@
                             </div>
                             <div class="col-md-8 static">
                                 <xsl:value-of select="@phone"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- address panel -->
+            <div class="col-md-4 col-xs-12 static">
+                <div class="panel panel-default static">
+                    <div class="panel-heading static">
+                        Address
+                    </div>
+                    <div class=" list-group-item static">
+                        <div class="row static">
+                            <div class="col-md-4 static">
+                                Street
+                            </div>
+                            <div class="col-md-8 static">
+                                <xsl:value-of select="dr:homeaddress/dr:street"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" list-group-item static">
+                        <div class="row static">
+                            <div class="col-md-4 static">
+                                House No.
+                            </div>
+                            <div class="col-md-8 static">
+                                <xsl:value-of select="dr:homeaddress/dr:houseNo"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" list-group-item static">
+                        <div class="row static">
+                            <div class="col-md-4 static">
+                                Areacode
+                            </div>
+                            <div class="col-md-8 static">
+                                <xsl:value-of select="dr:homeaddress/dr:areacode"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" list-group-item static">
+                        <div class="row static">
+                            <div class="col-md-4 static">
+                                Town
+                            </div>
+                            <div class="col-md-8 static">
+                                <xsl:value-of select="dr:homeaddress/dr:town"/>
                             </div>
                         </div>
                     </div>
