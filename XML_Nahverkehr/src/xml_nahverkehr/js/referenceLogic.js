@@ -82,6 +82,19 @@ $(document).ready(function(){
                                 $('.title').hide();
 				$('.driverNames').show();  
 			});
+                        
+                        // show driver details
+			$(".driverDetailToggle").click(function(){
+                                var id = $(this).attr('class');
+				id = id.replace(" driverDetailToggle", "");
+                                id = id.replace(" row", "");
+				id = id.replace(" list-group-item", "");
+                                id = id.replace(" static", "");
+                                
+				$('div:not(.driverDetails, .static)').hide();
+                                $('.title').hide();
+				$(".driverDetails." +id).show();  
+			});
 			
 			function getStationNameFromId(stationId){
                             var name = null;
