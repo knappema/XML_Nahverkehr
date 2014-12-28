@@ -68,8 +68,8 @@
 
                 <!-- load all xsl-templates here -->
                 <xsl:apply-templates select="st:stations"/>
-                <xsl:apply-templates select="sc:schedules"/>
                 <xsl:apply-templates select="rt:routes"/>
+                <xsl:apply-templates select="sc:schedules"/>
                 <xsl:apply-templates select="ti:tickets"/>
                 <xsl:apply-templates select="vh:vehicles"/>
                 <xsl:apply-templates select="dr:drivers"/>
@@ -100,12 +100,15 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-xs-12 static">
-                <!-- details for each route -->
-                <div class="panel panel-default static">
-                    <div class="panel-heading static">Stations</div>
-                    <div>
-                        <xsl:for-each select="rt:route">
+            <xsl:for-each select="rt:route">
+                <div class="col-md-4 col-xs-12">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="@routeId"/> routeDetails col-md-4 col-xs-12</xsl:attribute>
+                    <!-- details for each route -->
+                    <div class="panel panel-default static">
+                        <div class="panel-heading static">Stations</div>
+                        <div class="list-group static">
+
                             <xsl:attribute name="class">
                                 <xsl:value-of select="@routeId"/> routeDetails list-group</xsl:attribute>
                             <xsl:for-each select="rt:station">
@@ -115,10 +118,11 @@
                                     <xsl:value-of select="@stationId"/>
                                 </a>
                             </xsl:for-each>
-                        </xsl:for-each>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </xsl:for-each>
         </div>
     </xsl:template>
 
@@ -157,7 +161,7 @@
                         <xsl:variable name="routeIdValue" select="@routeId"/>
                         <!-- schedules for each station-->
                         <xsl:for-each select="sc:departureTimes">
-                            <div class="col-md-offset-3 col-md-6 col-xs-12 static">
+                            <div class="col-md-6 col-xs-12 static">
 
                                 <div class="panel panel-default static">
 
@@ -346,7 +350,7 @@
     </xsl:template>
 
     <!-- driver detail view -->
-    <!-- driver part -->
+    <!-- driver part (vehicle part if necessary) -->
     <xsl:template match="dr:driver">
         <div>
             <xsl:attribute name="class">driverDetails <xsl:value-of select="@driverId"/></xsl:attribute>
