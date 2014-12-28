@@ -201,7 +201,7 @@
                     <!-- details for each ticket -->
                     <div class="panel panel-default static">
                         <div class="panel-heading static">
-                            <xsl:value-of select="@type"/>
+                            Tickets:  <xsl:value-of select="@type"/>
                         </div>
                         <div class="list-group static">
                             <div class="list-group-item static">
