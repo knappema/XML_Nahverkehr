@@ -33,8 +33,8 @@ $(document).ready(function(){
 				routeDetails.show();
 				
 				// turn station IDs to station names
-				var stationIdArray = routeDetails.find('a');
-				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
+				var stationIdArray = routeDetails.find('stationMark');
+				$.each(stationIdArray, function(){;$(this).text(getStationNameFromId($(this).text()))});
 			});
 			
 			
@@ -43,6 +43,20 @@ $(document).ready(function(){
 				$('div:not(.stationNames, .static)').hide(); 
                                 $('.title').hide();
 				$('.stationNames').show();  
+				// reset filter
+				$(".stationFilter").val("");
+				$(".stationFilter").keyup();
+			});
+			
+			$(".stationFilter").keyup(function(){
+				inp = $('.stationFilter').val()
+					$("tr:not(:has(>th))").each(function() {
+						if (~$(this).text().toLowerCase().indexOf( inp.toLowerCase() ) ) {
+							$(this).show();
+						} else {
+							$(this).hide();
+						}
+				});
 			});
 			
 			// toggle schedule details for selected station

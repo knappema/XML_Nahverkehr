@@ -107,18 +107,17 @@
                     <!-- details for each route -->
                     <div class="panel panel-default static">
                         <div class="panel-heading static">Stations</div>
-                        <div class="list-group static">
-
+                        <div>
                             <xsl:attribute name="class">
                                 <xsl:value-of select="@routeId"/> routeDetails list-group</xsl:attribute>
                             <xsl:for-each select="rt:station">
                                 <a href="#">
                                     <xsl:attribute name="class">
                                         <xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
-                                    <xsl:value-of select="@stationId"/>
+                                    <img width="20px" src="img/haltestelle.svg"/>&#160;
+									<stationMark><xsl:value-of select="@stationId"/></stationMark>
                                 </a>
                             </xsl:for-each>
-
                         </div>
                     </div>
                 </div>
@@ -129,21 +128,51 @@
     <!-- station view -->
     <xsl:template match="st:stations">
         <div class="stationNames">
-            <div class="col-md-4 col-xs-12 static">
+		
+			
+			
+            <div class="col-md-8 col-xs-12 static">
+				<form>
+				  <div class="form-group static">
+					<label for="exampleInputEmail1">Filter Stations</label>
+					<input type="email" class="form-control stationFilter static" id="exampleInputEmail1" placeholder="filter key word"/>
+				  </div>
+				</form>
                 <!-- details for each route -->
                 <div class="panel panel-default static">
-                    <div class="panel-heading static">Stations</div>
+                    <div class="panel-heading static">Station Details</div>
                     <div class="list-group static">
-                        <xsl:for-each select="st:station">
-                            <a href="#">
-                                <xsl:attribute name="class">
-                                    <xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
-                                <xsl:attribute name="name">
-                                    <xsl:value-of select="@name"/>
-                                </xsl:attribute>
-                                <xsl:value-of select="@name"/>
-                            </a>
-                        </xsl:for-each>
+						<table class="table">
+							<tr>
+								<th align="center" valign="middle">Station Name</th>
+								<th align="center" valign="middle">Street Name</th>
+								<th align="center" valign="middle">Station Type</th>
+								<th align="center" valign="middle">Ticket Machines</th>
+							</tr>
+							<xsl:for-each select="st:station">
+								<tr>
+									  <xsl:attribute name="class">
+										  <xsl:value-of select="@stationId"/> station
+										  </xsl:attribute>
+									  <xsl:attribute name="name">
+										  <xsl:value-of select="@name"/>
+									  </xsl:attribute>
+									  
+									<td align="left" valign="middle"><img width="20px" src="img/haltestelle.svg"/>&#160;<xsl:value-of select="@name"/></td>
+									<td align="left" valign="middle"><xsl:value-of select="st:street/@name"/></td>
+									<td align="center" valign="middle">
+										<xsl:for-each select="st:stationTypes/st:type">
+											<span class="badge">	
+												<xsl:value-of select="@name"/>
+											</span><br/>
+										</xsl:for-each>
+									</td>
+									<td align="center" valign="middle">
+										<xsl:value-of select="count(st:ticketMachines/st:ticketMachine)"/>
+									</td>
+								</tr>
+							</xsl:for-each>
+						</table>
                     </div>
                 </div>
             </div>
@@ -168,6 +197,7 @@
                                     <div class="panel-heading static">
                                         <xsl:value-of select="$routeIdValue" />&#160;&#160;
                                         <i class="glyphicon glyphicon-arrow-right"></i>&#160;&#160;
+										<img width="20px" src="img/haltestelle.svg"/>&#160;
                                         <span class="destinationId">
                                             <xsl:value-of select="current()/@finalStationId"/>
                                         </span>
