@@ -69,6 +69,12 @@ $(document).ready(function(){
 				$('.ticketNames').show();  
 			});
 
+                        // show all vehicles
+			$(".vehiclesToggle").click(function(){
+				$('div:not(.vehicleNames, .static)').hide();
+                                $('.title').hide();
+				$('.vehicleNames').show();  
+			});
 			
 			function getStationNameFromId(stationId){
                             var name = null;

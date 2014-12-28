@@ -47,8 +47,8 @@
                                 <li class="disabled">
                                     <a class="driversToggle">Drivers</a>
                                 </li>
-                                <li class="disabled">
-                                    <a class="vehiclesToggle">Vehicles</a>
+                                <li>
+                                    <a class="vehiclesToggle" href="#">Vehicles</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,6 +71,7 @@
                 <xsl:apply-templates select="sc:schedules"/>
                 <xsl:apply-templates select="rt:routes"/>
                 <xsl:apply-templates select="ti:tickets"/>
+                <xsl:apply-templates select="vh:vehicles"/>
             </body>
 
         </html>
@@ -225,6 +226,57 @@
                         </div>
                     </div>
                 </xsl:for-each>
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="vh:vehicles">
+        <div class="vehicleNames">
+            <div class="col-md-6 col-xs-12 static">
+                <div class="panel panel-default static">
+                    <div class="panel-heading static">
+                        Vehicles
+                    </div>
+                    <div class="list-group static">
+                        <div class="list-group-item static">
+                            <div class="row static">
+                                <div class="col-md-4 static">
+                                    <b>Licence plate</b>
+                                </div>
+                                <div class="col-md-3 static">
+                                    <b>Type</b>
+                                </div>
+                                <div class="col-md-2 static">
+                                    <b>Capacity</b>
+                                </div>
+                                <div class="col-md-3 static">
+                                    <b>Build year</b>
+                                </div>
+                            </div>
+                        </div>
+                        <xsl:for-each select="vh:vehicle">
+                            <!-- details for each vehicle -->
+                            <div class="list-group-item static">
+                                <div class="row static">
+                                    <div class="col-md-4 static">
+                                        <xsl:value-of select="@licensePlate"/>
+                                    </div>
+                                    <div class="col-md-3 static">
+                                        <span class="badge">
+                                            <xsl:value-of select="@type"/>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-2 static">
+                                        <xsl:value-of select="@capacity"/>
+                                    </div>
+                                    <div class="col-md-3 static">
+                                        <xsl:value-of select="@buildYear"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </xsl:for-each>
+                    </div>
+                </div>
             </div>
         </div>
     </xsl:template>
