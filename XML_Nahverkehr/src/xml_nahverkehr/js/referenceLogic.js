@@ -75,6 +75,13 @@ $(document).ready(function(){
                                 $('.title').hide();
 				$('.vehicleNames').show();  
 			});
+                        
+                        // show all drivers
+			$(".driversToggle").click(function(){
+				$('div:not(.driverNames, .static)').hide();
+                                $('.title').hide();
+				$('.driverNames').show();  
+			});
 			
 			function getStationNameFromId(stationId){
                             var name = null;

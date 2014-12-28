@@ -44,8 +44,8 @@
                                 <li>
                                     <a class="ticketsToggle" href="#">Tickets</a>
                                 </li>
-                                <li class="disabled">
-                                    <a class="driversToggle">Drivers</a>
+                                <li>
+                                    <a class="driversToggle" href="#">Drivers</a>
                                 </li>
                                 <li>
                                     <a class="vehiclesToggle" href="#">Vehicles</a>
@@ -72,6 +72,7 @@
                 <xsl:apply-templates select="rt:routes"/>
                 <xsl:apply-templates select="ti:tickets"/>
                 <xsl:apply-templates select="vh:vehicles"/>
+                <xsl:apply-templates select="dr:drivers"/>
             </body>
 
         </html>
@@ -80,10 +81,7 @@
 
     <xsl:template match="rt:routes">
         <div class="routeNames">
-
-
             <div class="col-md-2 col-xs-12 static">
-
                 <div class="panel panel-default static">
                     <div class="panel-heading static">Routes</div>
                     <div class="list-group static">
@@ -120,9 +118,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </xsl:template>
 
@@ -271,6 +266,67 @@
                                     </div>
                                     <div class="col-md-3 static">
                                         <xsl:value-of select="@buildYear"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </xsl:for-each>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="dr:drivers">
+        <div class="driverNames">
+            <div class="col-md-8 col-xs-12 static">
+                <div class="panel panel-default static">
+                    <div class="panel-heading static">
+                        Drivers
+                    </div>
+                    <div class="list-group static">
+                        <div class="list-group-item static">
+                            <div class="row static">
+                                <div class="col-md-1 static">
+                                    <b>Id</b>
+                                </div>
+                                <div class="col-md-3 static">
+                                    <b>First name</b>
+                                </div>
+                                <div class="col-md-3 static">
+                                    <b>Name</b>
+                                </div>
+                                <div class="col-md-2 static">
+                                    <b>Types</b>
+                                </div>
+                                <div class="col-md-3 static">
+                                    <b>Phone</b>
+                                </div>
+                            </div>
+                        </div>
+                        <xsl:for-each select="dr:driver">
+                            <!-- details for each vehicle -->
+                            <div class="list-group-item static">
+                                <div class="row static">
+                                    <div class="col-md-1 static">
+                                        <xsl:value-of select="@driverId"/>
+                                    </div>
+                                    <div class="col-md-3 static">
+                                        <xsl:value-of select="@firstname"/>
+                                    </div>
+                                    <div class="col-md-3 static">
+                                        <xsl:value-of select="@lastname"/>
+                                    </div>
+                                    <div class="col-md-2 static">
+                                        <xsl:for-each select="dr:vehicle">
+                                            <div class="static">
+                                                <span class="badge">
+                                                    <xsl:value-of select="@type"/>
+                                                </span>
+                                            </div>
+                                        </xsl:for-each>
+                                    </div>
+                                    <div class="col-md-3 static">
+                                        <xsl:value-of select="@phone"/>
                                     </div>
                                 </div>
                             </div>
