@@ -1,14 +1,22 @@
 $(document).ready(function(){
 			// hide everything except static page elements
 			$('div:not(.static)').hide(); 
+                        
+                        
+                        // show home
+                        $(".home").click(function(){
+                                $('div:not(.static)').hide(); 
+                                $('.title').show();
+                        });
 			
 			
 			// show all routes
 			$(".routesToggle").click(function(){
 				$('div:not(.routeNames, .static)').hide(); 
+                                $('.title').hide();
 				$('.routeNames').show();  
 				$(".routeDetails").hide();
-			})
+			});
 			
 			// show stations within a route
 			$(".routeDetailToggle").click(function(){
@@ -27,14 +35,15 @@ $(document).ready(function(){
 				// turn station IDs to station names
 				var stationIdArray = routeDetails.find('a');
 				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
-			})
+			});
 			
 			
 			// show all stations
 			$(".stationsToggle").click(function(){
 				$('div:not(.stationNames, .static)').hide(); 
+                                $('.title').hide();
 				$('.stationNames').show();  
-			})
+			});
 			
 			// toggle schedule details for selected station
 			$(".stationDetailToggle").click(function(){
@@ -51,13 +60,14 @@ $(document).ready(function(){
 					$(this).text(getStationNameFromId($(this).text()));
 				});
 				
-			})
+			});
                         
                         // show all tickets
 			$(".ticketsToggle").click(function(){
-				$('div:not(.ticketNames, .static)').hide(); 
+				$('div:not(.ticketNames, .static)').hide();
+                                $('.title').hide();
 				$('.ticketNames').show();  
-			})
+			});
 
 			
 			function getStationNameFromId(stationId){

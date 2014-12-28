@@ -30,7 +30,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand static" href="#">Nuremberg Local Transport</a>
+                            <a class="home navbar-brand static" href="#">Nuremberg Local Transport</a>
                         </div>
                         <div class="collapse navbar-collapse static" id="navbar">
                             <!-- major view toggles -->
@@ -54,6 +54,18 @@
                         </div>
                     </div>
                 </nav>
+                <div class="title static">
+                    <h2 class="text-center static">
+                        Welcome
+                    </h2>
+                    <h2 class="text-center static">
+                        to
+                    </h2>
+                    <h2 class="text-center static">
+                        Nuremberg Local Transport System
+                    </h2>
+                </div>
+
                 <!-- load all xsl-templates here -->
                 <xsl:apply-templates select="st:stations"/>
                 <xsl:apply-templates select="sc:schedules"/>
@@ -66,53 +78,50 @@
 
 
     <xsl:template match="rt:routes">
-
-        <!-- routes -->
         <div class="routeNames">
-            <div class="container static">
-                <div class="row static">
-                    <div class="col-md-2 col-xs-12 static">
 
-                        <div class="panel panel-default static">
-                            <div class="panel-heading static">Routes</div>
-                            <div class="list-group static">
-                                <xsl:for-each select="rt:route">
-                                    <a href="#">
-                                        <xsl:attribute name="class">
-                                            <xsl:value-of select="@routeId"/> routeDetailToggle list-group-item</xsl:attribute>
-                                        <xsl:value-of select="@routeId"/>
-                                        <span class="badge">
-                                            <xsl:value-of select="@type"/>
-                                        </span>
-                                    </a>
-                                </xsl:for-each>
-                            </div>
-                        </div>
+
+            <div class="col-md-2 col-xs-12 static">
+
+                <div class="panel panel-default static">
+                    <div class="panel-heading static">Routes</div>
+                    <div class="list-group static">
+                        <xsl:for-each select="rt:route">
+                            <a href="#">
+                                <xsl:attribute name="class">
+                                    <xsl:value-of select="@routeId"/> routeDetailToggle list-group-item</xsl:attribute>
+                                <xsl:value-of select="@routeId"/>
+                                <span class="badge">
+                                    <xsl:value-of select="@type"/>
+                                </span>
+                            </a>
+                        </xsl:for-each>
                     </div>
-
-                    <div class="col-md-4 col-xs-12 static">
-                        <!-- details for each route -->
-
-                        <div class="panel panel-default static">
-                            <div class="panel-heading static">Stations</div>
-                            <div>
-                                <xsl:for-each select="rt:route">
-                                    <xsl:attribute name="class">
-                                        <xsl:value-of select="@routeId"/> routeDetails list-group</xsl:attribute>
-                                    <xsl:for-each select="rt:station">
-                                        <a href="#">
-                                            <xsl:attribute name="class">
-                                                <xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
-                                            <xsl:value-of select="@stationId"/>
-                                        </a>
-                                    </xsl:for-each>
-                                </xsl:for-each>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+
+            <div class="col-md-4 col-xs-12 static">
+                <!-- details for each route -->
+                <div class="panel panel-default static">
+                    <div class="panel-heading static">Stations</div>
+                    <div>
+                        <xsl:for-each select="rt:route">
+                            <xsl:attribute name="class">
+                                <xsl:value-of select="@routeId"/> routeDetails list-group</xsl:attribute>
+                            <xsl:for-each select="rt:station">
+                                <a href="#">
+                                    <xsl:attribute name="class">
+                                        <xsl:value-of select="@stationId"/> stationDetailToggle station list-group-item</xsl:attribute>
+                                    <xsl:value-of select="@stationId"/>
+                                </a>
+                            </xsl:for-each>
+                        </xsl:for-each>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </xsl:template>
 
@@ -191,6 +200,16 @@
                             <xsl:value-of select="@type"/>
                         </div>
                         <div class="list-group static">
+                            <div class="list-group-item static">
+                                <div class="row static">
+                                    <div class="col-md-6 static">
+                                        <b>Fare zone</b>
+                                    </div>
+                                    <div class="col-md-6 static">
+                                        <b>Price</b>
+                                    </div>
+                                </div>
+                            </div>
                             <xsl:for-each select="ti:fares/ti:fare">
                                 <div class="list-group-item static">
                                     <div class="row static">
