@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/html" xml:lang="en" lang="en">
 
 <head>
 <meta name="generator" content="HTML Tidy for Mac OS X (vers 25 March 2009), see www.w3.org">
@@ -50,6 +50,8 @@ div.exampleHeader { font-weight: bold;
 </head>
 
 
+
+<!-- begin of body -->
 <body>
 <div class="head">
 <h1><a name="title" id="title"></a>Bericht zum XML Projekt Nahverkehr</h1>
@@ -60,166 +62,110 @@ div.exampleHeader { font-weight: bold;
 <dd>Marco Knappe</dd>
 <dd>Mateo Luzi</dd>
 </dl>
+
+
 <hr>
+
+
+<!-- begin of table_of_contents -->
 <div class="toc">
 <h2><a name="table_of_contents" id="table_of_contents"></a>Inhaltsverzeichnis</h2>
-<div class="toc">1 <a href="#einleitung">Einleitung</a><br>
+<div class="toc">
+1 <a href="#einleitung">Einleitung</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.1 <a href="#grundlegendes-konzept">Grundlegendes Konzept</a><br>
 2 <a href="#verwendete-technologien">Verwendete Technologien</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.1 <a href="#xml">Xml</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.2 <a href="#xslt">Xslt</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.3 <a href="#bootstrap">Bootstrap</a><br>
 3 <a href="#konzept">Konzept</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#datenbank">Datenbank</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#visualisierung">Visualisierung</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;3.3 <a href="#app-reqs">Application Conformance</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.1 <a href="#app-reqs-full">Full Conformance</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.2 <a href="#app-reqs-simple">Simple Conformance</a><br>
-4 <a href="#att-method">Ausblick</a><br>
-<h3><a name="appendices" id="appendices"></a>Appendices</h3>
-<div class="toc">A <a href="#references">References</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;A.1 <a href="#refnorm">Normative References</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;A.2 <a href="#refinform">Non-Normative References</a><br>
-B <a href="#sample-dtd-appx">Sample DTD</a> (Non-Normative)<br>
-C <a href="#sample-xsd-appx">Sample XML Schema</a> (Non-Normative)<br>
-D <a href="#sample-rng-appx">Sample RELAX NG Grammar</a> (Non-Normative)<br>
-E <a href="#changes">Changes from XLink 1.0</a> (Non-Normative)<br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#datenhaltung">Datenhaltung</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1 <a href="#datenhaltung-aufbau">Aufbau</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#frontend">Frontend</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-aufbau">Aufbau</a><br>
+4 <a href="#ausblick">Ausblick</a><br>
+<h3><a name="appendices" id="appendices"></a>Anhang</h3>
+<div class="toc">A <a href="#quellen">Quellen</a><br>
 </div>
+</div>
+</div>
+</div>
+
+
+
 <hr>
+
+
+<!-- begin of document body  -->
 <div class="body">
+
 <div class="div1">
-<h2><a name="intro" id="intro"></a>1 Introduction</h2>
-<p>This specification defines the XML Linking Language (XLink), which 
-allows elements to be inserted into XML documents in order to create and
- describe <a title="Link" href="#dt-link">links</a> between resources.</p>
-<p>XLink provides a framework for creating both basic unidirectional 
-links and more complex linking structures. It allows XML documents to:</p>
-<ul>
-<li>
-<p>Assert linking relationships among more than two resources</p>
-</li>
-<li>
-<p>Associate metadata with a link</p>
-</li>
-<li>
-<p>Express links that reside in a location separate from the linked resources</p>
-</li>
-</ul>
-<p>An important application of XLink is in hypermedia systems that have <a title="Hyperlink" href="#dt-hyperlink">hyperlinks</a>. A simple case of a hyperlink is an HTML <code>A</code> element, which has these characteristics:</p>
-<ul>
-<li>
-<p>The hyperlink uses IRIs as its locator technology.</p>
-</li>
-<li>
-<p>The hyperlink is expressed at one of its two ends.</p>
-</li>
-<li>
-<p>The hyperlink identifies the other end (although a server may have 
-great freedom in finding or dynamically creating that destination).</p>
-</li>
-<li>
-<p>Users can initiate traversal only from the end where the hyperlink is expressed to the other end.</p>
-</li>
-<li>
-<p>The hyperlink's effect on windows, frames, go-back lists, style 
-sheets in use, and so on is determined by user agents, not by the 
-hyperlink itself. For example, traversal of <code>A</code> links normally replaces the current view, perhaps with a user option to open a new window.</p>
-</li>
-</ul>
-<p>This set of characteristics is powerful, but the model that underlies
- them limits the range of possible hyperlink functionality. The model 
-defined in this specification shares with HTML the use of IRI 
-technology, but goes beyond HTML in offering features, previously 
-available only in dedicated hypermedia systems, that make hyperlinking 
-more scalable and flexible. Along with providing linking data 
-structures, XLink provides a minimal link behavior model; higher-level 
-applications layered on XLink will
-often specify alternate or more sophisticated rendering and processing 
-treatments.</p>
-<p>Integrated treatment of specialized links used in other technical 
-domains, such as foreign keys in relational databases and reference 
-values in programming languages, is outside the scope of this 
-specification.</p>
-<p>For languages, such as <a href="#css">[CSS]</a>, that wish to 
-identify hypertext links in a document, we suggest that any local 
-element from which XLink specifies that traversal is possible, and which
- the application treats as if it specified <code>actuate="onRequest"</code>, be treated as a <a href="http://www.w3.org/TR/REC-CSS2/selector.html#link-pseudo-classes">hyperlink source anchor</a>.</p>
+<h2><a name="einleitung" id="einleitung"></a>1 Einleitung</h2>
+<p> ... </p>
+
 <div class="div2">
-<h3><a name="origin-goals" id="origin-goals"></a>1.1 Origin and Goals</h3>
-<p>The design of XLink has been informed by knowledge of established 
-hypermedia systems and standards. The following standards have been 
-especially influential:</p>
-<ul>
-<li>
-<p><em>HTML</em> <a href="#html">[HTML]</a>: Defines several element types that represent links.</p>
-</li>
-<li>
-<p><em>HyTime</em> <a href="#iso10744">[ISO/IEC 10744]</a>: Defines 
-inline and inbound and third-party link structures and some semantic 
-features, including traversal control and presentation of objects.</p>
-</li>
-<li>
-<p><em>Text Encoding Initiative Guidelines</em> <a href="#tei">[TEI]</a>: Provides structures for creating links, aggregate objects, and link collections.</p>
-</li>
-</ul>
-<p>Many other linking systems have also informed the design of XLink, especially <a href="#dexter">[Dexter]</a>, <a href="#fress">[FRESS]</a>, <a href="#ohs">[OHS]</a>, <a href="#microcosm">[MicroCosm]</a>, and <a href="#intermedia">[Intermedia]</a>.</p>
-<p>See the XLink Requirements Document <a href="#xlreq">[XLREQ]</a> for a thorough explanation of requirements for the design of XLink.</p>
+<h3><a name="grundlegendes-konzept" id="grundlegendes-konzept"></a>1.1 Grundlegendes Konzept</h3>
+<p> ... </p>
 </div>
 </div>
+
 <div class="div1">
-<h2><a name="concepts" id="concepts"></a>2 XLink Concepts</h2>
-<p>This section describes the terms and concepts that are essential to 
-understanding XLink, without discussing the syntax used to create XLink 
-constructs. A few additional terms are introduced in later parts of this
- specification.</p>
+<h2><a name="verwendete-technologien" id="verwendete-technologien"></a>2 Verwendete Technologien</h2>
+<p> ... </p>
+
 <div class="div2">
-<h3><a name="linksandresources" id="linksandresources"></a>2.1 Links and Resources</h3>
-<p>[<a name="dt-link" id="dt-link" title="Link">Definition</a>: An XLink <b>link</b> is an explicit relationship between resources or portions of resources.] [<a name="dt-linkel" id="dt-linkel" title="Linking element">Definition</a>: It is made explicit by an XLink <b>linking element</b>,
- which is an XLink-conforming XML element that asserts the existence of a
- link.] There are six XLink elements; only two of them are considered 
-linking elements. The others provide various pieces of information that
-describe the characteristics of a link. (The term "link" as used in this
- specification refers only to an XLink link, though nothing prevents 
-non-XLink constructs from serving as links.)</p>
-<p>The notion of resources is universal to the World Wide Web. [<a name="dt-resource" id="dt-resource" title="Resource">Definition</a>: As discussed in <a href="#rfc3986">[RFC&nbsp;3986]</a>, a <b>resource</b>
- is any addressable unit of information or service.] Examples include 
-files, images, documents, programs, and query results. The means used 
-for addressing a resource is a IRI (Internationalized Resource 
-Identifier) reference (described more in <a href="#link-locators"><b>5.4 Locator Attribute
-(href)</b></a>). It is possible to address a portion of a resource. For 
-example, if the whole resource is an XML document, a useful portion of 
-that resource might be a particular element inside the document. 
-Following a link to it might result, for example, in highlighting that 
-element or scrolling to that point in the document.</p>
-<p>[<a name="dt-particip-resource" id="dt-particip-resource" title="Participating resource">Definition</a>: When a link associates a set of resources, those resources are said to <b>participate</b>
- in the link.] Even though XLink links must appear in XML documents, 
-they are able to associate all kinds of resources, not just XML-encoded 
-ones.</p>
-<p>One of the common uses of XLink is to create hyperlinks. [<a name="dt-hyperlink" id="dt-hyperlink" title="Hyperlink">Definition</a>: A <b>hyperlink</b>
- is a link that is intended primarily for presentation to a human user.]
- Nothing in XLink's design, however, prevents it from being used with 
-links that are intended solely for consumption by computers.</p>
+<h3><a name="xml" id="xml"></a>2.1 Xml</h3>
+<p> ... </p>
 </div>
+
 <div class="div2">
-<h3><a name="arcsbehavior" id="arcsbehavior"></a>2.2 Arcs, Traversal, and Behavior</h3>
-<p>[<a name="dt-traversal" id="dt-traversal" title="Traversal">Definition</a>: Using or following a link for any purpose is called <b>traversal</b>.]
- Even though some kinds of link can associate arbitrary numbers of 
-resources, traversal always involves a pair of resources (or portions of
- them); [<a name="dt-starting-resource" id="dt-starting-resource" title="Starting resource">Definition</a>: the source from which traversal is begun is the <b>starting resource</b>] and [<a name="dt-ending-resource" id="dt-ending-resource" title="Ending resource">Definition</a>: the destination is the <b>ending resource</b>]. Note that the term "resource" used in this fashion may at times apply to a resource portion, not a whole resource.</p>
-<p>[<a name="dt-arc" id="dt-arc" title="Arc">Definition</a>: Information
- about how to traverse a pair of resources, including the direction of 
-traversal and possibly application behavior information as well, is 
-called an <b>arc</b>]. If two arcs in a link specify the same pair of 
-resources, but they switch places as starting and ending resources, then
- the link is multidirectional, which is not the same as merely "going 
-back" after traversing a link.</p>
+<h3><a name="xslt" id="xslt"></a>2.2 Xslt</h3>
+<p> ... </p>
 </div>
+
 <div class="div2">
-<h3><a name="reltophysloc" id="reltophysloc"></a>2.3 Resources in Relation to the Physical Location of a Linking Element</h3>
-<p>[<a name="dt-local-resource" id="dt-local-resource" title="Local resource">Definition</a>: A <b>local resource</b> is an XML element that participates in a link by virtue of having as its parent, or being itself, a linking element]. [<a name="dt-remote-resource" id="dt-remote-resource" title="Remote resource">Definition</a>:
- Any resource or resource portion that participates in a link by virtue 
-of being addressed with an IRI reference is considered a <b>remote resource</b>,
- even if it is in the same XML
-document as the link, or even inside the same linking element.] Put 
-another way, a local resource is specified "by value," and a remote 
-resource is specified "by reference."</p>
+<h3><a name="bootstrap" id="bootstrap"></a>2.3 Bootstrap</h3>
+<p> ... </p>
+</div>
+</div>
+
+<div class="div1">
+<h2><a name="konzept" id="konzept"></a>3 Konzept</h2>
+<p> ... </p>
+
+<div class="div2">
+<h3><a name="datenhaltung" id="datenhaltung"></a>3.1 Datenhaltung</h3>
+<p> ... </p>
+
+<div class="div3">
+<h4><a name="datenhaltung-aufbau" id="datenhaltung-aufbau"></a>3.1.1 Aufbau</h4>
+<p> ... </p>
+</div>
+</div>
+
+<div class="div2">
+<h3><a name="frontend" id="frontend"></a>3.2 Frontend</h3>
+<p> ... </p>
+
+<div class="div3">
+<h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.1 Aufbau</h4>
+<p> ... </p>
+</div>
+</div>
+</div>
+
+<div class="div1">
+<h2><a name="ausblick" id="ausblick"></a>4 Ausblick</h2>
+<p> ... </p>
+</div>
+    
+</div>
+
+
+<div class="back">
+<div class="div1">
+<h2><a name="quellen" id="quellen"></a>A Quellen</h2>
+</div>
+</div>
+
+</body>
+</html>
