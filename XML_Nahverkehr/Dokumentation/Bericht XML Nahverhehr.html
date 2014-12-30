@@ -80,7 +80,13 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;2.4 <a href="#bootstrap">Bootstrap</a><br>
 3 <a href="#konzept">Konzept</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#datenhaltung">Datenhaltung</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1 <a href="#datenhaltung-aufbau">Aufbau</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1 <a href="#datenhaltung-master">Master</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.2 <a href="#datenhaltung-stations">Stations</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.3 <a href="#datenhaltung-routes">Routes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.4 <a href="#datenhaltung-schedules">Schedules</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.5 <a href="#datenhaltung-tickets">Tickets</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.6 <a href="#datenhaltung-drivers">Drivers</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.7 <a href="#datenhaltung-vehicles">Vehicles</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#frontend">Frontend</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-aufbau">Aufbau</a><br>
 4 <a href="#ausblick">Ausblick</a><br>
@@ -140,11 +146,86 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="datenhaltung" id="datenhaltung"></a>3.1 Datenhaltung</h3>
-<p> ... </p>
+<p>Für die Datenhaltung wurden zunächst einige Xml-Dateien angelegt, die jeweils einen Teil aller Tabellen beinhalten. Der Grund hierfür war es die Komplexität zu zerbrechen und aufzuteilen. Das Resultat waren daraufhin die folgenden Tabellen:</p>
+<ul>
+<li>
+<p>Haltestellen bzw. -stationen</p>
+</li>
+<li>
+<p>Routen</p>
+</li>
+<li>
+<p>Fahrpläne</p>
+</li>
+<li>
+<p>Ticket- bzw. Fahrpreise</p>
+</li>
+<li>
+<p>Fahrer</p>
+</li>
+<li>
+<p>Fahrzeuge</p>
+</li>
+</ul>
+<p>Um jedoch die einzelen Tabellen bzw. Xml-Dateien realisieren zu können, wurden unter anderem Identifikationsnummern als eindeutige Bezeichner eingesetzt. So hat zum Beispiel die Haltestelle "Hauptbahnhof" die Id "F5". Da nun aber auch Routen und Fahrpläne bezug auf Haltestellen nehmen, kommt es bei der Verwendung von mehreren Dateien zu Problemen.</p>
+<p>Aus diesem Grund wurde eine "nv_master.xml" erstellt, die alle eigenständigen Dateien wieder vereinen soll. Es war jedoch nicht möglich nur mit Referenzen auf die Tabellen zu arbeiten. Deshalb haben wir uns für eine Masterdatei entschieden, die eine Konkatination aller Tabellen beinhaltet. Dies bringt zwar den Nachteil mit sich, das Auslagern der Komplexität in viele Dateien nicht machen zu können, hat jedoch den Vorteil Ids uneingeschränkt nutzen zu können.</p>
+<p>Da es bei dem Zusammenmergen der einzelnen Dateien zu Konflikten kommen kann, sind Namesräume eingeführt worden. Jede ehemalige Xml-Datei hat nun ihren eingenen Namensraum. So ist der Namespace der "nv_station.xml" zum Beispiel "st".</p>
 
 <div class="div3">
-<h4><a name="datenhaltung-aufbau" id="datenhaltung-aufbau"></a>3.1.1 Aufbau</h4>
-<p> ... </p>
+<h4><a name="datenhaltung-master" id="datenhaltung-master"></a>3.1.1 Master</h4>
+<p>Um es noch ein mal zu erwähnen, besteht die Datenhaltung aus einer Datei, der sogenannten "nv_master.xml". Hierin befinden sich nun die nachfolgenden Entitäten:</p>
+<ul>
+<li>
+<p>st:stations</p>
+</li>
+<li>
+<p>rt:routes</p>
+</li>
+<li>
+<p>sc:schedules</p>
+</li>
+<li>
+<p>ti:tickets</p>
+</li>
+<li>
+<p>dr:drivers</p>
+</li>
+<li>
+<p>vh:vehicles</p>
+</li>
+</ul>
+<p>Um dies noch zu verdeutlichen, vergleiche man dies mit dem nachfolgenden Diagramm.</p>
+<img src="Bericht%20XML%20Nahverkehr/masterAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten des Masters">
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-stations" id="datenhaltung-stations"></a>3.1.2 Stations</h4>
+<p></p>
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-routes" id="datenhaltung-routes"></a>3.1.3 Routes</h4>
+<p></p>
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-schedules" id="datenhaltung-schedules"></a>3.1.4 Schedules</h4>
+<p></p>
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-tickets" id="datenhaltung-tickets"></a>3.1.5 Tickets</h4>
+<p></p>
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-drivers" id="datenhaltung-drivers"></a>3.1.6 Drivers</h4>
+<p></p>
+</div>
+
+<div class="div3">
+<h4><a name="datenhaltung-vehicles" id="datenhaltung-vehicles"></a>3.1.7 Vehicles</h4>
+<p></p>
 </div>
 </div>
 
