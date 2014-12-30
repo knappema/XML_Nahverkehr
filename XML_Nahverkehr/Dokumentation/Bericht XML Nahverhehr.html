@@ -200,12 +200,18 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div3">
 <h4><a name="datenhaltung-stations" id="datenhaltung-stations"></a>3.1.2 Stations</h4>
-<p></p>
+<p>In der Entität Stations werden Haltestellen und -stationen verwaltet. Jede Station besitzt neben den Attributen stationId und name auch weiter Entitäten. Hierunter fallen stationTypes, street und ticketmachines.</p>
+<p>Ersteres gibt die Art der Station an, was heißt, welche Fahrzeuge an dieser Station halten können. So kann unterschieden werden, ob es zum Beispiel eine Bushaltestelle oder ein U-Bahnhof ist. Bei street hadelt es sich um die Straße, in der diese Haltestelle zu finden ist. Bei ticketmachines können einzelne Automaten hinzugefügt werden, falls die jeweilige Station über ein solches Gerät verfügt.</p>
+<p>Der Aufbau und die einzelenen Abhängigkeiten der Entitäten untereinader werden auch noch mal im nachfolgenden Diagramm deutlich.</p>
+<img src="Bericht%20XML%20Nahverkehr/stationsAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Stations">
 </div>
 
 <div class="div3">
 <h4><a name="datenhaltung-routes" id="datenhaltung-routes"></a>3.1.3 Routes</h4>
-<p></p>
+<p>Bei den Routen handelt es sich um Linien, wie man das von Bus- oder U-Bahn-Linien kennt. Es sind somit Pfade oder wie schon genannt Routen, die ein einzelnes Fahrzeug abfährt. Auf dem Weg hält es dabei an gewissen Stationen, die in einem Routenplan vermerkt sind. Dieser Routenplan wird in der Entität Routes abgebildet.</p>
+<p>Eine Route besitzt neben ihren Attributen routeId und type, was hier zum Beispiel Bus oder U-Bahn sein kann, auch noch weitere Entitäten. Dies ist eine Liste aus Stationen, die einer Route zugeordnet sind. Jede dieser Stationen besitzt eine ReferenzId, welche auf die in <a href="#datenhaltung-stations">Abschnitt 3.1.2</a> erwähnten Stationen verweisen. So müssen die Stationen und dessen Attribute nur an einer Stelle in der Datenhaltung verwaltet werden.</p>
+<p>Im Nachfolgendem ist dieser Sachverhalt nochmals anhand eines Diagramms dargestellt.</p>
+<img src="Bericht%20XML%20Nahverkehr/routesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Routes">
 </div>
 
 <div class="div3">
