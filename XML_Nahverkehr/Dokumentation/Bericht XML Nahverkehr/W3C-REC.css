@@ -90,6 +90,12 @@ body {
 
 
 /* Custom css */
-img {
-	width: 450px;
+body {
+	font-size: 22px;
+	line-height: 1.5;
 }
+
+img {
+	width: 550px;
+}
+

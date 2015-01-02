@@ -204,6 +204,23 @@ div.exampleHeader { font-weight: bold;
 <p>Ersteres gibt die Art der Station an, was heißt, welche Fahrzeuge an dieser Station halten können. So kann unterschieden werden, ob es zum Beispiel eine Bushaltestelle oder ein U-Bahnhof ist. Bei street hadelt es sich um die Straße, in der diese Haltestelle zu finden ist. Bei ticketmachines können einzelne Automaten hinzugefügt werden, falls die jeweilige Station über ein solches Gerät verfügt.</p>
 <p>Der Aufbau und die einzelenen Abhängigkeiten der Entitäten untereinader werden auch noch mal im nachfolgenden Diagramm deutlich.</p>
 <img src="Bericht%20XML%20Nahverkehr/stationsAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Stations">
+<p>Im nachfolgenden Codebeispiel ist die Station "Fuerth Hardhoehe" gezeigt. Unter anderem erkennt man, dass diese Station sowohl über eine Bus- als auch U-Bahn-Haltestelle verfügt. Zudem erhält man noch Informationen zur Straße der Haltestelle, die in diesem Beispiel "Komotauer Strasse" ist und über die Anzahl der vorhandenen Ticketautomaten, sowie derren Id.</p>
+<div class="exampleInner"><pre>
+&lt;st:stations&gt;
+	...
+	&lt;st:station stationId="F1" name="Fuerth Hardhoehe"&gt;
+		&lt;st:stationTypes&gt;
+			&lt;st:type name="bus"/&gt;
+			&lt;st:type name="subway"/&gt;
+		&lt;/st:stationTypes&gt;
+		&lt;st:street name="Komotauer Strasse"/&gt;
+		&lt;st:ticketMachines&gt;
+			&lt;st:ticketMachine ticketMachineId="TMF1" /&gt;
+		&lt;/st:ticketMachines&gt;
+	&lt;/st:station&gt;
+	...
+&lt;/st:stations&gt;	
+</pre></div>
 </div>
 
 <div class="div3">
@@ -212,6 +229,24 @@ div.exampleHeader { font-weight: bold;
 <p>Eine Route besitzt neben ihren Attributen routeId und type, was hier zum Beispiel Bus oder U-Bahn sein kann, auch noch weitere Entitäten. Dies ist eine Liste aus Stationen, die einer Route zugeordnet sind. Jede dieser Stationen besitzt eine ReferenzId, welche auf die in <a href="#datenhaltung-stations">Abschnitt 3.1.2</a> erwähnten Stationen verweisen. So müssen die Stationen und dessen Attribute nur an einer Stelle in der Datenhaltung verwaltet werden.</p>
 <p>Im Nachfolgendem ist dieser Sachverhalt nochmals anhand eines Diagramms dargestellt.</p>
 <img src="Bericht%20XML%20Nahverkehr/routesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Routes">
+<p>In dem nachfolgendem Codebeispiel ist die Route "U1" zu sehen, bei der es sich um ein U-Bahn-Linie handelt. Im Weiteren sind ein Ausschnitt von Stationen angegeben, die jeweils durch die stationId referenziert werden.</p>
+<div class="exampleInner"><pre>
+&lt;rt:routes&gt;
+	...
+	&lt;rt:route routeId="U1" type="subway"&gt;
+		&lt;rt:station stationId="F1" /&gt;
+		&lt;rt:station stationId="F2" /&gt;
+		&lt;rt:station stationId="F3" /&gt;
+		&lt;rt:station stationId="F4" /&gt;
+		...
+		&lt;rt:station stationId="N18" /&gt;
+		&lt;rt:station stationId="N19" /&gt;
+		&lt;rt:station stationId="N20" /&gt;
+		&lt;rt:station stationId="N21" /&gt;
+	&lt;/rt:route&gt;
+	...
+&lt;/rt:routes&gt;	
+</pre></div>
 </div>
 
 <div class="div3">
@@ -232,6 +267,25 @@ div.exampleHeader { font-weight: bold;
 <p>Darüber hinaus besitzt scheudule eine Entität namens depatureTimes. Dies sind die Abfahrtszeiten einer Linie an der jeweiligen Station. Die Entität depatureTimes verfügt zusätzlich noch über ein Attribut names finalStationId, was die Abfahrtsrichtung festlegt. Es wird somit nur eine Endhaltestelle mittels referenzierter Id angegeben. Ein Beispiel hierfür wäre: Die U-Bahn der Linie XY fährt in Richtung Endstation Hauptbahnhof.</p>
 <p>Die Entität time ist ein Teil von depatureTimes. Dies sind letztendlich die einzelen Abfahrtszeiten eines Tages. Zur Vereinfachung bzw. zur Reduktion des Datenbestandes haben wir angenommen, dass die Abfahrtszeiten an jedem Tag in der Woche gleich sind.</p>
 <img src="Bericht%20XML%20Nahverkehr/schedulesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Schedules">
+<p>In dem nachfolgendem Codebeispiel ist der Fahrplanaushang "S2" zu sehen, der für die Route "U1" an der Station "F2" gilt. Daraufhin sind die Abfahrtszeiten für beide Fahrtrichtungen angegeben.</p>
+<div class="exampleInner"><pre>
+&lt;sc:schedules&gt;
+	...
+	&lt;sc:schedule scheduleId="S2" stationId="F2" routeId="U1"&gt;
+		&lt;sc:departureTimes finalStationId="N21"&gt;
+			&lt;sc:time&gt;11:32&lt;/sc:time&gt;
+			&lt;sc:time&gt;12:32&lt;/sc:time&gt;
+			&lt;sc:time&gt;13:32&lt;/sc:time&gt;
+		&lt;/sc:departureTimes&gt;
+		&lt;sc:departureTimes finalStationId="F1"&gt;
+			&lt;sc:time&gt;11:45&lt;/sc:time&gt;
+			&lt;sc:time&gt;12:45&lt;/sc:time&gt;
+			&lt;sc:time&gt;13:45&lt;/sc:time&gt;
+		&lt;/sc:departureTimes&gt;
+	&lt;/sc:schedule&gt;
+	...
+&lt;/sc:schedules&gt;
+</pre></div>
 </div>
 
 <div class="div3">
@@ -254,6 +308,22 @@ div.exampleHeader { font-weight: bold;
 <p>Desweiteren besizt ticket noch zwei Entitäten. Erstens description, was eine Beschreibung der Ticketform in ein oder zwei Sätzen ist und zweitens fares, was die Tarifzone beschreibt. Hierbei werden meist um den Kern einer Stadt Kreise gelegt. Je weiter man sich nun von diesem Kern mit öffenlichen Verkehsmitteln entfernen möchte, in umso höhere Preisklassen kommt man.</p>
 <p>Mit den Attributen in fare werden nun diese Kreise festgelegt. type beschreibt bzw. benennt dabei den jeweiligen Kreis oder Tarifzone. In price wird dann der eigentliche Ticketpreis festgelegt.</p>
 <img src="Bericht%20XML%20Nahverkehr/ticketsAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Tickets">
+<p>In dem nachfolgendem Codebeispiel sind die Fahrpreise für Tagestickets zu sehen. Die Preise für eine solche Fahrkarte können dabei durch die jeweilige Tarifzone unterscheiden. So kostet ein Tagesticket in der Tarifzone T2 4,60 €.</p>
+<div class="exampleInner"><pre>
+&lt;ti:tickets&gt;
+	...
+	&lt;ti:ticket type="day"&gt;
+		&lt;ti:description&gt;Valid for remaining day or remaining weekend&lt;/ti:description&gt;
+		&lt;ti:fares&gt;
+			&lt;ti:fare type="A" price="5,30" /&gt;
+			&lt;ti:fare type="T2" price="4,60" /&gt;
+			&lt;ti:fare type="T3" price="11,00" /&gt;
+			&lt;ti:fare type="T4" price="11,00" /&gt;
+		&lt;/ti:fares&gt;
+	&lt;/ti:ticket&gt;
+	...
+&lt;/ti:tickets&gt;
+</pre></div>
 </div>
 
 <div class="div3">
@@ -290,6 +360,22 @@ div.exampleHeader { font-weight: bold;
 </ul>
 <p>Die Letzte Entität ist nun vehicle. Dies können dabei mehrere sein und geben jeweils an, welche Typ von Fahrzeugen der jeweilige Fahrer bedienen darf bzw. wofür eine entsprechende Lizenz vorliegt. Diese Typen können zum Beispiel sein: subway, bus, tram ...</p>
 <img src="Bericht%20XML%20Nahverkehr/driversAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Drivers">
+<p>In dem nachfolgendem Codebeispiel ist ein Fahrer mit dem Namen "Max Mustermann" zu sehen. Dieser Angestellte hat dabei ausschließlich eine Lizenz zum Führen eines Busses. Weiterhin ist auch noch die Adresse des Fahrers ersichtlich.</p>
+<div class="exampleInner"><pre>
+&lt;dr:drivers&gt;
+	...
+	&lt;dr:driver driverId="D2" firstname="Max" lastname="Mustermann" phone="0172555455"&gt;
+		&lt;dr:vehicle type="bus"/&gt;
+		&lt;dr:homeaddress&gt;
+			&lt;dr:street&gt;Breitscheidstraße&lt;/dr:street&gt;
+			&lt;dr:houseNo&gt;131&lt;/dr:houseNo&gt;
+			&lt;dr:areacode&gt;90459&lt;/dr:areacode&gt;
+			&lt;dr:town&gt;Nuernberg&lt;/dr:town&gt;
+		&lt;/dr:homeaddress&gt;
+	&lt;/dr:driver&gt;
+	...
+&lt;/dr:drivers&gt;
+</pre></div>
 </div>
 
 <div class="div3">
@@ -310,6 +396,25 @@ div.exampleHeader { font-weight: bold;
 </li>
 </ul>
 <img src="Bericht%20XML%20Nahverkehr/vehiclesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Vehicles">
+<p>In dem nachfolgendem Codebeispiel sind einige Fahrzeuge aus dem Nürnberger Fuhrpark zu sehen. So besitzt zum Beispiel der Bus mit dem Kennzeichen "N-BU-101" eine maximale Passagieranzahl von "80" usw.</p>
+<div class="exampleInner"><pre>
+&lt;vh:vehicles&gt;
+	...
+	&lt;vh:vehicle type="bus"
+				licensePlate="N-BU-100"
+				capacity="50"
+				buildYear="1999"/&gt;
+	&lt;vh:vehicle type="bus"
+				licensePlate="N-BU-101"
+				capacity="80"
+				buildYear="2005"/&gt;
+	&lt;vh:vehicle type="subway"
+				licensePlate="N-SU-100"
+				capacity="310"
+				buildYear="2000"/&gt;
+	...
+&lt;/vh:vehicles&gt;
+</pre></div>
 </div>
 </div>
 
