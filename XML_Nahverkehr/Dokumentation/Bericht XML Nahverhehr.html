@@ -78,6 +78,7 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;2.2 <a href="#dtd">Dtd</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.3 <a href="#xslt">Xslt</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.4 <a href="#bootstrap">Bootstrap</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.5 <a href="#jquery">jQuery</a><br>
 3 <a href="#konzept">Konzept</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#datenhaltung">Datenhaltung</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1 <a href="#datenhaltung-master">Master</a><br>
@@ -136,7 +137,58 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="bootstrap" id="bootstrap"></a>2.4 Bootstrap</h3>
+<p>Bootstrap ist ein weitverbreitetes Frontend Framework für die Erstellung von Webseiten. Es ermöglicht mit sehr wenig Aufwand ein brauchbares Layout einer Seite zu erstellen. Der Hauptfokus von Bootstrap liegt dabei auf mobilfreundliche strukturierung von Webseiten. Das sogenannte "responsive design" ermöglicht es, eine Webseite komfortabel auf Geräten jeglicher größe betrachten zu können. Das folgende Bild soll "responsive design" illustrieren.</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/responsiveDesign.png" alt="Illustration des Responsive Design"></center>
+
+<p>Für dieses Projekt verwenden wir Bootstrap größtenteils um das Gridsystem zu nutzen. Zusätzlich nutzen wir Bootstrap um unsere rohen XML Daten strukturierter darstellen zu können.</p>
+
+<p>Um sofort mit Bootstrap loslegen zu können, müssen einfach nur die Bootstrap .css und .js Dateien eingebunden werden. Die leichteste Methode ist die Folgende:
+</p>
+<div class="exampleInner"><pre>
+&lt;html>
+	&lt;header>
+		&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/
+		bootstrap/3.3.1/css/bootstrap.min.css">
+		&lt;script src="https://maxcdn.bootstrapcdn.com/
+		bootstrap/3.3.1/js/bootstrap.min.js">&lt;/script>	
+	&lt;/header>
+	&lt;body>
+		... Inhalt ...
+	&lt;/body>
+&lt;/html>
+</pre></div>
+<p>Nach der Einbindung kann sofort begonnen werden, den HTML Code mit Bootstrapklassen zu modifizieren. Bootstrap unterscheidet zwischen vier Gerätegrößen. Extra Small, Small, Medium und Large Devices. Ein HTML &lt;div> Tag kann durch die entsprechenden Bootstrapklassen modifiziert werden um festzulegen, wie groß das &lt;div> Element sein soll in Abhängigkeit von der Gerätegröße. Die Gerätegrößeklassen werden im folgenden Bild genauer beschrieben.</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/bootstrapDevices.png" alt="Gerätegrößen von Bootstrap"></center>
+
+<p>
+Das Bootstrap Gridsystem besteht aus Containern, Reihen und Spalten. Jeder Container kann mehrere Reihen haben und jeder Reihe kann mehrere Spalten haben. Eine Spalte kann eine bestimmte Breite haben. Bootstrap teilt Reihen in zwölf gleichgroße Teile auf. Jeder Spalte kann dann eine bestimmte Breite zwischen 1 und 12 zugewiesen werden. Das folgende Bild zeigt dieses Prinzip etwas genauer.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/bootstrapGrid.png" alt="Gerätegrößen von Bootstrap"></center>
+
+<p>
+Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe besteht aus drei Spalten. Auf mittelgroßen und sehr großen Desktops sollen die drei "Boxen" nebeneinander sein. Auf kleineren Geräten sollen die drei Spalten zu Zeilen werden, wobei jede Spalte zwölf Einheiten groß sein soll.
+</p>
+<div class="exampleInner"><pre>
+&lt;div class="container">
+	&lt;div class="row">
+		&lt;div class="col-md-4 col-xs-12">Box1&lt;/div>
+		&lt;div class="col-md-4 col-xs-12">Box2&lt;/div>
+		&lt;div class="col-md-4 col-xs-12">Box3&lt;/div>
+	&lt;/div>
+&lt;/div>
+</pre>
+</div>
+
+</div>
+
+<div class="div2">
+<h3><a name="jquery" id="jquery"></a>2.5 jQuery</h3>
 <p> ... </p>
+</div>
+
 </div>
 </div>
 
