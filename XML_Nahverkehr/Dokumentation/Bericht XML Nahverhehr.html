@@ -216,22 +216,100 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div3">
 <h4><a name="datenhaltung-schedules" id="datenhaltung-schedules"></a>3.1.4 Schedules</h4>
-<p></p>
+<p>Unter dem Begriff Schedules muss man die einzelnen Fahrplanaushänge einer Haltestation verstehen. Jeder einzelne Aushang hat somit eine enge Verbindung zu der Haltestation und einer Route. Es ist das Verbindungsglied zwischen den in <a href="#datenhaltung-stations">Abschnitt 3.1.2</a> und <a href="#datenhaltung-routes">Abschnitt 3.1.3</a> erwähnten Entitäten.</p>
+<p>Um so eine Verknüpfung zu realisieren, sind Ids und deren Referenzen nötig. So besitzt die Entität schedule eben zuvor genannte Attribute, man vergleiche hierzu auch nachfolgende Abbildung. Diese lauten somit im Detail:</p>
+<ul>
+<li>
+<p><b>scheduleId:</b> Eindeutige Id für den jeweiligen Fahrplan.</p>
+</li>
+<li>
+<p><b>stationId:</b> Referenz auf eine Id aus der in <a href="#datenhaltung-stations">Abschnitt 3.1.2</a> vorgestellten Entität.</p>
+</li>
+<li>
+<p><b>routeId:</b> Referenz auf eine Id aus der in <a href="#datenhaltung-routes">Abschnitt 3.1.3</a> vorgestellten Entität.</p>
+</li>
+</ul>
+<p>Darüber hinaus besitzt scheudule eine Entität namens depatureTimes. Dies sind die Abfahrtszeiten einer Linie an der jeweiligen Station. Die Entität depatureTimes verfügt zusätzlich noch über ein Attribut names finalStationId, was die Abfahrtsrichtung festlegt. Es wird somit nur eine Endhaltestelle mittels referenzierter Id angegeben. Ein Beispiel hierfür wäre: Die U-Bahn der Linie XY fährt in Richtung Endstation Hauptbahnhof.</p>
+<p>Die Entität time ist ein Teil von depatureTimes. Dies sind letztendlich die einzelen Abfahrtszeiten eines Tages. Zur Vereinfachung bzw. zur Reduktion des Datenbestandes haben wir angenommen, dass die Abfahrtszeiten an jedem Tag in der Woche gleich sind.</p>
+<img src="Bericht%20XML%20Nahverkehr/schedulesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Schedules">
 </div>
 
 <div class="div3">
 <h4><a name="datenhaltung-tickets" id="datenhaltung-tickets"></a>3.1.5 Tickets</h4>
-<p></p>
+<p>In der Entität tickets werden alle Fahr- bzw. Ticketpreise verwaltet, man vergleiche hierzu auch nachfolgendes Diagramm. So besitzt ein ticket das Attribut type, welches die Dauer bzw. die Gültigkeit der Fahrkarte angibt. Diese können unter anderem sein:</p>
+<ul>
+<li>
+<p><b>single:</b> Ein Ticket für eine einfache Fahrt, ohne Rückfahrt oder ähnlichem.</p>
+</li>
+<li>
+<p><b>day:</b> Ein Tagesticket, gültig für alle Verkehsmittel und in alle Richtung für einen Tag.</p>
+</li>
+<li>
+<p><b>month:</b> Ein Monatsticket, gültig für alle Verkehsmittel und in alle Richtung für einen Monat.</p>
+</li>
+<li>
+<p><b>...</b></p>
+</li>
+</ul>
+<p>Desweiteren besizt ticket noch zwei Entitäten. Erstens description, was eine Beschreibung der Ticketform in ein oder zwei Sätzen ist und zweitens fares, was die Tarifzone beschreibt. Hierbei werden meist um den Kern einer Stadt Kreise gelegt. Je weiter man sich nun von diesem Kern mit öffenlichen Verkehsmitteln entfernen möchte, in umso höhere Preisklassen kommt man.</p>
+<p>Mit den Attributen in fare werden nun diese Kreise festgelegt. type beschreibt bzw. benennt dabei den jeweiligen Kreis oder Tarifzone. In price wird dann der eigentliche Ticketpreis festgelegt.</p>
+<img src="Bericht%20XML%20Nahverkehr/ticketsAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Tickets">
 </div>
 
 <div class="div3">
 <h4><a name="datenhaltung-drivers" id="datenhaltung-drivers"></a>3.1.6 Drivers</h4>
-<p></p>
+<p>Die Entität drivers beinhaltet alle Angestellten des Nahverkehrsystems, die die Lizenz haben ein Fahrzeug zu bedienen. Man vergleiche dies hierzu auch mit nachfolgender Abbildung. Es werden in dieser Entity alle Relevanten Informationen über die Fahrer abgespeichert. So besitzt die Entität Driver zunächst die folgenden Attribute:</p>
+<ul>
+<li>
+<p><b>driverId:</b> Eine eindeutige Id.</p>
+</li>
+<li>
+<p><b>firstname:</b> Der Vorname des Fahrers.</p>
+</li>
+<li>
+<p><b>Lastname:</b> Der Nachname des Fahrers.</p>
+</li>
+<li>
+<p><b>phone:</b> Die private Telefonnummer des Fahrers.</p>
+</li>
+</ul>
+<p>Desweiteren besitzt driver noch Entitäten wie vehicle und homeaddress. Letzeres verwaltet die Adresse des Fahrers. Hierzu ist diese in weiteren Entitäten aufgeteilt:</p>
+<ul>
+<li>
+<p><b>street:</b> Straße</p>
+</li>
+<li>
+<p><b>houseNo:</b> Hausnummer</p>
+</li>
+<li>
+<p><b>areacode:</b> Postleitzahl</p>
+</li>
+<li>
+<p><b>town:</b> Ort</p>
+</li>
+</ul>
+<p>Die Letzte Entität ist nun vehicle. Dies können dabei mehrere sein und geben jeweils an, welche Typ von Fahrzeugen der jeweilige Fahrer bedienen darf bzw. wofür eine entsprechende Lizenz vorliegt. Diese Typen können zum Beispiel sein: subway, bus, tram ...</p>
+<img src="Bericht%20XML%20Nahverkehr/driversAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Drivers">
 </div>
 
 <div class="div3">
 <h4><a name="datenhaltung-vehicles" id="datenhaltung-vehicles"></a>3.1.7 Vehicles</h4>
-<p></p>
+<p>Die Beschreibungen eines Fahrzeuges wurden recht einfach gehalten und bestehen an sich nur aus einer einzigen Entität. Diese hat jedoch einige Attribute:</p>
+<ul>
+<li>
+<p><b>type:</b> Der Typ eines Fahrzeuges, wie zum Beispiel: subway, bus, tram, city-train ...</p>
+</li>
+<li>
+<p><b>licensePlate:</b> Das eindeutige Nummernschild des jeweiligen Fahrzeugs.</p>
+</li>
+<li>
+<p><b>capacity:</b> Die maximale Anzahl an zugelassenen Passagieren.</p>
+</li>
+<li>
+<p><b>buildYear:</b> Das Baujahr des jeweiligen Fahrzeugs.</p>
+</li>
+</ul>
+<img src="Bericht%20XML%20Nahverkehr/vehiclesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Vehicles">
 </div>
 </div>
 
