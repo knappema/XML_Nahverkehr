@@ -108,11 +108,12 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div1">
 <h2><a name="einleitung" id="einleitung"></a>1 Einleitung</h2>
-<p> ... </p>
+<p>Dieser Bericht behandelt die grundlegende Verwendung der Auszeichnungsspache Xml, wobei diese Abkürzung für Extensible Markup Language steht. Xml wird im Weiteren zur hierarchischen Strukturierung von Daten hergenommen. Um diese im späteren Verlauf nutzerfreundlich zu Visualisieren wird eine Programmiersprache names Xsl verwendet, die Xml nach Html transformiert. So kann durch diese Extensible Stylesheet Language (XSL) ein umfangreiches Html-Dokument erstellt werden, das nicht nur statisch Daten anzeigen kann, sondern auch Interaktiv die UI mitverändert.</p>
 
 <div class="div2">
 <h3><a name="grundlegendes-konzept" id="grundlegendes-konzept"></a>1.1 Grundlegendes Konzept</h3>
-<p> ... </p>
+<p>Um nun die Verwendung von Xml und Xsl in einem Beispiel zu zeigen, haben wir hierfür ein Projekt names Nahverkehrssystem erstellt. Dieses System soll über eine Datenhaltung verfügen, die alle Informationen zu Routen, Personal und Fahrzeugen speichert. Diese Datenbank soll dabei mit Xml erstellt werden.</p>
+<p>Für die nutzerfreundliche Visualierung dieser Daten in diesem Projekt kommt daraufhin Xsl zum Einsatz, um hieraus ein Html-Dokument zu generieren. Das Bedienkonzept, welches noch näher in <a href="#frontend">Abschnitt 3.2</a> erläutert wird, verfolgt dabei mehrere Views, die durch Tabs erreichbar sind. Jede dieser Views soll dabei einen unabhängigen Berich der Datenhaltung wiederspiegeln.</p>
 </div>
 </div>
 
@@ -194,7 +195,7 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div1">
 <h2><a name="konzept" id="konzept"></a>3 Konzept</h2>
-<p>Das Konzept, das kurz in <a href="#datenhaltung-stations">Abschnitt 1.1</a> erläutert wurde, wird in diesem Kapitel nun noch näher differenziert. So ist es zunächst möglich, dieses Projekt in zwei Teilprojekte zu zerlegen. Zu jedem von diesem kann daraufhin ein eingenes Konzept verfasst werden. Diese sind:</p>
+<p>Das Konzept, das kurz in <a href="#grundlegendes-konzept">Abschnitt 1.1</a> erläutert wurde, wird in diesem Kapitel nun noch näher differenziert. So ist es zunächst möglich, dieses Projekt in zwei Teilprojekte zu zerlegen. Zu jedem von diesem kann daraufhin ein eingenes Konzept verfasst werden. Diese sind:</p>
 <ul>
 <li>
 <p><b>Datenhaltung:</b> Speicherung von Fahrplänen, Haltenstellen, Fahrzeugen, Routen usw. durch Xml.</p>
@@ -389,7 +390,7 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div3">
 <h4><a name="datenhaltung-drivers" id="datenhaltung-drivers"></a>3.1.6 Drivers</h4>
-<p>Die Entität drivers beinhaltet alle Angestellten des Nahverkehrsystems, die die Lizenz haben ein Fahrzeug zu bedienen. Man vergleiche dies hierzu auch mit nachfolgender Abbildung. Es werden in dieser Entity alle Relevanten Informationen über die Fahrer abgespeichert. So besitzt die Entität Driver zunächst die folgenden Attribute:</p>
+<p>Die Entität drivers beinhaltet alle Angestellten des Nahverkehrssystems, die die Lizenz haben ein Fahrzeug zu bedienen. Man vergleiche dies hierzu auch mit nachfolgender Abbildung. Es werden in dieser Entity alle Relevanten Informationen über die Fahrer abgespeichert. So besitzt die Entität Driver zunächst die folgenden Attribute:</p>
 <ul>
 <li>
 <p><b>driverId:</b> Eine eindeutige Id.</p>
