@@ -194,7 +194,16 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div1">
 <h2><a name="konzept" id="konzept"></a>3 Konzept</h2>
-<p> ... </p>
+<p>Das Konzept, das kurz in <a href="#datenhaltung-stations">Abschnitt 1.1</a> erläutert wurde, wird in diesem Kapitel nun noch näher differenziert. So ist es zunächst möglich, dieses Projekt in zwei Teilprojekte zu zerlegen. Zu jedem von diesem kann daraufhin ein eingenes Konzept verfasst werden. Diese sind:</p>
+<ul>
+<li>
+<p><b>Datenhaltung:</b> Speicherung von Fahrplänen, Haltenstellen, Fahrzeugen, Routen usw. durch Xml.</p>
+</li>
+<li>
+<p><b>Frontend:</b> Nutzerfreundlicher Zugriff auf den Datenbestand mittels einer Html-Seite, generiert durch Xslt.</p>
+</li>
+</ul>
+<p>Da jedoch beide nicht vollständig Unabhängig voneinander implementiert werden können, ist es nötig zuerst die Datenhaltung anzulegen. Daraufhin besitzt man die Grundlage das Frontend zu entwickeln.</p>
 
 <div class="div2">
 <h3><a name="datenhaltung" id="datenhaltung"></a>3.1 Datenhaltung</h3>
