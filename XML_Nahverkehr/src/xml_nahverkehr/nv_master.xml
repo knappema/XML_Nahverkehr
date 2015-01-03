@@ -305,7 +305,7 @@
             <dr:vehicle type="subway"/>
             <dr:homeaddress>
                 <dr:street>Rieterstraße</dr:street>
-                <dr:houseNo>100</dr:houseNo>
+                <dr:houseNo>180</dr:houseNo>
                 <dr:areacode>90530</dr:areacode>
                 <dr:town>Wendelstein</dr:town>
             </dr:homeaddress>
@@ -317,6 +317,34 @@
                 <dr:houseNo>131</dr:houseNo>
                 <dr:areacode>90459</dr:areacode>
                 <dr:town>Nuernberg</dr:town>
+            </dr:homeaddress>
+        </dr:driver>
+		<dr:driver driverId="D3" firstname="Hans" lastname="Schmidt" phone="01525467732">
+            <dr:vehicle type="bus"/>
+            <dr:homeaddress>
+                <dr:street>Beispielweg</dr:street>
+                <dr:houseNo>3</dr:houseNo>
+                <dr:areacode>23987</dr:areacode>
+                <dr:town>Irgendwo</dr:town>
+            </dr:homeaddress>
+        </dr:driver>
+		<dr:driver driverId="D4" firstname="Heinz" lastname="Becker" phone="01608845232">
+            <dr:vehicle type="city_train"/>
+			<dr:vehicle type="subway"/>
+            <dr:homeaddress>
+                <dr:street>Mustergasse</dr:street>
+                <dr:houseNo>4</dr:houseNo>
+                <dr:areacode>12543</dr:areacode>
+                <dr:town>MUsterdorf</dr:town>
+            </dr:homeaddress>
+        </dr:driver>
+		<dr:driver driverId="D5" firstname="Katrin" lastname="Musterfrau" phone="01752498632">
+            <dr:vehicle type="tram"/>
+            <dr:homeaddress>
+                <dr:street>Musterstraße</dr:street>
+                <dr:houseNo>7</dr:houseNo>
+                <dr:areacode>12345</dr:areacode>
+                <dr:town>Musterstadt</dr:town>
             </dr:homeaddress>
         </dr:driver>
     </dr:drivers>
