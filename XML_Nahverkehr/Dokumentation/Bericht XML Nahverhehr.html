@@ -89,7 +89,8 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.6 <a href="#datenhaltung-drivers">Drivers</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.7 <a href="#datenhaltung-vehicles">Vehicles</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#frontend">Frontend</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-aufbau">Aufbau</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-aufbau">Mockups</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2 <a href="#frontend-aufbau">Aufbau</a><br>
 4 <a href="#resuemee">Resümee</a><br>
 <h3><a name="appendices" id="appendices"></a>Anhang</h3>
 <div class="toc">A <a href="#quellen">Quellen</a><br>
@@ -207,7 +208,27 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div2">
 <h3><a name="jquery" id="jquery"></a>2.5 jQuery</h3>
-<p> ... </p>
+<p>
+JQuery ist eine clientseitige Javascript Bibliothek. JQuery ermöglicht es u. a. mit wenig Aufwand das DOM (Document Object Model) zu modifizieren. In unserem Projekt haben wir jQuery hauptsächlich dazu verwendet, relevante Teile der XML Daten anzuzeigen und irrelevante Teile zu verstecken. Die Einbindung von jQuery ist genauso einfach wie bei Bootstrap und es muss auch hier nur eine .js Datei eingebunden werden.
+</p>
+
+<p>
+In jQuery wird auf folgende Weise auf DOM Knoten zugegriffen:
+</p>
+
+<div class="exampleInner"><pre>
+$(".route") // Zugriff auf bestimmte Klasse
+$(".route.station") // Zugriff auf Elemente, welche beide Klassen haben
+$("#route") // Zugriff auf bestimmte ID
+$("a") // Zugriff auf bestimmtes Element
+$('div:not(.route)') // Zugriff auf alle divs, die nicht von der Klasse "route" sind
+</pre>
+</div>
+
+<p>
+JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manipulieren und es würde den Rahmen dieses Berichts sprengen, detailiert darauf einzugehen. Deshalb gibt es lediglich weiter unten einige jQuery Lösungen, die wir für bestimmte Problemstellungen verwendet haben.
+</p>
+
 </div>
 
 </div>
@@ -502,12 +523,76 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div2">
 <h3><a name="frontend" id="frontend"></a>3.2 Frontend</h3>
-<p> ... </p>
+<p> 
+Nach der Festlegung unseres Datenmodells musste anschließend die Darstellung dieser Daten konzeptioniert werden. Wir hatten uns entschieden zunächst Mockups anzufertigen, um uns auf ein bestimmtes Layout zu einigen. Ursprünglich war geplant, für jeden "Aspekt" unseres Datenmodells eine .html Datei mithilfe von XSLT zu erzeugen. Als die Mockups entstanden sind, war noch nicht ganz klar wie die Mockups mit XSLT umgesetzt werden sollten. So waren wir uns noch nicht bewusst, wo wir bei der Darstellung auf Probleme stoßen würden. Aus diesem Grund ist unsere tatsächliche Umsetzung der grafischen Oberfläche zwar den Mockups visuell ähnlich, jedoch "unter der Haube" völlig anders.
+</p>
 
 <div class="div3">
-<h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.1 Aufbau</h4>
-<p> ... </p>
+<h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.1 Mockups</h4>
+
+<p>
+Im Folgenden werden die Mockups beschrieben und die Ideen dahinter näher erleutert.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/indexMockup.png" alt="Index Mockup"></center>
+
+<p>
+Von der zentralen index.html unserer Oberfläche wollten wir Buttons zur Verfügung stellen, um auf alle Unterseiten zu gelangen. Diese Unterseiten sollten jeweils einen bestimmten Teil unseres Datenmodells darstellen. Die Unterseiten sollten bei relevanten Verknüpfungen auch aufeinander verlinken.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/routesMockup.png" alt="Routes Mockup"></center>
+
+<p>
+Die Routen sollten in einer Liste dargestellt werden. Zu jeder Route sollte es einen Link auf die entsprechenden Stations der jeweiligen Route geben.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/stationsMockup.png" alt="Stations Mockup"></center>
+
+<p>
+Die Stations sollten auf ähnliche Weise wie die Routes in einer großen Listen angezeigt werden. Zu jeder Station sollte es einen Link auf die entsprechenden Fahrpläne dieser Station geben. Zusätzlich sollte es eine Suchleiste geben, die es ermöglicht Stations mithilfe von Schlüsselwörtern zu filtern.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/schedulesMockup.png" alt="Schedules Mockup"></center>
+
+<p>
+Bei den Schedules sollten zum einen die Details der Station (station type, street, ticket machines) angezeigt werden. Weiter unten sollten die Fahrpläne für die verschiedenen Linien dieser Haltestelle angezeigt werden.
+</p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/ticketsMockup.png" alt="Tickets Mockup"></center>
+
+<p>
+Die Tickets sollten ebenfalls in einer Liste ausgegeben werden. Dabei sollten alle relevanten Ticketinformationen angezeigt werden. Die Tickets in irgendeiner Art und Weise mit den anderen Datenmodellen zu verbinden war nicht geplant.
+</p>
+
+
+
 </div>
+
+<div class="div3">
+<h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.2 Aufbau</h4>
+
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/stationsGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/ticketsGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/driversGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+<center><img src="Bericht%20XML%20Nahverkehr/vehiclesGUI.png" alt="Index GUI"></center>
+<p> ... </p>
+
+</div>
+
 </div>
 </div>
 

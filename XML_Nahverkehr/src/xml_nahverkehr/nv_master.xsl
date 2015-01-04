@@ -131,7 +131,7 @@
 		
 			
 			
-            <div class="col-md-8 col-xs-12 static">
+            <div class="col-md-offset-2 col-md-8 col-xs-12 static">
 				<form>
 				  <div class="form-group static">
 					<label for="exampleInputEmail1">Filter Stations</label>
@@ -226,7 +226,7 @@
     <!-- tickets view -->
     <xsl:template match="ti:tickets">
         <div class="ticketNames">
-            <div class="col-md-4 col-xs-12 static">
+            <div class="col-md-offset-4 col-md-4 col-xs-12 static">
                 <xsl:for-each select="ti:ticket">
                     <!-- details for each ticket -->
                     <div class="panel panel-default static">
@@ -266,7 +266,7 @@
     <!-- vehicles view -->
     <xsl:template match="vh:vehicles">
         <div class="vehicleNames">
-            <div class="col-md-6 col-xs-12 static">
+            <div class="col-md-offset-3 col-md-6 col-xs-12 static">
                 <div class="panel panel-default static">
                     <div class="panel-heading static">
                         Vehicles
@@ -318,7 +318,7 @@
     <!-- drivers view -->
     <xsl:template match="dr:drivers">
         <div class="driverNames">
-            <div class="col-md-8 col-xs-12 static">
+            <div class="col-md-offset-2 col-md-8 col-xs-12 static">
                 <div class="panel panel-default static">
                     <div class="panel-heading static">
                         Drivers
