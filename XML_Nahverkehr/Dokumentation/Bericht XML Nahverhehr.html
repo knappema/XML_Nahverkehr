@@ -108,7 +108,7 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div1">
 <h2><a name="einleitung" id="einleitung"></a>1 Einleitung</h2>
-<p>Dieser Bericht behandelt die grundlegende Verwendung der Auszeichnungsspache Xml, wobei diese Abkürzung für Extensible Markup Language steht. Xml wird im Weiteren zur hierarchischen Strukturierung von Daten hergenommen. Um diese im späteren Verlauf nutzerfreundlich zu Visualisieren wird eine Programmiersprache names Xsl verwendet, die Xml nach Html transformiert. So kann durch diese Extensible Stylesheet Language (XSL) ein umfangreiches Html-Dokument erstellt werden, das nicht nur statisch Daten anzeigen kann, sondern auch Interaktiv die UI mitverändert.</p>
+<p>Dieser Bericht behandelt die grundlegende Verwendung der Auszeichnungsspache Xml, wobei diese Abkürzung für Extensible Markup Language steht. Xml wird im Weiteren zur hierarchischen Strukturierung von Daten hergenommen. Um diese im späteren Verlauf nutzerfreundlich zu Visualisieren wird eine Programmiersprache names Xsl verwendet, die Xml nach Html transformiert. So kann durch diese Extensible Stylesheet Language (XSL) ein umfangreiches Html-Dokument erstellt werden, das nicht nur statisch Daten anzeigen kann, sondern auch interaktiv die UI mitverändert.</p>
 
 <div class="div2">
 <h3><a name="grundlegendes-konzept" id="grundlegendes-konzept"></a>1.1 Grundlegendes Konzept</h3>
@@ -195,20 +195,20 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div1">
 <h2><a name="konzept" id="konzept"></a>3 Konzept</h2>
-<p>Das Konzept, das kurz in <a href="#grundlegendes-konzept">Abschnitt 1.1</a> erläutert wurde, wird in diesem Kapitel nun noch näher differenziert. So ist es zunächst möglich, dieses Projekt in zwei Teilprojekte zu zerlegen. Zu jedem von diesem kann daraufhin ein eingenes Konzept verfasst werden. Diese sind:</p>
+<p>Das Konzept, das schon kurz in <a href="#grundlegendes-konzept">Abschnitt 1.1</a> erläutert wurde, wird in diesem Kapitel nun noch näher differenziert. So ist es zunächst möglich, dieses Projekt in zwei Teilprojekte zu zerlegen. Zu jedem von diesem kann daraufhin ein eingenes Konzept verfasst werden. Diese sind:</p>
 <ul>
 <li>
 <p><b>Datenhaltung:</b> Speicherung von Fahrplänen, Haltenstellen, Fahrzeugen, Routen usw. durch Xml.</p>
 </li>
 <li>
-<p><b>Frontend:</b> Nutzerfreundlicher Zugriff auf den Datenbestand mittels einer Html-Seite, generiert durch Xslt.</p>
+<p><b>Frontend:</b> Nutzerfreundlicher Zugriff auf den Datenbestand mittels einer Html-Seite, generiert durch Xsl.</p>
 </li>
 </ul>
 <p>Da jedoch beide nicht vollständig Unabhängig voneinander implementiert werden können, ist es nötig zuerst die Datenhaltung anzulegen. Daraufhin besitzt man die Grundlage das Frontend zu entwickeln.</p>
 
 <div class="div2">
 <h3><a name="datenhaltung" id="datenhaltung"></a>3.1 Datenhaltung</h3>
-<p>Für die Datenhaltung wurden zunächst einige Xml-Dateien angelegt, die jeweils einen Teil aller Tabellen beinhalten. Der Grund hierfür war es die Komplexität zu zerbrechen und aufzuteilen. Das Resultat waren daraufhin die folgenden Tabellen:</p>
+<p>Für die Datenhaltung wurden zunächst einige Xml-Dateien angelegt, die jeweils einen Teil aller Tabellen beinhalten. Der Grund hierfür war die Komplexität zu zerbrechen und aufzuteilen. Das Resultat waren daraufhin die folgenden Tabellen:</p>
 <ul>
 <li>
 <p>Haltestellen bzw. -stationen</p>
@@ -235,7 +235,7 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 
 <div class="div3">
 <h4><a name="datenhaltung-master" id="datenhaltung-master"></a>3.1.1 Master</h4>
-<p>Um es noch ein mal zu erwähnen, besteht die Datenhaltung aus einer Datei, der sogenannten "nv_master.xml". Hierin befinden sich nun die nachfolgenden Entitäten:</p>
+<p>Um es noch ein mal zu erwähnen, besteht die Datenhaltung nun aus einer Datei, der sogenannten "nv_master.xml". Hierin befinden sich nun die nachfolgenden Entitäten:</p>
 <ul>
 <li>
 <p>st:stations</p>
@@ -256,7 +256,7 @@ Man nehme als Beispiel einen Container, der eine Reihe beinhaltet. Diese Reihe b
 <p>vh:vehicles</p>
 </li>
 </ul>
-<p>Um dies noch zu verdeutlichen, vergleiche man dies mit dem nachfolgenden Diagramm.</p>
+<p>Um das noch zu verdeutlichen, vergleiche man dies mit dem nachfolgenden Diagramm.</p>
 <center><img src="Bericht%20XML%20Nahverkehr/masterAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten des Masters"></center>
 </div>
 
