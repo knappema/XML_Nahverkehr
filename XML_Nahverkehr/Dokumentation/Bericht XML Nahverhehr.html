@@ -523,9 +523,18 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 
 <div class="div2">
 <h3><a name="frontend" id="frontend"></a>3.2 Frontend</h3>
+
+<p>
+<font color="red"><b>WICHTIG: Das Frontend funktioniert nur in Mozilla Firefox richtig.</b></font>
+</p>
+
 <p> 
 Nach der Festlegung unseres Datenmodells musste anschließend die Darstellung dieser Daten konzeptioniert werden. Wir hatten uns entschieden zunächst Mockups anzufertigen, um uns auf ein bestimmtes Layout zu einigen. Ursprünglich war geplant, für jeden "Aspekt" unseres Datenmodells eine .html Datei mithilfe von XSLT zu erzeugen. Als die Mockups entstanden sind, war noch nicht ganz klar wie die Mockups mit XSLT umgesetzt werden sollten. So waren wir uns noch nicht bewusst, wo wir bei der Darstellung auf Probleme stoßen würden. Aus diesem Grund ist unsere tatsächliche Umsetzung der grafischen Oberfläche zwar den Mockups visuell ähnlich, jedoch "unter der Haube" völlig anders.
 </p>
+
+<p>
+Im nächsten Unterabschnitt werden zunächst die Mockups besprochen und danach die tatsächliche Umsetzung der Oberfläche beleuchetet.
+</p> 
 
 <div class="div3">
 <h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.1 Mockups</h4>
@@ -571,7 +580,13 @@ Die Tickets sollten ebenfalls in einer Liste ausgegeben werden. Dabei sollten al
 <div class="div3">
 <h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.2 Aufbau</h4>
 
-<p> ... </p>
+<p>
+Zunächst wollten wir uns bei der Umsetzung der Oberfläche an die Mockups halten. Wir hatten damit aber einige Probleme. Da wir die ID-Validierung korrekt verwenden wollten, waren wir gezwungen statt vieler einzelner XML dateien, eine große master.xml zu verwenden. Danach wollten wir zwar die master.xml behalten und die einzelnen XML-Dateien in die master.xml per Entities einbinden, was aber aus unbekannten Gründen nicht funktioniert hat. Wir waren also gezwungen, eine riesige master.xml zu verwalten.
+</p>
+
+<p>
+Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Stylesheet pro XML-Datei verwendet werden kann, hatten wir auch nur die möglichkeit eine einzige HTML-Seite zu erzeugen. Dies ging natürlich gegen unseren plan eine eigene HTML-Seite pro "Aspekt" unseres Datenmodells zu erstellen. Nach einiger Überlegung hatten wir uns dann darauf geeinigt, eine einzige HTML-Datei zu erzeugen und alle XML-Daten auf einmal zu laden. Um nur die gerade relevanten Daten anzuzeigen war eine Logik nötig, die wir mit jQuery umgesetzt haben. Zusätzlich war eine Logik für die Auflösung von IDs in Namen nötig. Diese haben wir ebenfalls mit jQuery umgesetzt.
+</p>
 
 <center><img src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
 <p> ... </p>
