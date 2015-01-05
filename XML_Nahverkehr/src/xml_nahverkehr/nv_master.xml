@@ -298,6 +298,88 @@
                 <st:ticketMachine ticketMachineId="TMN22" />
             </st:ticketMachines>
         </st:station>
+		<st:station stationId="N22" name="Nuernberg Kornburg Schleife">
+            <st:stationTypes>
+                <st:type name="bus"/>
+            </st:stationTypes>
+            <st:street name="An der Autobahn" />
+        </st:station>
+		<st:station stationId="N23" name="Nuernberg Habermannstrasse">
+            <st:stationTypes>
+                <st:type name="bus"/>
+            </st:stationTypes>
+            <st:street name="An der Radrunde" />
+        </st:station>
+		<st:station stationId="N24" name="Nuernberg Weiherhaus">
+            <st:stationTypes>
+                <st:type name="bus"/>
+            </st:stationTypes>
+            <st:street name="Marthweg" />
+        </st:station>
+		<st:station stationId="N25" name="Nuernberg Falkenheim">
+            <st:stationTypes>
+                <st:type name="bus"/>
+            </st:stationTypes>
+            <st:street name="Saarbrueckener Strasse" />
+        </st:station>
+		<st:station stationId="N26" name="Nuernberg Frankenstrasse">
+            <st:stationTypes>
+                <st:type name="bus"/>
+				<st:type name="subway"/>
+				<st:type name="tram"/>
+            </st:stationTypes>
+            <st:street name="Pillenreuther Strasse" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN23" />
+            </st:ticketMachines>
+        </st:station>
+		<st:station stationId="N27" name="Nuernberg Doku-Zentrum">
+            <st:stationTypes>
+                <st:type name="bus"/>
+				<st:type name="tram"/>
+            </st:stationTypes>
+            <st:street name="Bayernstraße" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN24" />
+            </st:ticketMachines>
+        </st:station>
+		<st:station stationId="N28" name="Nuernberg Meistersingerhalle">
+            <st:stationTypes>
+                <st:type name="bus"/>
+				<st:type name="tram"/>
+            </st:stationTypes>
+            <st:street name="Schultheissallee" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN25" />
+            </st:ticketMachines>
+        </st:station>
+		<st:station stationId="N29" name="Nuernberg Schweigerstrasse">
+            <st:stationTypes>
+				<st:type name="tram"/>
+            </st:stationTypes>
+            <st:street name="Allersberger Strasse" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN26" />
+            </st:ticketMachines>
+        </st:station>
+		<st:station stationId="FE1" name="Feucht">
+            <st:stationTypes>
+				<st:type name="city_train"/>
+            </st:stationTypes>
+            <st:street name="Nürnberger Strasse" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN27" />
+            </st:ticketMachines>
+        </st:station>
+		<st:station stationId="NM1" name="Neumarkt">
+            <st:stationTypes>
+				<st:type name="city_train"/>
+            </st:stationTypes>
+            <st:street name="Stephanstrasse" />
+			<st:ticketMachines>
+                <st:ticketMachine ticketMachineId="TMN28" />
+            </st:ticketMachines>
+        </st:station>
     </st:stations>
     <dr:drivers>
         <dr:driver driverId="D1" firstname="Tim" lastname="Test" phone="01605678945">
@@ -422,6 +504,24 @@
             <rt:station stationId="N19" />
             <rt:station stationId="N20" />
             <rt:station stationId="N21" />
+        </rt:route>
+		<rt:route routeId="B51" type="bus">
+            <rt:station stationId="N22" />
+			<rt:station stationId="N23" />
+			<rt:station stationId="N24" />
+			<rt:station stationId="N25" />
+			<rt:station stationId="N26" />
+        </rt:route>
+		<rt:route routeId="T9" type="tram">
+            <rt:station stationId="N27" />
+			<rt:station stationId="N28" />
+			<rt:station stationId="N29" />
+			<rt:station stationId="N10" />
+        </rt:route>
+		<rt:route routeId="CT3" type="city_train">
+            <rt:station stationId="NM1" />
+			<rt:station stationId="FE1" />
+			<rt:station stationId="N10" />
         </rt:route>
     </rt:routes>
     <sc:schedules>
@@ -725,6 +825,120 @@
                 <sc:time>11:57</sc:time>
                 <sc:time>12:57</sc:time>
                 <sc:time>13:57</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S28" stationId="N22" routeId="B51">
+            <sc:departureTimes finalStationId="N26">
+                <sc:time>11:05</sc:time>
+                <sc:time>12:05</sc:time>
+                <sc:time>13:05</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S29" stationId="N23" routeId="B51">
+            <sc:departureTimes finalStationId="N26">
+                <sc:time>11:12</sc:time>
+                <sc:time>12:12</sc:time>
+                <sc:time>13:12</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="N22">
+                <sc:time>11:59</sc:time>
+                <sc:time>12:59</sc:time>
+                <sc:time>13:59</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S30" stationId="N24" routeId="B51">
+            <sc:departureTimes finalStationId="N26">
+                <sc:time>11:20</sc:time>
+                <sc:time>12:20</sc:time>
+                <sc:time>13:20</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="N22">
+                <sc:time>11:51</sc:time>
+                <sc:time>12:51</sc:time>
+                <sc:time>13:51</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S31" stationId="N25" routeId="B51">
+            <sc:departureTimes finalStationId="N26">
+                <sc:time>11:25</sc:time>
+                <sc:time>12:25</sc:time>
+                <sc:time>13:25</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="N22">
+                <sc:time>11:46</sc:time>
+                <sc:time>12:46</sc:time>
+                <sc:time>13:46</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S32" stationId="N26" routeId="B51">
+            <sc:departureTimes finalStationId="N22">
+                <sc:time>11:38</sc:time>
+                <sc:time>12:38</sc:time>
+                <sc:time>13:38</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S33" stationId="N27" routeId="T9">
+            <sc:departureTimes finalStationId="N10">
+                <sc:time>11:09</sc:time>
+                <sc:time>12:09</sc:time>
+                <sc:time>13:09</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S34" stationId="N28" routeId="T9">
+            <sc:departureTimes finalStationId="N10">
+                <sc:time>11:13</sc:time>
+                <sc:time>12:13</sc:time>
+                <sc:time>13:13</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="N27">
+                <sc:time>11:51</sc:time>
+                <sc:time>12:51</sc:time>
+                <sc:time>13:51</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S35" stationId="N29" routeId="T9">
+            <sc:departureTimes finalStationId="N10">
+                <sc:time>11:25</sc:time>
+                <sc:time>12:25</sc:time>
+                <sc:time>13:25</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="N27">
+                <sc:time>11:39</sc:time>
+                <sc:time>12:39</sc:time>
+                <sc:time>13:39</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S36" stationId="N10" routeId="T9">
+            <sc:departureTimes finalStationId="N27">
+                <sc:time>11:35</sc:time>
+                <sc:time>12:35</sc:time>
+                <sc:time>13:35</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S37" stationId="NM1" routeId="CT3">
+            <sc:departureTimes finalStationId="N10">
+                <sc:time>11:10</sc:time>
+                <sc:time>12:10</sc:time>
+                <sc:time>13:10</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S38" stationId="FE1" routeId="CT3">
+            <sc:departureTimes finalStationId="N10">
+                <sc:time>11:30</sc:time>
+                <sc:time>12:30</sc:time>
+                <sc:time>13:30</sc:time>
+            </sc:departureTimes>
+            <sc:departureTimes finalStationId="FE1">
+                <sc:time>11:25</sc:time>
+                <sc:time>12:25</sc:time>
+                <sc:time>13:25</sc:time>
+            </sc:departureTimes>
+        </sc:schedule>
+		<sc:schedule scheduleId="S39" stationId="N10" routeId="CT3">
+            <sc:departureTimes finalStationId="FE1">
+                <sc:time>11:00</sc:time>
+                <sc:time>12:00</sc:time>
+                <sc:time>13:00</sc:time>
             </sc:departureTimes>
         </sc:schedule>
     </sc:schedules>
