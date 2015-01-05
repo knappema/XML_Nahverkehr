@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 				
 				// turn destionation station IDs to station names
-				var destinationIdArray = $(".schedule." +id).find('.destinationId');
+				var destinationIdArray = $(".schedule." +id+selectedRoute).find('.destinationId');
 				$.each(destinationIdArray, function(){
 					$(this).text(getStationNameFromId($(this).text()));
 				});
