@@ -18,12 +18,14 @@ $(document).ready(function(){
 				$(".routeDetails").hide();
 			});
 			
+			var selectedRoute;
+
 			// show stations within a route
 			$(".routeDetailToggle").click(function(){
 				var route = $(this).attr('class');
 				route = route.replace(" routeDetailToggle", "");
 				route = route.replace(" list-group-item", "");
-				
+				selectedRoute = route;
 				// hide any existing schedules that are being shown
 				$(".schedule").hide(); 
 
@@ -65,14 +67,16 @@ $(document).ready(function(){
 				id = id.replace(" stationDetailToggle", "");
 				id = id.replace(" station", "");
 				id = id.replace(" list-group-item", "");
-				$(".schedule").hide(); 
-				$(".schedule." +id).show();
+				$(".schedule").hide();
+				$(".schedule."+id+selectedRoute).show();
+
 				
 				// turn destionation station IDs to station names
 				var destinationIdArray = $(".schedule." +id).find('.destinationId');
 				$.each(destinationIdArray, function(){
 					$(this).text(getStationNameFromId($(this).text()));
 				});
+
 				
 			});
                         
