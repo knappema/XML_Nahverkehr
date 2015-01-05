@@ -186,7 +186,7 @@
                 <!-- schedule groups for each station -->
                 <xsl:for-each select="sc:schedule">
                     <div>
-                        <xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/></xsl:attribute>
+                        <xsl:attribute name="class">schedule <xsl:value-of select="@stationId"/><xsl:value-of select="@routeId"/></xsl:attribute>
                         <xsl:variable name="routeIdValue" select="@routeId"/>
                         <!-- schedules for each station-->
                         <xsl:for-each select="sc:departureTimes">

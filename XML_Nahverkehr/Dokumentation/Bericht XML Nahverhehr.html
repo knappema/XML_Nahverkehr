@@ -89,7 +89,7 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.6 <a href="#datenhaltung-drivers">Drivers</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.7 <a href="#datenhaltung-vehicles">Vehicles</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#frontend">Frontend</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-aufbau">Mockups</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 <a href="#frontend-mockups">Mockups</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2 <a href="#frontend-aufbau">Aufbau</a><br>
 4 <a href="#resuemee">Resümee</a><br>
 <h3><a name="appendices" id="appendices"></a>Anhang</h3>
@@ -537,7 +537,7 @@ Im nächsten Unterabschnitt werden zunächst die Mockups besprochen und danach d
 </p> 
 
 <div class="div3">
-<h4><a name="frontend-aufbau" id="frontend-aufbau"></a>3.2.1 Mockups</h4>
+<h4><a name="frontend-mockups" id="frontend-mockups"></a>3.2.1 Mockups</h4>
 
 <p>
 Im Folgenden werden die Mockups beschrieben und die Ideen dahinter näher erleutert.
@@ -573,8 +573,6 @@ Bei den Schedules sollten zum einen die Details der Station (station type, stree
 Die Tickets sollten ebenfalls in einer Liste ausgegeben werden. Dabei sollten alle relevanten Ticketinformationen angezeigt werden. Die Tickets in irgendeiner Art und Weise mit den anderen Datenmodellen zu verbinden war nicht geplant.
 </p>
 
-
-
 </div>
 
 <div class="div3">
@@ -589,7 +587,19 @@ Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Styles
 </p>
 
 <center><img src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<p> 
+Beim Aufruf der nv_master.xml im Browser erscheint als erstes die Willkommensmeldung und die Menüleiste.
+Wie bereits erwähnt, wird sofort die gesamte XML-Datei geladen und nur gerade relevante teile der XML-Datei angezeigt. Dies wird durch eine von uns erstelle Klasse "static" ermöglicht. Unsere jQuery Logik versteckt alle &lt;div> Elemente die nicht von der Klasse "static" sind. Dies geschieht wie folgt:
+</p>
+
+<div class="exampleInner"><pre>
+// hide everything except static page elements
+$('div:not(.static)').hide(); 
+</pre></div>
+
+<p>
+Mit einem Klick auf "Nuremberg Local Transport" im linken oberen Eck kann man jederzeit zur Willkommensseite zurückgelangen.
+</p>
 
 <center><img src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Index GUI"></center>
 <p> ... </p>
@@ -613,9 +623,17 @@ Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Styles
 
 <div class="div1">
 <h2><a name="resuemee" id="resuemee"></a>4 Resümee</h2>
-<p>Zusammenfassend ist zu sagen, dass dieses Projekt einen guten Einblick in die Gestaltung und Verwendung von Xml als Datenhaltung ermöglichte. Auch auftretende Probleme, wie dateiübergreifende Ids, die erst durch eine Master-Datei in korrekter Weise funktionierten, konnten gelöst werden. Dies schaffte ein tiefergreifendes Verständnis über den richtigen Aufbau einer Xml-Datei.</p>
-<p>Weiterhin ist zu sagen, dass uns die Transformation von Xml nach Html anfangs vor große Probleme gestellt hat, da wir nicht die, zuvor als Mockups festgelegten, Views in dieser Art und Weise umsetzen konnten. Jedoch ist es uns gelungen, auch dieses Problem zu lösen, in dem wir zusätzliche Technologien, wie jQuery, in unserem Projekt mitverwendeten.</p>
-<p>Letztlich war es also möglich mit doch relativ geringem Aufwand sowohl eine Datenhaltung, als auch eine graphische Abfrage dieser Daten zu realisieren.</p>
+<p>Zusammenfassend ist zu sagen, dass dieses Projekt einen guten Einblick in die Gestaltung und Verwendung von Xml als Datenhaltung ermöglichte. Auch auftretende Probleme, wie dateiübergreifende Ids, die erst durch eine Master-Datei in korrekter Weise funktionierten, konnten gelöst werden. Dies schaffte ein tiefergreifendes Verständnis über den richtigen Aufbau einer Xml-Datei.
+</p>
+
+<p>
+Weiterhin ist zu sagen, dass uns die Transformation von Xml nach Html anfangs vor große Probleme gestellt hat, da wir nicht die, zuvor als Mockups festgelegten, Views in dieser Art und Weise umsetzen konnten. Jedoch ist es uns gelungen, auch dieses Problem zu lösen, in dem wir zusätzliche Technologien, wie jQuery, in unserem Projekt mitverwendeten.
+</p>
+
+<p>
+Letztlich war es also möglich mit doch relativ geringem Aufwand sowohl eine Datenhaltung, als auch eine graphische Abfrage dieser Daten zu realisieren.
+</p>
+
 </div>
     
 </div>
