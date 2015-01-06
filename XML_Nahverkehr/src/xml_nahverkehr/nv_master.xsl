@@ -24,7 +24,8 @@
                 <nav class="navbar navbar-default static" role="navigation">
                     <div class="container-fluid static">
                         <div class="navbar-header static">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -35,21 +36,11 @@
                         <div class="collapse navbar-collapse static" id="navbar">
                             <!-- major view toggles -->
                             <ul class="nav navbar-nav">
-                                <li>
-                                    <a class="routesToggle" href="#">Routes</a>
-                                </li>
-                                <li>
-                                    <a class="stationsToggle" href="#">Stations</a>
-                                </li>
-                                <li>
-                                    <a class="ticketsToggle" href="#">Tickets</a>
-                                </li>
-                                <li>
-                                    <a class="driversToggle" href="#">Drivers</a>
-                                </li>
-                                <li>
-                                    <a class="vehiclesToggle" href="#">Vehicles</a>
-                                </li>
+                                <li><a class="routesToggle" href="#">Routes</a></li>
+                                <li><a class="stationsToggle" href="#">Stations</a></li>
+                                <li><a class="ticketsToggle" href="#">Tickets</a></li>
+                                <li><a class="driversToggle" href="#">Drivers</a></li>
+                                <li><a class="vehiclesToggle" href="#">Vehicles</a></li>
                             </ul>
                         </div>
                     </div>
@@ -101,7 +92,7 @@
             </div>
 
             <xsl:for-each select="rt:route">
-                <div class="col-md-4 col-xs-12">
+                <div>
                     <xsl:attribute name="class">
                         <xsl:value-of select="@routeId"/> routeDetails col-md-4 col-xs-12</xsl:attribute>
                     <!-- details for each route -->
@@ -128,9 +119,6 @@
     <!-- station view -->
     <xsl:template match="st:stations">
         <div class="stationNames">
-		
-			
-			
             <div class="col-md-offset-2 col-md-8 col-xs-12 static">
 				<form>
 				  <div class="form-group static">

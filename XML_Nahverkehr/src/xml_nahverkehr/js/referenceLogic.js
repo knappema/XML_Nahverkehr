@@ -3,17 +3,17 @@ $(document).ready(function(){
 			$('div:not(.static)').hide(); 
                         
                         
-                        // show home
-                        $(".home").click(function(){
-                                $('div:not(.static)').hide(); 
-                                $('.title').show();
-                        });
+      // show home
+      $(".home").click(function(){
+        $('div:not(.static)').hide(); 
+        $('.title').show();
+      });
 			
 			
 			// show all routes
 			$(".routesToggle").click(function(){
 				$('div:not(.routeNames, .static)').hide(); 
-                                $('.title').hide();
+       	$('.title').hide();
 				$('.routeNames').show();  
 				$(".routeDetails").hide();
 			});
@@ -36,7 +36,7 @@ $(document).ready(function(){
 				
 				// turn station IDs to station names
 				var stationIdArray = routeDetails.find('stationMark');
-				$.each(stationIdArray, function(){;$(this).text(getStationNameFromId($(this).text()))});
+				$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
 			});
 			
 			
@@ -70,14 +70,11 @@ $(document).ready(function(){
 				$(".schedule").hide();
 				$(".schedule."+id+selectedRoute).show();
 
-				
 				// turn destionation station IDs to station names
 				var destinationIdArray = $(".schedule." +id+selectedRoute).find('.destinationId');
 				$.each(destinationIdArray, function(){
 					$(this).text(getStationNameFromId($(this).text()));
 				});
-
-				
 			});
                         
                         // show all tickets
@@ -103,22 +100,22 @@ $(document).ready(function(){
                         
                         // show driver details
 			$(".driverDetailToggle").click(function(){
-                                var id = $(this).attr('class');
+        var id = $(this).attr('class');
 				id = id.replace(" driverDetailToggle", "");
-                                id = id.replace(" row", "");
+        id = id.replace(" row", "");
 				id = id.replace(" list-group-item", "");
-                                id = id.replace(" static", "");
+        id = id.replace(" static", "");
                                 
 				$('div:not(.driverDetails, .static)').hide();
-                                $('.title').hide();
+        $('.title').hide();
 				$(".driverDetails." +id).show();  
 			});
 			
 			function getStationNameFromId(stationId){
-                            var name = null;
-                            name = $('.' + stationId + '.station').attr('name');
-                            // replace all spaces with real spaces
-                            return name == null ? stationId : name.replace(/%20/g, " ");
+        var name = null;
+        name = $('.' + stationId + '.station').attr('name');
+        // replace all spaces with real spaces
+        return name == null ? stationId : name.replace(/%20/g, " ");
 			}
 			
 });
