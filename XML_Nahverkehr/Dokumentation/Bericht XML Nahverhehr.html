@@ -611,8 +611,95 @@ $('div:not(.static)').hide();
 Mit einem Klick auf "Nuremberg Local Transport" im linken oberen Eck kann man jederzeit zur Willkommensseite zurückgelangen.
 </p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<center><img src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Routes GUI"></center>
+<p>
+Die Routen werden untereinander in einer Liste angezeigt. Für jede Route wird angezeigt, von welchem Typ sie ist. Für jeden Eintrag wird ein &lt;a>-Tag verwendet. Diesem Tag werden per XSL (mit xsl:attribute) Klassen zugewiesen. Zusätzlich zum Schlüsselwort routeDetailToggle und einer Bootstrapklasse, wird auch die Routen Id als Klasse zugewiesen (siehe folgenden Code).
+</p>
+
+<div class="exampleInner"><pre>
+&lt;xsl:for-each select="rt:route">
+    &lt;a href="#">
+        &lt;xsl:attribute name="class">
+            	&lt;xsl:value-of select="@routeId"/> routeDetailToggle list-group-item
+        &lt;/xsl:attribute>
+        &lt;xsl:value-of select="@routeId"/>
+        &lt;span class="badge">
+            &lt;xsl:value-of select="@type"/>
+        &lt;/span>
+    &lt;/a>
+&lt;/xsl:for-each>
+</pre></div>
+
+<p>
+Sobald auf eine Route geklickt wird, greift unsere jQuery Logik ein und zeigt zunächst alle Station Ids dieser Route in einer Liste an. Die Gruppen von Station Ids erhalten per xml:attribute neben einer Bootstrapklasse zusätzlich eine klasse "routeDetails" um sie als Stations innerhalb einer Route kenntlich zu machen und die Id der Route als zusätzliche Klasse, um erkennen zu könnnen, welcher Route diese Stations angehören . Jeder einzelnen Station wird als Klasse die entsprechende stationId, die Schlüsselwörter stationDetailToggle (um später die Schedules aufrufen zu können) und station (um die stationIds in tatsächliche Namen auflösen zu können) zugewiesen (siehe folgender Code).
+</p>
+
+<div class="exampleInner"><pre>
+&lt;xsl:for-each select="rt:route">
+    &lt;div>
+        &lt;xsl:attribute name="class">
+            &lt;xsl:value-of select="@routeId"/> 
+            	routeDetails col-md-4 col-xs-12
+        &lt;/xsl:attribute>
+        &lt;!-- details for each route -->
+        &lt;div class="panel panel-default static">
+            &lt;div class="panel-heading static">Stations&lt;/div>
+            &lt;div>
+                &lt;xsl:attribute name="class">
+                    &lt;xsl:value-of select="@routeId"/> routeDetails list-group
+                &lt;/xsl:attribute>
+                &lt;xsl:for-each select="rt:station">
+                    &lt;a href="#">
+                        &lt;xsl:attribute name="class">
+                            &lt;xsl:value-of select="@stationId"/> 
+                            stationDetailToggle 
+                            station 
+                            list-group-item
+                        &lt;/xsl:attribute>
+                        &lt;img width="20px" src="img/haltestelle.svg"/>&#160;
+			&lt;stationMark>&lt;xsl:value-of select="@stationId"/>&lt;/stationMark>
+                    &lt;/a>
+                &lt;/xsl:for-each>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/xsl:for-each>
+</pre></div>            
+
+<p>
+Beim Klick auf eine Route findet jQuery zunächst heraus, auf welche Route geklickt wurde, um später die Möglichkeit zu haben nur diejenigen Fahrpläne für eine Haltestelle anzuzeigen, die der vorher angeklickten Linie (Route) entsprechen. Es werden, falls  vorher auf eine andere Route geklickt wurde, alle Fahrpläne (Schedules) ausgeblendet und anschließend nur diejenigen Station Ids angezeigt, die der Route entsprechen. Da die Station Ids aber für einen Benutzer relativ unnütz sind, in unserem Datenmodell aber innerhalb einer Route nur Ids von Stations vorhanden sind, müssen die Ids irgendwie in tatsächliche Haltestellennamen umgewandelt werden (siehe folgenden Code).
+</p>
+
+<div class="exampleInner"><pre>
+// show stations within a route
+$(".routeDetailToggle").click(function(){
+	var route = $(this).attr('class');
+	route = route.replace(" routeDetailToggle", "");
+	route = route.replace(" list-group-item", "");
+	selectedRoute = route;
+
+	// hide any existing schedules that are being shown
+	$(".schedule").hide(); 
+
+	// only show stations of the selectd route
+	$('.routeDetails').hide();
+	var routeDetails = $('.' +route + '.routeDetails');
+	routeDetails.show();
+	
+	// turn station IDs to station names
+	var stationIdArray = routeDetails.find('stationMark');
+	$.each(stationIdArray, function(){$(this).text(getStationNameFromId($(this).text()))});
+});
+
+function getStationNameFromId(stationId){
+  var name = null;
+  name = $('.' + stationId + '.station').attr('name');
+  // replace all spaces with real spaces
+  return name == null ? stationId : name.replace(/%20/g, " ");
+}
+</pre></div> 
+
+Die Fahrpläne für jede Station werden nach dem Klick auf die jeweilige Station angezeigt. Es werden dabei nur diejenigen Fahrpläne angezeigt, die zur Route gehören, die vorher geklickt wurde, um die entsprechenden Stations anzuzeigen (dafür war die Variable selectedRoute da).
 
 <center><img src="Bericht%20XML%20Nahverkehr/stationsGUI.png" alt="Index GUI"></center>
 <p> ... </p>
