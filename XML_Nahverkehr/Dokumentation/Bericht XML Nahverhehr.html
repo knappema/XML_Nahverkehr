@@ -113,7 +113,7 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="grundlegendes-konzept" id="grundlegendes-konzept"></a>1.1 Grundlegendes Konzept</h3>
-<p>Um nun die Verwendung von Xml und Xsl in einem Beispiel zu zeigen, haben wir hierfür ein Projekt names Nahverkehrssystem erstellt. Dieses System soll über eine Datenhaltung verfügen, die alle Informationen zu Routen, Personal und Fahrzeugen speichert. Diese Datenbank soll dabei mit Xml erstellt werden.</p>
+<p>Um nun die Verwendung von Xml und Xsl in einem Beispiel zu zeigen, haben wir hierfür ein Nahverkehrsystem modelliert. Dieses System soll über eine Datenhaltung verfügen, die alle Informationen zu Routen, Personal und Fahrzeugen speichert. Bei den verwendeten Daten in unserem Modell haben wir uns, vorallem bei Haltestellen und Routen, an dem Verkehrsnetz des VGN orientiert. Da wir uns aber verstärkt auf Struktur und Darstellung unseres XML-Modells konzentriert haben, beschränkt sich die Menge der Daten auf ein Maß, welches ausreicht um unser Konzept sinnvoll darzustellen. Dieses Modell soll mit XML erstellt und durch DTDs (siehe <a href="#dtd">Abschnitt 2.2</a>) validiert werden.</p>
 <p>Für die nutzerfreundliche Visualierung dieser Daten in diesem Projekt kommt daraufhin Xsl zum Einsatz, um hieraus ein Html-Dokument zu generieren. Das Bedienkonzept, welches noch näher in <a href="#frontend">Abschnitt 3.2</a> erläutert wird, verfolgt dabei mehrere Views, die durch Tabs erreichbar sind. Jede dieser Views soll dabei einen unabhängigen Berich der Datenhaltung wiederspiegeln.</p>
 </div>
 </div>
@@ -144,7 +144,17 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="xml" id="xml"></a>2.1 Xml</h3>
-<p> ... </p>
+<p> Bei XML handelt es sich, nicht zuletzt durch das Internet, um eine weit verbreitete Auszeichnungssprache zum Austausch von Daten. Das für Web Services sehr beliebte SOAP (Simple Object Access protocoll) verwendet XML als sein Nachrichten Format. Entwickelt wurde die eXtensible Markup Lanuage vom World Wide Web Consortium. Einer der Vorteile des XML-Formats ist, dass es sowohl für Menschen, als auch Maschinen lesbar ist.</p>
+<p>Für eine Großzahl der aktuellen Programmiersprachen existieren bereits Bibliotheken welche die Verarbeitung von XML-Dokumenten umfangreich unterstützen. Solche vorgefertigten Programmschnittstellen lassen sich allerdings nur für Well-formed XML-Dokumenten verwenden.</p>
+<p>Die Well-formedness eines XML-Dokuments wird durch das einhalten gewisser Syntaxregeln sichergestellt. Diese Syntaxregeln umfassen unter anderem:
+<ul>
+<li>Ein einzelnes Wurzelelement umfasst alle anderen Elemente</li>
+<li>Das XML-Dokument enthält ausschließlich Unicode-Zeichen</li>
+<li>Die Beginn-, Ende- und Leere-Element-Tags sind korrekt geschachtelt</li>
+<li>Reservierte Zeichen wie "<" und "&" werden nur vor ihren vorgesehenen Zweck verwendet</li>
+</ul>
+</p>
+
 </div>
 
 <div class="div2">
@@ -642,6 +652,7 @@ Letztlich war es also möglich mit doch relativ geringem Aufwand sowohl eine Dat
 <div class="back">
 <div class="div1">
 <h2><a name="quellen" id="quellen"></a>A Quellen</h2>
+Quelle 1: <a href="http://en.wikipedia.org/wiki/XML">http://en.wikipedia.org/wiki/XML</a>
 </div>
 </div>
 
