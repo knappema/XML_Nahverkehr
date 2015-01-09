@@ -353,7 +353,7 @@
                 <st:ticketMachine ticketMachineId="TMN25" />
             </st:ticketMachines>
         </st:station>
-		<st:station stationId="N29" name="Nuernberg Schweigerstrasse">
+		<st:station stationId="N29" name="Nuernberg Schweiggerstrasse">
             <st:stationTypes>
 				<st:type name="tram"/>
             </st:stationTypes>
