@@ -109,18 +109,18 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div1">
 <h2><a name="einleitung" id="einleitung"></a>1 Einleitung</h2>
-<p>Dieser Bericht behandelt die grundlegende Verwendung der Auszeichnungsspache XML, wobei diese Abkürzung für Extensible Markup Language steht. XML wird im Weiteren zur hierarchischen Strukturierung von Daten hergenommen. Um diese im späteren Verlauf nutzerfreundlich zu Visualisieren wird eine Programmiersprache names Xsl verwendet, die XML nach Html transformiert. So kann durch diese Extensible Stylesheet Language (XSL) ein umfangreiches Html-Dokument erstellt werden, das nicht nur statisch Daten anzeigen kann, sondern auch interaktiv die UI mitverändert.</p>
+<p>Dieser Bericht behandelt die grundlegende Verwendung der Auszeichnungsspache XML, wobei diese Abkürzung für Extensible Markup Language steht. XML wird im Weiteren zur hierarchischen Strukturierung von Daten hergenommen. Um diese im späteren Verlauf nutzerfreundlich zu Visualisieren wird eine Programmiersprache names XSL verwendet, die XML nach Html transformiert. So kann durch diese Extensible Stylesheet Language (XSL) ein umfangreiches Html-Dokument erstellt werden, das nicht nur statisch Daten anzeigen kann, sondern auch interaktiv die UI mitverändert.</p>
 
 <div class="div2">
 <h3><a name="grundlegendes-konzept" id="grundlegendes-konzept"></a>1.1 Grundlegendes Konzept</h3>
-<p>Um nun die Verwendung von XML und Xsl in einem Beispiel zu zeigen, haben wir hierfür ein Nahverkehrsystem modelliert. Dieses System soll über eine Datenhaltung verfügen, die alle Informationen zu Routen, Personal und Fahrzeugen speichert. Bei den verwendeten Daten in unserem Modell haben wir uns, vorallem bei Haltestellen und Routen, an dem Verkehrsnetz des VGN orientiert. Da wir uns aber verstärkt auf Struktur und Darstellung unseres XML-Modells konzentriert haben, beschränkt sich die Menge der Daten auf ein Maß, welches ausreicht um unser Konzept sinnvoll darzustellen. Dieses Modell soll mit XML erstellt und durch DTDs (siehe <a href="#dtd">Abschnitt 2.2</a>) validiert werden.</p>
-<p>Für die nutzerfreundliche Visualierung dieser Daten in diesem Projekt kommt daraufhin Xsl zum Einsatz, um hieraus ein Html-Dokument zu generieren. Das Bedienkonzept, welches noch näher in <a href="#frontend">Abschnitt 3.2</a> erläutert wird, verfolgt dabei mehrere Views, die durch Tabs erreichbar sind. Jede dieser Views soll dabei einen unabhängigen Berich der Datenhaltung wiederspiegeln.</p>
+<p>Um nun die Verwendung von XML und XSL in einem Beispiel zu zeigen, haben wir hierfür ein Nahverkehrsystem modelliert. Dieses System soll über eine Datenhaltung verfügen, die alle Informationen zu Routen, Personal und Fahrzeugen speichert. Bei den verwendeten Daten in unserem Modell haben wir uns, vor allem bei Haltestellen und Routen, an das Verkehrsnetz des VGN orientiert. Da wir uns aber verstärkt auf Struktur und Darstellung unseres XML-Modells konzentriert haben, beschränkt sich die Menge der Daten auf ein Maß, welches ausreicht um unser Konzept sinnvoll darzustellen. Dieses Modell soll mit XML erstellt und durch DTDs (siehe <a href="#dtd">Abschnitt 2.2</a>) validiert werden.</p>
+<p>Für die nutzerfreundliche Visualierung dieser Daten in diesem Projekt kommt daraufhin XSL zum Einsatz, um hieraus ein Html-Dokument zu generieren. Das Bedienkonzept, welches noch näher in <a href="#frontend">Abschnitt 3.2</a> erläutert wird, verfolgt dabei mehrere Views, die durch Tabs erreichbar sind. Jede dieser Views soll dabei einen unabhängigen Bereich der Datenhaltung widerspiegeln.</p>
 </div>
 </div>
 
 <div class="div1">
 <h2><a name="verwendete-technologien" id="verwendete-technologien"></a>2 Verwendete Technologien</h2>
-<p>Dises Kapitel behandelt im Näheren die im Projekt verwendeten Technologien. Hierunter fallen zum einen die Basis-Technologien, wie:</p>
+<p>Dieses Kapitel behandelt im Näheren die im Projekt verwendeten Technologien. Hierunter fallen zum einen die Basis-Technologien, wie:</p>
 <ul>
 <li>
 <p><b>XML:</b> Extented Markup Language für die Datenhaltung.</p>
@@ -129,10 +129,10 @@ div.exampleHeader { font-weight: bold;
 <p><b>DTD:</b> Document Type Definition zur Validierung der XML.</p>
 </li>
 <li>
-<p><b>Xsl:</b> Programmiersprache zur Transformation von XML nach Html.</p>
+<p><b>XSL:</b> Programmiersprache zur Transformation von XML nach Html.</p>
 </li>
 </ul>
-<p>Um nun so manche Problemstellungen lösen zu können, sind für dieses Projekt auch noch weitere Technologien herangezogen worden. Diese sollen dabei die eigentlichen Funktionalitaten der Basis-Technologien unterstützen bzw. erweitern. Es sind hierfür nachfolgende Zwei verwendet worden:</p>
+<p>Um nun so manche Problemstellungen lösen zu können, sind für dieses Projekt auch noch weitere Technologien herangezogen worden. Diese sollen dabei die eigentlichen Funktionalitäten der Basis-Technologien unterstützen bzw. erweitern. Es sind hierfür nachfolgende Zwei verwendet worden:</p>
 <ul>
 <li>
 <p>Bootstrap</p>
@@ -147,7 +147,7 @@ div.exampleHeader { font-weight: bold;
 <p> Bei XML handelt es sich, nicht zuletzt durch das Internet, um eine weit verbreitete Auszeichnungssprache zum Austausch von Daten. Das für Web Services sehr beliebte SOAP (Simple Object Access protocoll) verwendet XML als sein Nachrichten Format. Entwickelt wurde die eXtensible Markup Lanuage vom World Wide Web Consortium. Einer der Vorteile des XML-Formats ist, dass es sowohl für Menschen, als auch Maschinen lesbar ist.</p>
 <p>Ein XML Dokument besteht aus sog. Elementen. Elemente beginnen entweder mit einem start-tag (&lt;foo>) und enden mit dem zugehörigen end-tag (&lt;/foo>) oder bestehen nur aus einem empty-tag (&lt;foo />). Innerhalb eines start- oder empty-tags können Attribute definiert werden (&lt;foo name="bar" />). Die Zeichen zwischen einem start- und end-tag werden als der Inhalt des Elements bezeichnet. Dieser Inhalt kann wiederum aus anderen Elementen, den sog. Kindelementen, oder einfachem Text bestehen.</p>
 <p>Für eine Großzahl der aktuellen Programmiersprachen existieren bereits Bibliotheken welche die Verarbeitung von XML-Dokumenten umfangreich unterstützen. Solche vorgefertigten Programmschnittstellen lassen sich allerdings nur für Well-formed XML-Dokumenten verwenden.</p>
-<p>Die Well-formedness eines XML-Dokuments wird durch das einhalten gewisser Syntaxregeln sichergestellt. Diese Syntaxregeln umfassen unter anderem:
+<p>Die Well-formedness eines XML-Dokuments wird durch das Einhalten gewisser Syntaxregeln sichergestellt. Diese Syntaxregeln umfassen unter anderem:
 <ul>
 <li>Ein einzelnes Wurzelelement umfasst alle anderen Elemente</li>
 <li>Das XML-Dokument enthält ausschließlich Unicode-Zeichen</li>
@@ -162,7 +162,7 @@ div.exampleHeader { font-weight: bold;
 <div class="div2">
 <h3><a name="dtd" id="dtd"></a>2.2 DTD</h3>
 <p>Durch einer document type definition lassen sich Regeln definieren, um den Aufbau eines XML-Dokuments zu beschreiben. Wenn das XML-Dokument alle in der DTD definierten Regeln einhält wird es als Valide bezeichnet.</p>
-<p>DTDs werden entweder am Anfang eines XML-Dokuments definiert oder als externe Datei importiert. In Unserem Projekt werden DTDs auf folgende Weise in unser Master-XML-Dokument eingebunden:</p>
+<p>DTDs werden entweder am Anfang eines XML-Dokuments definiert oder als externe Datei importiert. In unserem Projekt werden DTDs auf folgende Weise in unser Master-XML-Dokument eingebunden:</p>
 
 <div class="exampleInner"><pre>
 &lt;!DOCTYPE master [
@@ -191,7 +191,7 @@ div.exampleHeader { font-weight: bold;
 ]>
 </pre></div>
 
-<p>Zuerst werden alle externen DTDs als Entität definiert und anschließend über eine referenz in die Master-XML geladen.</p>
+<p>Zuerst werden alle externen DTDs als Entität definiert und anschließend über eine Referenz in die Master-XML geladen.</p>
 <p>Mit DTDs kann die Schachtelung von Elementen innerhalb eines XML-Dokuments definiert werden. Weiterhin können mit einer document type definition Attribute und deren Werte eingeschränkt werden.</p>
 </div>
 
@@ -207,7 +207,7 @@ div.exampleHeader { font-weight: bold;
 &lt;?xml version="1.0" encoding="UTF-8"?>
 </pre></div>
 
-<p>XSLT verwendet XPath Ausdrücke um Schablonen (sog. templates) zu erstellen, welche auf Teile eines Dokuments zutreffen. Sollte eine Schablone auf das Quelldokument passen, wird der Code dieses templates in das resultierende Dokument eingefügt. Im folgenden Beispiel wird demonstriert, wie ein template in XSLT definiert wird:</p>
+<p>XSLT verwendet XPath Ausdrücke um Schablonen (sog. templates) zu erstellen, welche auf Teile eines Dokuments zutreffen. Sollte eine Schablone auf das Quelldokument passen, wird der Code dieses Templates in das resultierende Dokument eingefügt. Im folgenden Beispiel wird demonstriert, wie ein Template in XSLT definiert wird:</p>
 
 <div class="exampleInner"><pre>
 &lt;xsl:template match="/foo">
@@ -215,7 +215,7 @@ div.exampleHeader { font-weight: bold;
 &lt;/xsl:template>
 </pre></div>
 
-<p>Das "match" Attribut wird verwendet um via XPath das gewünschte Element im Quelldokument zu finden. Sollte der XSLT Prozessor im Quelldokuemt ein Element namens "foo" finden, wird im resultierenden Dokument nun</p>
+<p>Das "match" Attribut wird verwendet um via XPath das gewünschte Element im Quelldokument zu finden. Sollte der XSLT Prozessor im Quelldokument ein Element namens "foo" finden, wird im resultierenden Dokument nun</p>
 
 <div class="exampleInner"><pre>
 &lt;p>bar&lt;p>
@@ -225,7 +225,7 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="bootstrap" id="bootstrap"></a>2.4 Bootstrap</h3>
-<p>Bootstrap ist ein weitverbreitetes Frontend Framework für die Erstellung von Webseiten. Es ermöglicht mit sehr wenig Aufwand ein brauchbares Layout einer Seite zu erstellen. Der Hauptfokus von Bootstrap liegt dabei auf mobilfreundliche strukturierung von Webseiten. Das sogenannte "responsive design" ermöglicht es, eine Webseite komfortabel auf Geräten jeglicher größe betrachten zu können. Das folgende Bild soll "responsive design" illustrieren.</p>
+<p>Bootstrap ist ein weitverbreitetes Frontend Framework für die Erstellung von Webseiten. Es ermöglicht mit sehr wenig Aufwand ein brauchbares Layout einer Seite zu erstellen. Der Hauptfokus von Bootstrap liegt dabei auf mobilfreundliche Strukturierung von Webseiten. Das sogenannte "responsive design" ermöglicht es, eine Webseite komfortabel auf Geräten jeglicher Größe betrachten zu können. Das folgende Bild soll "responsive design" illustrieren.</p>
 
 <center><img src="Bericht%20XML%20Nahverkehr/responsiveDesign.png" alt="Illustration des Responsive Design"></center>
 
@@ -308,7 +308,7 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <p><b>Datenhaltung:</b> Speicherung von Fahrplänen, Haltenstellen, Fahrzeugen, Routen usw. durch XML.</p>
 </li>
 <li>
-<p><b>Frontend:</b> Nutzerfreundlicher Zugriff auf den Datenbestand mittels einer Html-Seite, generiert durch Xsl.</p>
+<p><b>Frontend:</b> Nutzerfreundlicher Zugriff auf den Datenbestand mittels einer Html-Seite, generiert durch XSL.</p>
 </li>
 </ul>
 <p>Da jedoch beide nicht vollständig Unabhängig voneinander implementiert werden können, ist es nötig zuerst die Datenhaltung anzulegen. Daraufhin besitzt man die Grundlage das Frontend zu entwickeln.</p>
@@ -336,13 +336,13 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <p>Fahrzeuge</p>
 </li>
 </ul>
-<p>Um jedoch die einzelen Tabellen bzw. XML-Dateien realisieren zu können, wurden unter anderem Identifikationsnummern als eindeutige Bezeichner eingesetzt. So hat zum Beispiel die Haltestelle "Hauptbahnhof" die Id "F5". Da nun aber auch Routen und Fahrpläne bezug auf Haltestellen nehmen, kommt es bei der Verwendung von mehreren Dateien zu Problemen.</p>
+<p>Um jedoch die einzelen Tabellen bzw. XML-Dateien realisieren zu können, wurden unter anderem Identifikationsnummern als eindeutige Bezeichner eingesetzt. So hat zum Beispiel die Haltestelle "Hauptbahnhof" die Id "F5". Da nun aber auch Routen und Fahrpläne Bezug auf Haltestellen nehmen, kommt es bei der Verwendung von mehreren Dateien zu Problemen.</p>
 <p>Aus diesem Grund wurde eine "nv_master.xml" erstellt, die alle eigenständigen Dateien wieder vereinen soll. Es war jedoch nicht möglich nur mit Referenzen auf die Tabellen zu arbeiten. Deshalb haben wir uns für eine Masterdatei entschieden, die eine Konkatination aller Tabellen beinhaltet. Dies bringt zwar den Nachteil mit sich, das Auslagern der Komplexität in viele Dateien nicht machen zu können, hat jedoch den Vorteil Ids uneingeschränkt nutzen zu können.</p>
-<p>Da es bei dem Zusammenmergen der einzelnen Dateien zu Konflikten kommen kann, sind Namesräume eingeführt worden. Jede ehemalige XML-Datei hat nun ihren eingenen Namensraum. So ist der Namespace der "nv_station.xml" zum Beispiel "st".</p>
+<p>Da es bei dem Zusammenfügen der einzelnen Dateien zu Konflikten kommen kann, sind Namensräume eingeführt worden. Jede ehemalige XML-Datei hat nun ihren eigenen Namensraum. So ist der Namespace der "nv_station.xml" zum Beispiel "st".</p>
 
 <div class="div3">
 <h4><a name="datenhaltung-master" id="datenhaltung-master"></a>3.1.1 Master</h4>
-<p>Um es noch ein mal zu erwähnen, besteht die Datenhaltung nun aus einer Datei, der sogenannten "nv_master.xml". Hierin befinden sich nun die nachfolgenden Entitäten:</p>
+<p>Um es noch einmal zu erwähnen, besteht die Datenhaltung nun aus einer Datei, der sogenannten "nv_master.xml". Hierin befinden sich nun die nachfolgenden Entitäten:</p>
 <ul>
 <li>
 <p>st:stations</p>
@@ -370,10 +370,10 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <div class="div3">
 <h4><a name="datenhaltung-stations" id="datenhaltung-stations"></a>3.1.2 Stations</h4>
 <p>In der Entität Stations werden Haltestellen und -stationen verwaltet. Jede Station besitzt neben den Attributen stationId und name auch weiter Entitäten. Hierunter fallen stationTypes, street und ticketmachines.</p>
-<p>Ersteres gibt die Art der Station an, was heißt, welche Fahrzeuge an dieser Station halten können. So kann unterschieden werden, ob es zum Beispiel eine Bushaltestelle oder ein U-Bahnhof ist. Bei street hadelt es sich um die Straße, in der diese Haltestelle zu finden ist. Bei ticketmachines können einzelne Automaten hinzugefügt werden, falls die jeweilige Station über ein solches Gerät verfügt.</p>
-<p>Der Aufbau und die einzelenen Abhängigkeiten der Entitäten untereinader werden auch noch mal im nachfolgenden Diagramm deutlich.</p>
+<p>Ersteres gibt die Art der Station an, was heißt, welche Fahrzeuge an dieser Station halten können. So kann unterschieden werden, ob es zum Beispiel eine Bushaltestelle oder ein U-Bahnhof ist. Bei street handelt es sich um die Straße, in der diese Haltestelle zu finden ist. Bei ticketmachines können einzelne Automaten hinzugefügt werden, falls die jeweilige Station über ein solches Gerät verfügt.</p>
+<p>Der Aufbau und die einzelnen Abhängigkeiten der Entitäten untereinader werden auch noch mal im nachfolgenden Diagramm deutlich.</p>
 <center><img src="Bericht%20XML%20Nahverkehr/stationsAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Stations" style="width: 850px;"></center>
-<p>Im nachfolgenden Codebeispiel ist die Station "Fuerth Hardhoehe" gezeigt. Unter anderem erkennt man, dass diese Station sowohl über eine Bus- als auch U-Bahn-Haltestelle verfügt. Zudem erhält man noch Informationen zur Straße der Haltestelle, die in diesem Beispiel "Komotauer Strasse" ist und über die Anzahl der vorhandenen Ticketautomaten, sowie derren Id.</p>
+<p>Im nachfolgenden Codebeispiel ist die Station "Fuerth Hardhoehe" gezeigt. Unter anderem erkennt man, dass diese Station sowohl über eine Bus- als auch U-Bahn-Haltestelle verfügt. Zudem erhält man noch Informationen zur Straße der Haltestelle, die in diesem Beispiel "Komotauer Strasse" ist und über die Anzahl der vorhandenen Ticketautomaten, sowie deren Id.</p>
 <div class="exampleInner"><pre>
 &lt;st:stations&gt;
 	...
@@ -398,7 +398,7 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <p>Eine Route besitzt neben ihren Attributen routeId und type, was hier zum Beispiel Bus oder U-Bahn sein kann, auch noch weitere Entitäten. Dies ist eine Liste aus Stationen, die einer Route zugeordnet sind. Jede dieser Stationen besitzt eine ReferenzId, welche auf die in <a href="#datenhaltung-stations">Abschnitt 3.1.2</a> erwähnten Stationen verweisen. So müssen die Stationen und dessen Attribute nur an einer Stelle in der Datenhaltung verwaltet werden.</p>
 <p>Im Nachfolgendem ist dieser Sachverhalt nochmals anhand eines Diagramms dargestellt.</p>
 <center><img src="Bericht%20XML%20Nahverkehr/routesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Routes" style="width: 600px;"></center>
-<p>In dem nachfolgendem Codebeispiel ist die Route "U1" zu sehen, bei der es sich um ein U-Bahn-Linie handelt. Im Weiteren sind ein Ausschnitt von Stationen angegeben, die jeweils durch die stationId referenziert werden.</p>
+<p>In dem nachfolgendem Codebeispiel ist die Route "U1" zu sehen, bei der es sich um eine U-Bahn-Linie handelt. Im Weiteren ist ein Ausschnitt von Stationen angegeben, die jeweils durch die stationId referenziert werden.</p>
 <div class="exampleInner"><pre>
 &lt;rt:routes&gt;
 	...
@@ -434,7 +434,7 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 </li>
 </ul>
 <p>Darüber hinaus besitzt scheudule eine Entität namens depatureTimes. Dies sind die Abfahrtszeiten einer Linie an der jeweiligen Station. Die Entität depatureTimes verfügt zusätzlich noch über ein Attribut names finalStationId, was die Abfahrtsrichtung festlegt. Es wird somit nur eine Endhaltestelle mittels referenzierter Id angegeben. Ein Beispiel hierfür wäre: Die U-Bahn der Linie XY fährt in Richtung Endstation Hauptbahnhof.</p>
-<p>Die Entität time ist ein Teil von depatureTimes. Dies sind letztendlich die einzelen Abfahrtszeiten eines Tages. Zur Vereinfachung bzw. zur Reduktion des Datenbestandes haben wir angenommen, dass die Abfahrtszeiten an jedem Tag in der Woche gleich sind.</p>
+<p>Die Entität time ist ein Teil von depatureTimes. Dies sind letztendlich die einzelnen Abfahrtszeiten eines Tages. Zur Vereinfachung bzw. zur Reduktion des Datenbestandes haben wir angenommen, dass die Abfahrtszeiten an jedem Tag in der Woche gleich sind.</p>
 <center><img src="Bericht%20XML%20Nahverkehr/schedulesAbhaenigkeiten.png" alt="Entity Relationship Diagramm: Abhängigkeiten von Schedules" style="width: 800px;"></center>
 <p>In dem nachfolgendem Codebeispiel ist der Fahrplanaushang "S2" zu sehen, der für die Route "U1" an der Station "F2" gilt. Daraufhin sind die Abfahrtszeiten für beide Fahrtrichtungen angegeben.</p>
 <div class="exampleInner"><pre>
@@ -465,10 +465,10 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <p><b>single:</b> Ein Ticket für eine einfache Fahrt, ohne Rückfahrt oder ähnlichem.</p>
 </li>
 <li>
-<p><b>day:</b> Ein Tagesticket, gültig für alle Verkehsmittel und in alle Richtung für einen Tag.</p>
+<p><b>day:</b> Ein Tagesticket, gültig für alle Verkehsmittel und in alle Richtungen für einen Tag.</p>
 </li>
 <li>
-<p><b>month:</b> Ein Monatsticket, gültig für alle Verkehsmittel und in alle Richtung für einen Monat.</p>
+<p><b>month:</b> Ein Monatsticket, gültig für alle Verkehsmittel und in alle Richtungen für einen Monat.</p>
 </li>
 <li>
 <p><b>...</b></p>
@@ -649,12 +649,12 @@ Zunächst wollten wir uns bei der Umsetzung der Oberfläche an die Mockups halte
 </p>
 
 <p>
-Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Stylesheet pro XML-Datei verwendet werden kann, hatten wir auch nur die möglichkeit eine einzige HTML-Seite zu erzeugen. Dies ging natürlich gegen unseren plan eine eigene HTML-Seite pro "Aspekt" unseres Datenmodells zu erstellen. Nach einiger Überlegung hatten wir uns dann darauf geeinigt, eine einzige HTML-Datei zu erzeugen und alle XML-Daten auf einmal zu laden. Um nur die gerade relevanten Daten anzuzeigen war eine Logik nötig, die wir mit jQuery umgesetzt haben. Zusätzlich war eine Logik für die Auflösung von IDs in Namen nötig. Diese haben wir ebenfalls mit jQuery umgesetzt.
+Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Stylesheet pro XML-Datei verwendet werden kann, hatten wir auch nur die Möglichkeit eine einzige HTML-Seite zu erzeugen. Dies ging natürlich gegen unseren Plan eine eigene HTML-Seite pro "Aspekt" unseres Datenmodells zu erstellen. Nach einiger Überlegung hatten wir uns dann darauf geeinigt, eine einzige HTML-Datei zu erzeugen und alle XML-Daten auf einmal zu laden. Um nur die gerade relevanten Daten anzuzeigen war eine Logik nötig, die wir mit jQuery umgesetzt haben. Zusätzlich war eine Logik für die Auflösung von IDs in Namen nötig. Diese haben wir ebenfalls mit jQuery umgesetzt.
 </p>
 
 <center><img src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
 <p> 
-Beim Aufruf der nv_master.xml im Browser erscheint als erstes die Willkommensmeldung und die Menüleiste.
+Beim Aufruf der nv_master.xml im Browser erscheint als Erstes die Willkommensmeldung und die Menüleiste.
 Wie bereits erwähnt, wird sofort die gesamte XML-Datei geladen und nur gerade relevante teile der XML-Datei angezeigt. Dies wird durch eine von uns erstelle Klasse "static" ermöglicht. Unsere jQuery Logik versteckt alle &lt;div> Elemente die nicht von der Klasse "static" sind. Dies geschieht wie folgt:
 </p>
 
@@ -776,11 +776,11 @@ Die Fahrpläne für jede Station werden nach dem Klick auf die jeweilige Station
 
 <div class="div1">
 <h2><a name="fazit" id="fazit"></a>4 Fazit</h2>
-<p>Zusammenfassend ist zu sagen, dass dieses Projekt einen guten Einblick in die Gestaltung und Verwendung von XML als Datenhaltung ermöglichte. Auch auftretende Probleme, wie dateiübergreifende Ids, die erst durch eine Master-Datei in korrekter Weise funktionierten, konnten gelöst werden. Dies schaffte ein tiefergreifendes Verständnis über den richtigen Aufbau einer XML-Datei.
+<p>Zusammenfassend ist zu sagen, dass dieses Projekt einen guten Einblick in die Gestaltung und Verwendung von XML als Datenhaltung ermöglichte. Auch auftretende Probleme, wie dateiübergreifende Ids, die erst durch eine Master-Datei in korrekter Weise funktionierten, konnten gelöst werden. Dies schaffte ein tiefgreifendes Verständnis über den richtigen Aufbau einer XML-Datei.
 </p>
 
 <p>
-Weiterhin ist zu sagen, dass uns die Transformation von XML nach Html anfangs vor große Probleme gestellt hat, da wir nicht die, zuvor als Mockups festgelegten, Views in dieser Art und Weise umsetzen konnten. Jedoch ist es uns gelungen, auch dieses Problem zu lösen, in dem wir zusätzliche Technologien, wie jQuery, in unserem Projekt mitverwendeten.
+Weiterhin ist zu sagen, dass uns die Transformation von XML nach Html anfangs vor große Probleme gestellt hat, da wir nicht die, zuvor als Mockups festgelegten, Views in dieser Art und Weise umsetzen konnten. Jedoch ist es uns gelungen, auch dieses Problem zu lösen, in dem wir zusätzliche Technologien wie jQuery, in unserem Projekt mit verwendeten.
 </p>
 
 <p>
