@@ -590,9 +590,12 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 <div class="div2">
 <h3><a name="frontend" id="frontend"></a>3.2 Frontend</h3>
 
-<p>
-<font color="red"><b>WICHTIG: Das Frontend funktioniert nur in Mozilla Firefox richtig.</b></font>
+<div style="background-color:#E3A6A6;">
+<p style="margin:50px">
+<font color="red"><b>WICHTIG: Die Weboberfläche funktioniert nur in Mozilla Firefox richtig. Unter Google Chrome können die DTDs nicht richtig geladen werden (siehe folgendes Bild).</b></font>
+<center><img src="Bericht%20XML%20Nahverkehr/chromeError.png" alt="Index Mockup"></center>
 </p>
+</div>
 
 <p> 
 Nach der Festlegung unseres Datenmodells musste anschließend die Darstellung dieser Daten konzeptioniert werden. Wir hatten uns entschieden zunächst Mockups anzufertigen, um uns auf ein bestimmtes Layout zu einigen. Ursprünglich war geplant, für jeden "Aspekt" unseres Datenmodells eine .html Datei mithilfe von XSLT zu erzeugen. Als die Mockups entstanden sind, war noch nicht ganz klar wie die Mockups mit XSLT umgesetzt werden sollten. So waren wir uns noch nicht bewusst, wo wir bei der Darstellung auf Probleme stoßen würden. Aus diesem Grund ist unsere tatsächliche Umsetzung der grafischen Oberfläche zwar den Mockups visuell ähnlich, jedoch "unter der Haube" völlig anders.
@@ -649,10 +652,10 @@ Zunächst wollten wir uns bei der Umsetzung der Oberfläche an die Mockups halte
 </p>
 
 <p>
-Aus dem ersten Problem ergab sich jedoch noch ein Problem. Da nur ein XSL-Stylesheet pro XML-Datei verwendet werden kann, hatten wir auch nur die Möglichkeit eine einzige HTML-Seite zu erzeugen. Dies ging natürlich gegen unseren Plan eine eigene HTML-Seite pro "Aspekt" unseres Datenmodells zu erstellen. Nach einiger Überlegung hatten wir uns dann darauf geeinigt, eine einzige HTML-Datei zu erzeugen und alle XML-Daten auf einmal zu laden. Um nur die gerade relevanten Daten anzuzeigen war eine Logik nötig, die wir mit jQuery umgesetzt haben. Zusätzlich war eine Logik für die Auflösung von IDs in Namen nötig. Diese haben wir ebenfalls mit jQuery umgesetzt.
+Wir wollten herausfinden, was die schnellste Möglichkeit ist, unser Datenmodell zu veranschaulichen und ein gewisses Maß an Interaktion in die Oberfläche zu bringen. Nach einiger Überlegung hatten wir uns dann darauf geeinigt, eine einzige HTML-Datei zu erzeugen und alle XML-Daten auf einmal zu laden. Um nur die gerade relevanten Daten anzuzeigen war eine Logik nötig, die wir mit jQuery umgesetzt haben. Zusätzlich war eine Logik für die Auflösung von IDs in Namen nötig. Diese haben wir ebenfalls mit jQuery umgesetzt.
 </p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/indexGUI.png" alt="Index GUI"></center>
 <p> 
 Beim Aufruf der nv_master.xml im Browser erscheint als Erstes die Willkommensmeldung und die Menüleiste.
 Wie bereits erwähnt, wird sofort die gesamte XML-Datei geladen und nur gerade relevante teile der XML-Datei angezeigt. Dies wird durch eine von uns erstelle Klasse "static" ermöglicht. Unsere jQuery Logik versteckt alle &lt;div> Elemente die nicht von der Klasse "static" sind. Dies geschieht wie folgt:
@@ -667,12 +670,12 @@ $('div:not(.static)').hide();
 Mit einem Klick auf "Nuremberg Local Transport" im linken oberen Eck kann man jederzeit zur Willkommensseite zurückgelangen.
 </p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Routes GUI"></center>
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/routesGUI.png" alt="Routes GUI"></center>
 <p>
 Die Routen werden untereinander in einer Liste angezeigt. Für jede Route wird angezeigt, von welchem Typ sie ist. Für jeden Eintrag wird ein &lt;a>-Tag verwendet. Diesem Tag werden per XSL (mit xsl:attribute) Klassen zugewiesen. Zusätzlich zum Schlüsselwort routeDetailToggle und einer Bootstrapklasse, wird auch die Routen Id als Klasse zugewiesen (siehe folgenden Code).
 </p>
 
-<div class="exampleInner"><pre>
+<p><div class="exampleInner"><pre>
 &lt;xsl:for-each select="rt:route">
     &lt;a href="#">
         &lt;xsl:attribute name="class">
@@ -684,13 +687,13 @@ Die Routen werden untereinander in einer Liste angezeigt. Für jede Route wird a
         &lt;/span>
     &lt;/a>
 &lt;/xsl:for-each>
-</pre></div>
+</pre></div></p>
 
 <p>
 Sobald auf eine Route geklickt wird, greift unsere jQuery Logik ein und zeigt zunächst alle Station Ids dieser Route in einer Liste an. Die Gruppen von Station Ids erhalten per xml:attribute neben einer Bootstrapklasse zusätzlich eine klasse "routeDetails" um sie als Stations innerhalb einer Route kenntlich zu machen und die Id der Route als zusätzliche Klasse, um erkennen zu könnnen, welcher Route diese Stations angehören . Jeder einzelnen Station wird als Klasse die entsprechende stationId, die Schlüsselwörter stationDetailToggle (um später die Schedules aufrufen zu können) und station (um die stationIds in tatsächliche Namen auflösen zu können) zugewiesen (siehe folgender Code).
 </p>
 
-<div class="exampleInner"><pre>
+<p><div class="exampleInner"><pre>
 &lt;xsl:for-each select="rt:route">
     &lt;div>
         &lt;xsl:attribute name="class">
@@ -720,13 +723,13 @@ Sobald auf eine Route geklickt wird, greift unsere jQuery Logik ein und zeigt zu
         &lt;/div>
     &lt;/div>
 &lt;/xsl:for-each>
-</pre></div>            
+</pre></div></p>            
 
 <p>
 Beim Klick auf eine Route findet jQuery zunächst heraus, auf welche Route geklickt wurde, um später die Möglichkeit zu haben nur diejenigen Fahrpläne für eine Haltestelle anzuzeigen, die der vorher angeklickten Linie (Route) entsprechen. Es werden, falls  vorher auf eine andere Route geklickt wurde, alle Fahrpläne (Schedules) ausgeblendet und anschließend nur diejenigen Station Ids angezeigt, die der Route entsprechen. Da die Station Ids aber für einen Benutzer relativ unnütz sind, in unserem Datenmodell aber innerhalb einer Route nur Ids von Stations vorhanden sind, müssen die Ids irgendwie in tatsächliche Haltestellennamen umgewandelt werden (siehe folgenden Code).
 </p>
 
-<div class="exampleInner"><pre>
+<p><div class="exampleInner"><pre>
 // show stations within a route
 $(".routeDetailToggle").click(function(){
 	var route = $(this).attr('class');
@@ -753,21 +756,48 @@ function getStationNameFromId(stationId){
   // replace all spaces with real spaces
   return name == null ? stationId : name.replace(/%20/g, " ");
 }
-</pre></div> 
+</pre></div></p>
 
-Die Fahrpläne für jede Station werden nach dem Klick auf die jeweilige Station angezeigt. Es werden dabei nur diejenigen Fahrpläne angezeigt, die zur Route gehören, die vorher geklickt wurde, um die entsprechenden Stations anzuzeigen (dafür war die Variable selectedRoute da).
+<p>
+Die Fahrpläne für jede Station werden nach dem Klick auf die jeweilige Station angezeigt. Es werden dabei nur diejenigen Fahrpläne angezeigt, die zur Route gehören, die vorher geklickt wurde, um die entsprechenden Stations anzuzeigen (dafür ist die Variable selectedRoute nötig). Es werden dabei alle &lt;departureTimes>-Elemente für jedes &lt;schedule>-Element angezeigt. Da es bei Endhaltestellen nur eine Richtung gibt, gibt es nur ein &lt;departureTimes>-Elemente und es wird auch nur dieses angezeigt.
+</p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/stationsGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/stationsGUI.png" alt="Stations GUI"></center>
+<p>
+Beim Klick auf "Stations" in der Navbar erscheinen, unabhängig von der Route, alle Haltestellen, die im Datenmodell hinterlegt sind. Dabei werden für jede Haltestelle detailiertere Informationen angezeigt, wie die tatsächliche Straße an der die Haltestelle liegt, die Typen der öffentlichen Verkehrsmittel, die an der jeweiligen Haltestelle verfügbar sind und die Anzahl der Fahrkartenautomaten.
+</p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/ticketsGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<p>
+Ein spezielles Feature des Station-View ist die Filterleiste. Mit dieser ist es möglich nach allen Begriffen zu Filtern. Es kann nach Haltestellennamen, Straßennamen, Stationstyp oder Anzahl der Fahrkartenautomaten gefiltert werden. Die Mechanik ist sehr einfach, da sie lediglich in den Zeilen der Tabellen nach Zeichenketten sucht, welche den Suchbegriff teilweise oder vollständig enthalten (siehe folgenden Code). Dabei werden Reihen, welche den Suchbegriff nicht enthalten versteckt. Der Filter aktualisiert die Haltestellen bei jedem Tastendruck.
+</p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/driversGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<p><div class="exampleInner"><pre>
+$(".stationFilter").keyup(function(){
+   inp = $('.stationFilter').val()
+   $("tr:not(:has(>th))").each(function() {
+      if (~$(this).text().toLowerCase().indexOf( inp.toLowerCase() ) ) {
+         $(this).show();
+      } else {
+         $(this).hide();
+      }
+    });
+});
+</pre></div></p>
 
-<center><img src="Bericht%20XML%20Nahverkehr/vehiclesGUI.png" alt="Index GUI"></center>
-<p> ... </p>
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/ticketsGUI.png" alt="Tickets GUI"></center>
+<p>
+Die Fahrkarten werden mithilfe von Bootstrap lediglich etwas aufgehübscht. Es gibt hierzu keine erwähnenswerte Logik.
+</p>
+
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/driversGUI.png" alt="Drivers GUI"></center>
+<p>
+Die verschiedenen Fahrer, welche im Datenmodell hinterlegt sind, erscheinen zunächst in einer Liste. Für jeden Fahrer werden grundlegende Informationen angezeigt (siehe vorheriges Bild). Beim Klick auf einen Fahrer werden erweiterte Informationen für diesen angezeigt. Zusätzlich zu den grundlegenden Information wird dann auch die Adresse des jeweiligen Fahrers angezeigt. Hier sind Erweiterungen denkbar. Die Anzeigelogik der Fahrer ist ähnlich der Anzeigelogik der Routen.
+</p>
+
+<center><img style="width:80%;" src="Bericht%20XML%20Nahverkehr/vehiclesGUI.png" alt="Vehicles GUI"></center>
+<p>
+Bei den Fahrzeugen gibt es, genau wie bei den Fahrkarten, keine besondere Logik. Es werden einfach die Daten aus dem Datenmodell angezeigt. Hier ist jedoch eine Erweiterung denkbar, welche bestimmte Fahrer mit bestimmten Fahrzeugen verbindet.
+</p>
 
 </div>
 
@@ -795,9 +825,12 @@ Letztlich war es also möglich mit doch relativ geringem Aufwand sowohl eine Dat
 <div class="back">
 <div class="div1">
 <h2><a name="quellen" id="quellen"></a>A Quellen</h2>
-<p>Quelle 1: <a href="http://en.wikipedia.org/wiki/XML">http://en.wikipedia.org/wiki/XML</a></p>
-<p>Quelle 2: <a href="http://en.wikipedia.org/wiki/Document_type_definition">http://en.wikipedia.org/wiki/Document_type_definition</a></p>
-<p>Quelle 3: <a href="http://en.wikipedia.org/wiki/XSLT">http://en.wikipedia.org/wiki/XSLT</a></p>
+<p>[1] <a href="http://en.wikipedia.org/wiki/XML">http://en.wikipedia.org/wiki/XML</a></p>
+<p>[2] <a href="http://en.wikipedia.org/wiki/Document_type_definition">http://en.wikipedia.org/wiki/Document_type_definition</a></p>
+<p>[3] <a href="http://en.wikipedia.org/wiki/XSLT">http://en.wikipedia.org/wiki/XSLT</a></p>
+<p>[4] <a href="http://connect.icrossing.co.uk/mobile-optimisation-strategy-responsive-design-or-standalone-site_10412">http://connect.icrossing.co.uk/mobile-optimisation-strategy-responsive-design-or-standalone-site_10412</a></p>
+<p>[5] <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></p>
+<p>[6] <a href="http://jquery.com/">http://jquery.com/</a>
 </div>
 </div>
 
