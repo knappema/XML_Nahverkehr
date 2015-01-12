@@ -1,4 +1,5 @@
 <!ELEMENT vh:vehicles (vh:vehicle*)>
+
 <!ELEMENT vh:vehicle EMPTY>
 <!ATTLIST vh:vehicle type (bus | tram | subway | city_train) #REQUIRED
 licensePlate ID #REQUIRED

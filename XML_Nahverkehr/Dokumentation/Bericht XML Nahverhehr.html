@@ -55,16 +55,21 @@ div.exampleHeader { font-weight: bold;
 <body>
 <div class="head">
 <h1><a name="title" id="title"></a>Bericht zum XML Projekt Nahverkehr</h1>
+<br><br><br><br><br><br><br><br><br>
+<h3 style="font-size:28px; color:black">15.01.2014</h3>
+<br><br><br><br><br><br><br><br><br>
 <dl>
-<dt>15.01.2014</dt>
-<dt>Autoren:</dt>
-<dd>Andreas Bögelein</dd>
-<dd>Marco Knappe</dd>
-<dd>Mateo Luzi</dd>
-</dl>
-
-
+<dt style="font-size:28px">Autoren:</dt><br>
+<dd>Andreas Bögelein</dd><br>
 <hr>
+<br>
+<dd>Marco Knappe</dd><br>
+<hr>
+<br>
+<dd>Mateo Luzi</dd><br>
+<hr>
+</dl>
+<br><br><br>
 
 
 <!-- begin of table_of_contents -->
@@ -100,9 +105,8 @@ div.exampleHeader { font-weight: bold;
 </div>
 
 
-
-<hr>
-
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <!-- begin of document body  -->
 <div class="body">
@@ -523,7 +527,7 @@ routeId IDREF #REQUIRED>
 &lt;!ELEMENT sc:time (#PCDATA)>
 </pre></div>
 <p>Der Entität-Wurzelknoten "sc:schedules" hat beliebig viele Kindknoten namens "sc:schedule".</p>
-<p>Ein solcher Knoten enthält nun mindestens einen Kindknoten "sc:depatureTimes" und definiert zwingend die Attribute "scheduleId", "stationId" und "routeId"(siehe weiter oben im diesem Unterabschnitt).</p>
+<p>Ein solcher Knoten enthält nun mindestens einen Kindknoten "sc:depatureTimes" und definiert zwingend die Attribute "scheduleId", "stationId" und "routeId"(siehe weiter oben in diesem Unterabschnitt).</p>
 <p>Ein "sc:departureTimes"-Knoten enthält mindestens einen weiteren Kindknoten namens "sc:time" und definiert verpflichtend das Attribut "finalStationId" mit dem eine im System vorhandene Haltestelle referenziert wird.</p>
 <p>Knoten mit dem Namen "sc:time" enthalten lediglich eine Zeichenkette.</p>
 </div>
@@ -564,6 +568,26 @@ routeId IDREF #REQUIRED>
 	...
 &lt;/ti:tickets&gt;
 </pre></div>
+<p>Der Aufbau der Entität Ticket wird mit der DTD "nv_tickets.dtd" festgelegt:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT ti:tickets (ti:ticket*)>
+
+&lt;!ELEMENT ti:ticket (ti:description+, ti:fares)>
+&lt;!ATTLIST ti:ticket type (single | day | month) #REQUIRED>
+
+&lt;!ELEMENT ti:description (#PCDATA)>
+
+&lt;!ELEMENT ti:fares (ti:fare+)>
+
+&lt;!ELEMENT ti:fare EMPTY>
+&lt;!ATTLIST ti:fare type CDATA #REQUIRED
+price CDATA #REQUIRED>
+</pre></div>
+<p>Als Wurzelelement dieser DTD wird ein Knoten namens "ti:tickets" definiert. Dieser hat eine beliebige Anzahl an Kindknoten mit dem Namen "ti:ticket".</p>
+<p>Ein solches Element "ti:ticket" hat wiederum genau ein Kindelement "ti:description" und genau ein Kindelement "ti:fares". Außerdem muss jedes "ti:ticket" Element unbedingt das Attribut "type" definieren welches die Werte "single", "day" und "month" annehmen kann (siehe weiter oben in diesem Unterabschnitt).</p>
+<p>Ein "ti:description" Knoten enthält lediglich eine Zeichenkette und keine Attribute.</p>
+<p>Elemente mit dem Namen "ti:fares" enthalten mindestens einen weiteren Kindknoten namens "ti:fare"</p>
+<p>Solch ein "ti:fare" Element enthält keine weiteren Kindknoten muss aber unbedingt die Attribute "type" und "price" definieren. Durch das Attribut "type" wird die Bezeichnung der Tarifstufe spezifiziert und das Attribut "price" enthält den zugehörigen Preis für dieses Ticket in dieser Tarifzone.</p>
 </div>
 
 <div class="div3">
@@ -616,6 +640,33 @@ routeId IDREF #REQUIRED>
 	...
 &lt;/dr:drivers&gt;
 </pre></div>
+<p>Die zugehörige DTD "nv_drivers.dtd" definiert die Struktur der Entität Drivers:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT dr:drivers (dr:driver*)>
+
+&lt;!ELEMENT dr:driver (dr:vehicle+, dr:homeaddress)>
+&lt;!ATTLIST dr:driver firstname CDATA #REQUIRED
+lastname CDATA #REQUIRED
+phone CDATA #REQUIRED
+driverId ID #REQUIRED>
+
+&lt;!ELEMENT dr:vehicle EMPTY>
+&lt;!ATTLIST dr:vehicle type CDATA #REQUIRED>
+
+&lt;!ELEMENT dr:homeaddress (dr:street, dr:houseNo, dr:areacode, dr:town)>
+
+&lt;!ELEMENT dr:street (#PCDATA)>
+
+&lt;!ELEMENT dr:houseNo (#PCDATA)>
+
+&lt;!ELEMENT dr:areacode (#PCDATA)>
+
+&lt;!ELEMENT dr:town (#PCDATA)>
+</pre></div>
+<p>Das Wurzelelement der Entität Drivers hat den Namen "dr:drivers" und besitzt eine beliebige Anzahl von Kinderknoten mit dem Namen "dr:driver".</p>
+<p>Ein "dr:driver" Element hat mindestens einen Kindknoten "dr:vehicle" und genau einen Kindknoten "dr:homeadress". Weiterhin werden im Knoten "dr:driver" verpflichtend die Attribute "firstname", "lastname", "phone" und "driverId" (siehe weiter oben in diesem Unterabschnitt) definiert.</p>
+<p>Das Element "vehicle" definiert obligatorisch das Attribut "type" und ist ein ansonsten leerer Knoten.</p>
+<p>Der Knoten "dr:homeaddress" enthält jeweils einen Kindknoten "dr:street", "dr:houseNo", "dr:areacode" und "dr:town" (siehe weiter oben in diesem Unterabschnitt). Alle diesen Kindknoten enthalten lediglich Zeichenketten und keinerlei Attribute oder weitere Kindknoten.
 </div>
 
 <div class="div3">
@@ -655,6 +706,18 @@ routeId IDREF #REQUIRED>
 	...
 &lt;/vh:vehicles&gt;
 </pre></div>
+<p>Die Struktur der Entität Vehicles wird in der zugehörigen DTD "nv_vehicles.dtd" definiert:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT vh:vehicles (vh:vehicle*)>
+
+&lt;!ELEMENT vh:vehicle EMPTY>
+&lt;!ATTLIST vh:vehicle type (bus | tram | subway | city_train) #REQUIRED
+licensePlate ID #REQUIRED
+capacity CDATA #REQUIRED
+buildYear CDATA #REQUIRED>
+</pre></div>
+<p>Der Wurzelknoten der Entität Vehicle hat den Namen "vh:vehicles". Dieser Wurzelknoten hat eine beliebige Anzahl an Kindknoten mit dem Namen "vh:vehicle".</p>
+<p>Ein "vh:vehicle" Knoten ist ein an sich leeres Element definiert allerdings verpflichtend die Attribute  "type", "licensePlate", "capacity und "buildYear" (siehe weiter oben in diesem Unterabschnitt).</p>
 </div>
 </div>
 
@@ -892,6 +955,8 @@ Letztlich war es also möglich mit doch relativ geringem Aufwand sowohl eine Dat
     
 </div>
 
+<br><br><br><br><br>
+<br><br><br><br><br>
 
 <div class="back">
 <div class="div1">
