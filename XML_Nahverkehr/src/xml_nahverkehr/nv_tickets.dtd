@@ -1,4 +1,5 @@
-<!ELEMENT ti:tickets (ti:ticket+)>
+<!ELEMENT ti:tickets (ti:ticket*)>
+
 <!ELEMENT ti:ticket (ti:description+, ti:fares)>
 <!ATTLIST ti:ticket type (single | day | month) #REQUIRED>
 

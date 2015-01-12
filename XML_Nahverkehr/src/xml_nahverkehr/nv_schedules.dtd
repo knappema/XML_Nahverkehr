@@ -1,4 +1,4 @@
-<!ELEMENT sc:schedules (sc:schedule+)>
+<!ELEMENT sc:schedules (sc:schedule*)>
 
 <!ELEMENT sc:schedule (sc:departureTimes+)>
 <!ATTLIST sc:schedule scheduleId ID #REQUIRED
@@ -7,4 +7,5 @@ routeId IDREF #REQUIRED>
 
 <!ELEMENT sc:departureTimes (sc:time+)>
 <!ATTLIST sc:departureTimes finalStationId IDREF #REQUIRED>
+
 <!ELEMENT sc:time (#PCDATA)>

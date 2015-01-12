@@ -1,7 +1,5 @@
 <!ELEMENT rt:routes (rt:route*)>
 
-
-
 <!ELEMENT rt:route (rt:station+)>
 <!ATTLIST rt:route routeId ID #REQUIRED
 type CDATA #REQUIRED>

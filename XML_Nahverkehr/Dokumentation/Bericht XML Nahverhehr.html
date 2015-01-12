@@ -390,6 +390,46 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 	...
 &lt;/st:stations&gt;	
 </pre></div>
+<p>Die Datenstruktur unserer Entität Stations wird in der zugehörigen DTD "nv_stations.dtd" geregelt:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT st:stations (st:station*)>
+
+&lt;!ELEMENT st:station (st:stationTypes, st:street, st:intersection?,  st:ticketMachines?)>
+&lt;!ATTLIST st:station stationId ID #REQUIRED
+name CDATA #REQUIRED>
+
+&lt;!ELEMENT st:stationTypes (st:type+)>
+
+&lt;!ELEMENT st:type EMPTY>
+&lt;!ATTLIST st:type name (bus | tram | subway | city_train) #REQUIRED>
+
+&lt;!ELEMENT st:street EMPTY>
+&lt;!ATTLIST st:street name CDATA #REQUIRED>
+
+&lt;!ELEMENT st:ticketMachines (st:ticketMachine*)>
+
+&lt;!ELEMENT st:ticketMachine EMPTY>
+&lt;!ATTLIST st:ticketMachine ticketMachineId ID #REQUIRED>
+</pre></div>
+<p>
+Es wird fesgelegt, dass unsere Entität Stations einen Knoten namens "st:stations" enthält. Dieses Element enthält beliebig viele Kindknoten "st:station".</p> 
+<p>Ein solcher Kindknoten kann selbst wiederum folgende Kindknoten besitzen:</p>
+<ul>
+<li>
+<p>"st:stationTypes": genau einmal</p>
+</li>
+<li>
+<p>"st:street": genau einmal</p>
+</li>
+<li>
+<p>"st:ticketMachines": optionaler Kindknoten</p>
+</li>
+</ul>
+<p>Außerdem muss ein "st:station" Element zwingend die Attribute "stationId" (eine eindeutige Kennung) und "name" definieren.</p>
+<p>Der Knoten "st:stationTypes" hat mindestens einen weiteren Kindknoten namens "st:type".</p>
+<p>"st:type" Elemente haben keine weiteren Kindknoten sondern nur noch ein verpflichtendes Attribut "name", welches ausschließlich die Werte "bus", "tram", "subway" und "city_train" annehmen kann.</p>
+<p>Knoten mit dem Namen "st:street" enthalten ebenfalls keine weiteren Kindknoten sondern nur ein obligatorisches Attribut "name".</p>
+<p>Falls ein optionaler Kindknoten namens "st:ticketMachines" besteht, enthält dieser beliebig viele Kindknoten "st:ticketMachine", welche ausschließlich ein zwingendes Attribut "ticketMachineId" besitzen.</p>
 </div>
 
 <div class="div3">
@@ -416,6 +456,20 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 	...
 &lt;/rt:routes&gt;	
 </pre></div>
+<p>Die zugehörige beschreibung der Datenstruktur unserer Entität Routes sieht wie folgt aus:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT rt:routes (rt:route*)>
+
+&lt;!ELEMENT rt:route (rt:station+)>
+&lt;!ATTLIST rt:route routeId ID #REQUIRED
+type CDATA #REQUIRED>
+
+&lt;!ELEMENT rt:station EMPTY>
+&lt;!ATTLIST rt:station stationId IDREF #REQUIRED>
+</pre></div>
+<p>Der Wurzelknoten unserer Entität Routes nennt sich "rt:routes" und enthält eine beliebige Anzahl von Kindknoten mit dem Namen "rt:route".</p>
+<p>Ein solches Element enthält wiederum mindestens einen Kindknoten namens "rt:station" und definiert verbindlich die Attribute "routeId" (die eindeutige Bezeichnung dieser Route) und "type".</p>
+<p>Die Elemente "rt:station" definieren zwingend ein Attribut "stationId" welches eine in unserem Modell vorhandene Haltestelle referenziert. Ansonsten sind solche Knoten leer und enthalten keine weiteren Kindknoten.</p>
 </div>
 
 <div class="div3">
@@ -455,6 +509,23 @@ JQuery bietet viele Funktionen (wie z. B. show() und hide()) um das DOM zu manip
 	...
 &lt;/sc:schedules&gt;
 </pre></div>
+<p>Die Struktur unserer Entität Schedules wird durch die DTD "nv_schedules.dtd" definiert:</p>
+<div class="exampleInner"><pre>
+&lt;!ELEMENT sc:schedules (sc:schedule+)>
+
+&lt;!ELEMENT sc:schedule (sc:departureTimes+)>
+&lt;!ATTLIST sc:schedule scheduleId ID #REQUIRED
+stationId IDREF #REQUIRED
+routeId IDREF #REQUIRED>
+
+&lt;!ELEMENT sc:departureTimes (sc:time+)>
+&lt;!ATTLIST sc:departureTimes finalStationId IDREF #REQUIRED>
+&lt;!ELEMENT sc:time (#PCDATA)>
+</pre></div>
+<p>Der Entität-Wurzelknoten "sc:schedules" hat beliebig viele Kindknoten namens "sc:schedule".</p>
+<p>Ein solcher Knoten enthält nun mindestens einen Kindknoten "sc:depatureTimes" und definiert zwingend die Attribute "scheduleId", "stationId" und "routeId"(siehe weiter oben im diesem Unterabschnitt).</p>
+<p>Ein "sc:departureTimes"-Knoten enthält mindestens einen weiteren Kindknoten namens "sc:time" und definiert verpflichtend das Attribut "finalStationId" mit dem eine im System vorhandene Haltestelle referenziert wird.</p>
+<p>Knoten mit dem Namen "sc:time" enthalten lediglich eine Zeichenkette.</p>
 </div>
 
 <div class="div3">

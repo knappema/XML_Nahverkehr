@@ -1,8 +1,6 @@
 <!ELEMENT st:stations (st:station*)>
 
-
-
-<!ELEMENT st:station (st:stationTypes, st:street, st:intersection?,  st:ticketMachines?)>
+<!ELEMENT st:station (st:stationTypes, st:street, st:ticketMachines?)>
 <!ATTLIST st:station stationId ID #REQUIRED
 name CDATA #REQUIRED>
 
