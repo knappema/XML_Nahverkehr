@@ -155,13 +155,13 @@ div.exampleHeader { font-weight: bold;
 <h3><a name="xml" id="xml"></a>2.1 XML</h3>
 <p> Bei XML handelt es sich, nicht zuletzt durch das Internet, um eine weit verbreitete Auszeichnungssprache zum Austausch von Daten. Das für Web Services sehr beliebte SOAP (Simple Object Access protocoll) verwendet XML als sein Nachrichten Format. Entwickelt wurde die eXtensible Markup Lanuage vom World Wide Web Consortium. Einer der Vorteile des XML-Formats ist, dass es sowohl für Menschen, als auch Maschinen lesbar ist.</p>
 <p>Ein XML Dokument besteht aus sog. Elementen. Elemente beginnen entweder mit einem start-tag (&lt;foo>) und enden mit dem zugehörigen end-tag (&lt;/foo>) oder bestehen nur aus einem empty-tag (&lt;foo />). Innerhalb eines start- oder empty-tags können Attribute definiert werden (&lt;foo name="bar" />). Die Zeichen zwischen einem start- und end-tag werden als der Inhalt des Elements bezeichnet. Dieser Inhalt kann wiederum aus anderen Elementen, den sog. Kindelementen, oder einfachem Text bestehen.</p>
-<p>Für eine Großzahl der aktuellen Programmiersprachen existieren bereits Bibliotheken welche die Verarbeitung von XML-Dokumenten umfangreich unterstützen. Solche vorgefertigten Programmschnittstellen lassen sich allerdings nur für Well-formed XML-Dokumenten verwenden.</p>
+<p>Für eine Großzahl der aktuellen Programmiersprachen existieren bereits Bibliotheken, welche die Verarbeitung von XML-Dokumenten umfangreich unterstützen. Solche vorgefertigten Programmschnittstellen lassen sich allerdings nur für Well-formed XML-Dokumente verwenden.</p>
 <p>Die Well-formedness eines XML-Dokuments wird durch das Einhalten gewisser Syntaxregeln sichergestellt. Diese Syntaxregeln umfassen unter anderem:
 <ul>
 <li>Ein einzelnes Wurzelelement umfasst alle anderen Elemente</li>
 <li>Das XML-Dokument enthält ausschließlich Unicode-Zeichen</li>
 <li>Die Beginn-, Ende- und Leere-Element-Tags sind korrekt geschachtelt</li>
-<li>Reservierte Zeichen wie "<" und "&" werden nur vor ihren vorgesehenen Zweck verwendet</li>
+<li>Reservierte Zeichen wie "<" und "&" werden nur für ihren vorgesehenen Zweck verwendet</li>
 </ul>
 </p>
 <p>Die Struktur eines XML-Dokuments kann mit Hilfe einer document type definition (DTD) beschrieben werden. Solche DTDs werden im folgenden Abschnitt beschrieben.</p>
@@ -170,7 +170,7 @@ div.exampleHeader { font-weight: bold;
 
 <div class="div2">
 <h3><a name="dtd" id="dtd"></a>2.2 DTD</h3>
-<p>Durch einer document type definition lassen sich Regeln definieren, um den Aufbau eines XML-Dokuments zu beschreiben. Wenn das XML-Dokument alle in der DTD definierten Regeln einhält wird es als Valide bezeichnet.</p>
+<p>Durch eine document type definition lassen sich Regeln definieren, um den Aufbau eines XML-Dokuments zu beschreiben. Wenn das XML-Dokument alle in der DTD definierten Regeln einhält wird es als valide bezeichnet.</p>
 <p>DTDs werden entweder am Anfang eines XML-Dokuments definiert oder als externe Datei importiert. In unserem Projekt werden DTDs auf folgende Weise in unser Master-XML-Dokument eingebunden:</p>
 
 <div class="exampleInner"><pre>
@@ -671,7 +671,7 @@ driverId ID #REQUIRED>
 <p>Das Wurzelelement der Entität Drivers hat den Namen "dr:drivers" und besitzt eine beliebige Anzahl von Kinderknoten mit dem Namen "dr:driver".</p>
 <p>Ein "dr:driver" Element hat mindestens einen Kindknoten "dr:vehicle" und genau einen Kindknoten "dr:homeadress". Weiterhin werden im Knoten "dr:driver" verpflichtend die Attribute "firstname", "lastname", "phone" und "driverId" (siehe weiter oben in diesem Unterabschnitt) definiert.</p>
 <p>Das Element "vehicle" definiert obligatorisch das Attribut "type" und ist ein ansonsten leerer Knoten.</p>
-<p>Der Knoten "dr:homeaddress" enthält jeweils einen Kindknoten "dr:street", "dr:houseNo", "dr:areacode" und "dr:town" (siehe weiter oben in diesem Unterabschnitt). Alle diesen Kindknoten enthalten lediglich Zeichenketten und keinerlei Attribute oder weitere Kindknoten.
+<p>Der Knoten "dr:homeaddress" enthält jeweils einen Kindknoten "dr:street", "dr:houseNo", "dr:areacode" und "dr:town" (siehe weiter oben in diesem Unterabschnitt). Alle diese Kindknoten enthalten lediglich Zeichenketten und keinerlei Attribute oder weitere Kindknoten.
 </div>
 
 <div class="div3">
